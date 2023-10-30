@@ -1,5 +1,12 @@
 {
   "sections": {
+    "4dd25eb6-c47c-40ff-a967-f579b8fc6630": {
+      "type": "hero",
+      "settings": {
+        "heading_title": "Hero Title",
+        "banner_alert_message": ""
+      }
+    },
     "main": {
       "type": "main-page",
       "settings": {
@@ -7,6 +14,7 @@
     }
   },
   "order": [
+    "4dd25eb6-c47c-40ff-a967-f579b8fc6630",
     "main"
   ]
 }
