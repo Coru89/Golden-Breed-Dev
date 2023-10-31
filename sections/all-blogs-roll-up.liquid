@@ -81,7 +81,7 @@
 
 {% schema %}
 {
-  "name": "Blog Rollup",
+  "name": "All Blogs Rollup",
   "tag": "section",
   "class": "spaced-section spaced-section--full-width",
   "settings": [
@@ -90,11 +90,6 @@
       "id": "heading",
       "default": "Blog posts",
       "label": "t:sections.featured-blog.settings.heading.label"
-    },
-    {
-      "type": "blog",
-      "id": "blog",
-      "label": "t:sections.featured-blog.settings.blog.label"
     },
     {
       "type": "range",
@@ -139,10 +134,7 @@
   ],
   "presets": [
     {
-      "name": "Blog Rollup",
-      "settings": {
-        "blog": "News"
-      }
+      "name": "All Blogs Rollup"
     }
   ]
 }
