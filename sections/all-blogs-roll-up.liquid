@@ -21,6 +21,7 @@
     <th>Article Title</th>
     <th>Blog</th>
     </tr>
+    {%- assign featuredArticles = '' | split:',' -%}
     {% assign featuredBlogs = 'News,Second-Blog' | split:',' %}
     {%- for featuredBlog in featuredBlogs -%}
       {%- if blogs[featuredBlog].articles -%}
