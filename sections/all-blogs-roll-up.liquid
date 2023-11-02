@@ -1,83 +1,128 @@
-<link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-article-card.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'section-featured-blog.css' | asset_url }}" media="print" onload="this.media='all'">
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
 
-<noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'component-card.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'component-article-card.css' | asset_url | stylesheet_tag }}</noscript>
+{% comment %} {% for link in linklists.blogs.links %}
+  {% assign blog = link.object %}
+  {% for article in blog.articles %}
+    <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+    <script>
+      console.log({{ article | json }});
+    </script>
+  {% endfor %} 
+{% endfor %} {% endcomment %}
 
-{{ 'section-featured-blog.css' | asset_url | stylesheet_tag }}
-{%- liquid
-  assign posts_displayed = section.settings.blog.articles_count
-  if section.settings.post_limit <= section.settings.blog.articles_count
-    assign posts_exceed_limit = true
-    assign posts_displayed = section.settings.post_limit
-  endif
--%}
-<div class="blog{% if section.settings.soft_background %} background-secondary{% endif %}{% if section.settings.heading == blank %} no-heading{% endif %}">
-  <div class="page-width-desktop{% if posts_displayed < 3 %} page-width-tablet{% endif %}">
-    <div class="title-wrapper-with-link{% if section.settings.heading == blank %} title-wrapper-with-link--no-heading{% endif %} {% if posts_displayed > 2 %}title-wrapper--self-padded-tablet-down{% else %}title-wrapper--self-padded-mobile{% endif %}">
-      <h2 class="blog__title">{{ section.settings.heading | escape }}</h2>
+{% comment %} // search and replace 'Blog1' with title of first blog and 'Blog2' with title of second... // {% endcomment %}
+<table width="100%">
+  <tbody>
+    <tr>
+    <th>Date</th>
+    <th>Image</th>
+    <th>Article Title</th>
+    <th>Blog</th>
+    </tr>
+    {% assign featuredBlogs = 'News,Second-Blog' | split:',' %}
+    {%- for featuredBlog in featuredBlogs -%}
+      {%- if blogs[featuredBlog].articles -%}
+        {%- if featuredArticles != blank -%}
+        {% assign featuredArticles = featuredArticles | concat: blogs[featuredBlog].articles %}
+        {%- else -%}
+        {% assign featuredArticles = blogs[featuredBlog].articles %}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
 
-      {%- if section.settings.blog != blank and section.settings.show_view_all and section.settings.post_limit < section.settings.blog.articles_count -%}
-        <a href="{{ section.settings.blog.url }}"
-          class="link underlined-link large-up-hide"
-        >
-          {{ 'sections.featured_blog.view_all' | t }}
-        </a>
+    <script>console.log('fa', {{featuredArticles}});</script>
+    
+    
+
+    {%- if featuredArticles -%}
+      {%- assign featuredArticles = featuredArticles | sort:'published_at' | reverse -%}
+      {%- assign whichblog = "Blog1" -%}{%- if article.url contains '/blog2/' -%}{%- assign whichblog = "Blog2" -%}{%- endif -%}
+      {%- for article in featuredArticles -%}
+        <tr>
+          <td nowrap>{{ article.published_at | date: "%Y-%m-%d" }}</td>
+          <td>{% if article.image %}<a href="{{ article.url }}"><img src="{{ article.image.src | img_url: '75x40' | crop: 'center' }}" alt="{{ article.image.alt }}" loading="lazy"></a>{% endif %}</td>
+          <td><a href="{{ article.url }}">{{ article.title }}</a></td>
+          <td><strong>{% if whichblog == "Blog1" %}<a href="/blogs/{{ 'Blog1' | handleize }}"></a>{% else %}<a href="/blogs/{{ 'Blog2' | handleize }}"></a>{% endif %}</strong></td>
+        </tr>
+      {%- endfor -%}
+    {%- endif -%}
+  </tbody>
+</table>
+
+
+
+{% assign combinedItems = '' | split: ',' %}
+
+{% for link in linklists.blogs.links %}
+  {% assign blog = link.object %}
+  
+  {% for article in blog.articles %}
+    {% assign articleJson = article | json | append: ',' %}
+    {% comment %} {% assign combinedItems = combinedItems | append: articleJson %} {% endcomment %}
+    {% capture combinedItems %}{{ articleJson }}{% if forloop.forloop.last != true %}{% endif %}{{ combinedItems }}{% endcapture %}
+  {% endfor %} 
+{% endfor %}
+
+
+
+{% comment %} 
+{% assign combinedItems = combinedItems | remove_last: ',' %} {% endcomment %}
+
+{% comment %} {% assign combinedArray = combinedItems | split: ',' %} {% endcomment %}
+{% comment %} {% assign combinedArray = combinedArray | concat: combinedItems %} {% endcomment %}
+
+
+
+
+
+{% for item in combinedItems %}
+  {% assign item = item | split: ',' | json %}
+
+    {% comment %} <div>huh{{ item.author | raw }}</div> {% endcomment %}
+    <script>console.log({{ item }});</script>
+    {% comment %} <div>{{ item.id }}</div> {% endcomment %}
+{% endfor %}
+
+<script>
+  console.log({{ combinedItems | json }});
+  {% comment %} console.log({{ combinedArray | json }}); {% endcomment %}
+  console.log({{ articleJson | json }});
+</script>
+
+
+
+
+
+
+
+
+
+
+  <script>console.log('ba', {{ blog.articles | json }});</script>
+  {%- paginate combinedItems by 6 -%}
+
+    <div class="main-blog page-width">
+      <h1 class="title--primary">{{ blog.title | escape }}</h1>
+
+      <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
+        {%- for article in blog.articles -%}
+          
+          <div class="blog-articles__article article">
+            {%- render 'article-card', article: article, image_height: section.settings.image_height, show_image: section.settings.show_image, show_date: section.settings.show_date, show_author: section.settings.show_author -%}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if paginate.pages > 1 -%}
+        {%- render 'pagination', paginate: paginate -%}
       {%- endif -%}
     </div>
-    {%- if section.settings.blog != blank and section.settings.blog.articles_count > 0 -%}
-      <slider-component class="slider-mobile-gutter">
-        <ul id="Slider-{{ section.id }}"
-          class="blog__posts articles-wrapper grid grid--peek grid--2-col-tablet grid--4-col-desktop slider {% if posts_displayed > 2 %}slider--tablet{% else %}slider--mobile{% endif %}"
-          role="list"
-        >
-          {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
-            <li class="blog__post grid__item article slider__slide slider__slide--full-width">
-              {% render 'article-card', blog: section.settings.blog, article: article, show_image: section.settings.show_image, show_date: section.settings.show_date, show_author: section.settings.show_author %}
-            </li>
-          {%- endfor -%}
-        </ul>
-        {%- if posts_exceed_limit -%}
-          <div class="slider-buttons no-js-hidden{% if section.settings.post_limit < 3 %} medium-hide{% endif %}{% if section.settings.post_limit < 2 %} small-hide{% endif %}">
-            <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'accessibility.previous_slide' | t }}">{% render 'icon-caret' %}</button>
-            <div class="slider-counter caption">
-              <span class="slider-counter--current">1</span>
-              <span aria-hidden="true"> / </span>
-              <span class="visually-hidden">{{ 'accessibility.of' | t }}</span>
-              <span class="slider-counter--total">{{ section.settings.post_limit }}</span>
-            </div>
-            <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'accessibility.next_slide' | t }}">{% render 'icon-caret' %}</button>
-          </div>
-        {%- endif -%}
-      </slider-component>
+  {%- endpaginate -%}
+{% comment %} 
+{% endfor %} {% endcomment %}
 
-      {%- if section.settings.show_view_all and section.settings.post_limit < section.settings.blog.articles_count -%}
-        <div class="blog__view-all center small-hide medium-hide">
-          <a href="{{ section.settings.blog.url }}" class="blog__button button">
-            {{ 'sections.featured_blog.view_all' | t }}
-          </a>
-        </div>
-      {%- endif -%}
-    {%- else -%}
-      <div class="blog-placeholder">
-        <div class="placeholder media media--landscape">
-          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-        </div>
-        <div class="blog-placeholder__content">
-          <h2>
-            {{ 'sections.featured_blog.onboarding_title' | t }}
-          </h2>
-          <p class="rte-width">
-            {{ 'sections.featured_blog.onboarding_content' | t }}
-          </p>
-        </div>
-      </div>
-    {%- endif -%}
-  </div>
-</div>
 
 {% schema %}
 {
@@ -86,50 +131,71 @@
   "class": "spaced-section spaced-section--full-width",
   "settings": [
     {
-      "type": "text",
-      "id": "heading",
-      "default": "Blog posts",
-      "label": "t:sections.featured-blog.settings.heading.label"
+      "type": "header",
+      "content": "t:sections.main-blog.settings.header.content"
     },
     {
-      "type": "range",
-      "id": "post_limit",
-      "min": 2,
-      "max": 4,
-      "step": 1,
-      "default": 3,
-      "label": "t:sections.featured-blog.settings.post_limit.label"
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "grid",
+          "label": "t:sections.main-blog.settings.layout.options__1.label"
+        },
+        {
+          "value": "collage",
+          "label": "t:sections.main-blog.settings.layout.options__2.label"
+        }
+      ],
+      "default": "collage",
+      "label": "t:sections.main-blog.settings.layout.label"
     },
     {
       "type": "checkbox",
       "id": "show_image",
       "default": true,
-      "label": "t:sections.featured-blog.settings.show_image.label",
-      "info": "t:sections.featured-blog.settings.show_image.info"
+      "label": "t:sections.main-blog.settings.show_image.label"
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-blog.settings.image_height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.main-blog.settings.image_height.options__2.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.main-blog.settings.image_height.options__3.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.main-blog.settings.image_height.options__4.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.main-blog.settings.image_height.label",
+      "info": "t:sections.main-blog.settings.image_height.info"
     },
     {
       "type": "checkbox",
       "id": "show_date",
       "default": true,
-      "label": "t:sections.featured-blog.settings.show_date.label"
+      "label": "t:sections.main-blog.settings.show_date.label"
     },
     {
       "type": "checkbox",
       "id": "show_author",
       "default": false,
-      "label": "t:sections.featured-blog.settings.show_author.label"
+      "label": "t:sections.main-blog.settings.show_author.label"
     },
     {
-      "type": "checkbox",
-      "id": "soft_background",
-      "default": false,
-      "label": "t:sections.featured-blog.settings.soft_background.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_view_all",
-      "default": true,
-      "label": "t:sections.featured-blog.settings.show_view_all.label"
+      "type": "paragraph",
+      "content": "t:sections.main-blog.settings.paragraph.content"
     }
   ],
   "presets": [
