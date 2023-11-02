@@ -33,8 +33,7 @@
       {%- endif -%}
     {%- endfor -%}
 
-    <script>console.log('fa', {{featuredArticles}});</script>
-    
+    <script>console.log('fa', {{ featuredArticles }});</script>
     
 
     {%- if featuredArticles -%}
@@ -68,29 +67,6 @@
 
 
 
-{% comment %} 
-{% assign combinedItems = combinedItems | remove_last: ',' %} {% endcomment %}
-
-{% comment %} {% assign combinedArray = combinedItems | split: ',' %} {% endcomment %}
-{% comment %} {% assign combinedArray = combinedArray | concat: combinedItems %} {% endcomment %}
-
-
-
-
-
-{% for item in combinedItems %}
-  {% assign item = item | split: ',' | json %}
-
-    {% comment %} <div>huh{{ item.author | raw }}</div> {% endcomment %}
-    <script>console.log({{ item }});</script>
-    {% comment %} <div>{{ item.id }}</div> {% endcomment %}
-{% endfor %}
-
-<script>
-  console.log({{ combinedItems | json }});
-  {% comment %} console.log({{ combinedArray | json }}); {% endcomment %}
-  console.log({{ articleJson | json }});
-</script>
 
 
 
@@ -100,8 +76,6 @@
 
 
 
-
-  <script>console.log('ba', {{ blog.articles | json }});</script>
   {%- paginate combinedItems by 6 -%}
 
     <div class="main-blog page-width">
