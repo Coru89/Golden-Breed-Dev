@@ -2,87 +2,58 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
 
-{% comment %} {% for link in linklists.blogs.links %}
-  {% assign blog = link.object %}
-  {% for article in blog.articles %}
-    <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
-    <script>
-      console.log({{ article | json }});
-    </script>
-  {% endfor %} 
-{% endfor %} {% endcomment %}
 
-{% comment %} // search and replace 'Blog1' with title of first blog and 'Blog2' with title of second... // {% endcomment %}
-<table width="100%">
-  <tbody>
-    <tr>
-    <th>Date</th>
-    <th>Image</th>
-    <th>Article Title</th>
-    <th>Blog</th>
-    </tr>
-    {%- assign featuredArticles = '' | split:',' -%}
-    {% assign featuredBlogs = 'News,Second-Blog' | split:',' %}
+
+
+    {%- assign featuredArticles = '' | split: ',' -%}
+    {%- assign blogCategories = '' | split: ',' -%}
+    {% assign featuredBlogs = linklists.blogs.links %}
     {%- for featuredBlog in featuredBlogs -%}
-      {%- if blogs[featuredBlog].articles -%}
-        {%- if featuredArticles != blank -%}
-        {% assign featuredArticles = featuredArticles | concat: blogs[featuredBlog].articles %}
+      {% assign handle = featuredBlog.handle %}
+      {% comment %} {% assign title = featuredBlog.title %} {% endcomment %}
+      {% assign handleArray = handle | split: ',' %}
+      
+      {% if blogCategories != blank %}
+        {% assign blogCategories = blogCategories | concat: handleArray %}
+        <script>console.log("are we here!!!", {{ handle | json }});</script>
         {%- else -%}
-        {% assign featuredArticles = blogs[featuredBlog].articles %}
+        {% assign blogCategories = handleArray %}
+        <script>console.log("are we here 2!!!", {{ handle | json }});</script>
+      {%- endif -%}
+
+      {%- if blogs[handle].articles -%}
+        {%- if featuredArticles != blank -%}
+        {% assign featuredArticles = featuredArticles | concat: blogs[handle].articles %}
+        {%- else -%}
+        {% assign featuredArticles = blogs[handle].articles %}
         {%- endif -%}
       {%- endif -%}
     {%- endfor -%}
 
-    <script>console.log('fa', {{ featuredArticles }});</script>
+    <script>console.log('bc', {{ blogCategories | json }});</script>
     
 
-    {%- if featuredArticles -%}
-      {%- assign featuredArticles = featuredArticles | sort:'published_at' | reverse -%}
-      {%- assign whichblog = "Blog1" -%}{%- if article.url contains '/blog2/' -%}{%- assign whichblog = "Blog2" -%}{%- endif -%}
-      {%- for article in featuredArticles -%}
-        <tr>
-          <td nowrap>{{ article.published_at | date: "%Y-%m-%d" }}</td>
-          <td>{% if article.image %}<a href="{{ article.url }}"><img src="{{ article.image.src | img_url: '75x40' | crop: 'center' }}" alt="{{ article.image.alt }}" loading="lazy"></a>{% endif %}</td>
-          <td><a href="{{ article.url }}">{{ article.title }}</a></td>
-          <td><strong>{% if whichblog == "Blog1" %}<a href="/blogs/{{ 'Blog1' | handleize }}"></a>{% else %}<a href="/blogs/{{ 'Blog2' | handleize }}"></a>{% endif %}</strong></td>
-        </tr>
-      {%- endfor -%}
-    {%- endif -%}
-  </tbody>
-</table>
+ 
+    {% assign handle = featuredBlog.handle | split: ',' %}
 
 
-
-{% assign combinedItems = '' | split: ',' %}
-
-{% for link in linklists.blogs.links %}
-  {% assign blog = link.object %}
-  
-  {% for article in blog.articles %}
-    {% assign articleJson = article | json | append: ',' %}
-    {% comment %} {% assign combinedItems = combinedItems | append: articleJson %} {% endcomment %}
-    {% capture combinedItems %}{{ articleJson }}{% if forloop.forloop.last != true %}{% endif %}{{ combinedItems }}{% endcapture %}
-  {% endfor %} 
-{% endfor %}
-
-
-
-
-
-
-
-
-
-
-
-
-  {%- paginate combinedItems by 6 -%}
 
     <div class="main-blog page-width">
       <h1 class="title--primary">{{ blog.title | escape }}</h1>
 
+      <nav>
+      {% for category in blogCategories %}
+        <button data-category={{ category }}>{{ category }}</button>
+      {% endfor %}
+
+      </nav>
+
       <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
-        {%- for article in blog.articles -%}
+        {%- assign featuredArticles = featuredArticles | sort: 'published_at' | reverse -%}
+        {%- for article in featuredArticles -%}
+          <script>console.log('article', {{ article | json }});</script>
+
+          {% comment %} <h4>{{ article.url }}</h4> {% endcomment %}
           
           <div class="blog-articles__article article">
             {%- render 'article-card', article: article, image_height: section.settings.image_height, show_image: section.settings.show_image, show_date: section.settings.show_date, show_author: section.settings.show_author -%}
@@ -94,7 +65,7 @@
         {%- render 'pagination', paginate: paginate -%}
       {%- endif -%}
     </div>
-  {%- endpaginate -%}
+
 {% comment %} 
 {% endfor %} {% endcomment %}
 
