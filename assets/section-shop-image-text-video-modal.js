@@ -1,4 +1,3 @@
-console.log('attached');
 // checking if variables are defined previously so we dont run this code again if this section is used twice
 if (
   typeof contactModalButtons === "undefined" &&
@@ -6,14 +5,13 @@ if (
   typeof body === "undefined" &&
   typeof stickyHeader === "undefined"
   ) {
-  const contactModalButtons = document.querySelectorAll('.shop-image-with-text__button');
+  const contactModalButtons = document.querySelectorAll('.shop-image-with-text__overlay-button');
   const body = document.querySelector('body');
   const contactModalCloseButtons = document.querySelectorAll('.shop-image-with-text__modal-close');
   const stickyHeader = document.querySelector('#shopify-section-header');
     
   contactModalButtons.forEach(button => {
     button.addEventListener('click', (e) => {
-      console.log('we here');
       const modalEl = e.currentTarget.nextElementSibling;
 
       if (!modalEl) return;

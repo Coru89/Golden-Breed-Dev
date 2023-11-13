@@ -1,12 +1,7 @@
 {{ 'section-shop-image-text.css' | asset_url | stylesheet_tag }}
 {{ 'custom-modal' | asset_url | stylesheet_tag }}
 
-{{ 'video-section.css' | asset_url | stylesheet_tag }}
-{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
-
-
 <script src="{{ 'section-shop-image-text-video-modal.js' | asset_url }}" async></script>
-
 
 <section class="shop-image-with-text">
   <div class="shop-image-with-text__inner {% if section.settings.full_width %}shop-image-with-text--full-width{% else %}page-width{% endif %} color-scheme-{{ section.settings.color_scheme }}">
@@ -80,7 +75,7 @@
               {%- when 'video_url' -%}
                 <div class="shop-image-with-text__video-wrapper">
                   <div class="gb-modal-overlay shop-image-with-text__modal-overlay"></div>
-                  <button class="shop-image-with-text__button shop-image-with-text__overlay-button">
+                  <button class="shop-image-with-text__overlay-button">
     
                     {{- block.settings.overlay_image | image_url: width: 3000 | image_tag: draggable: false, class: 'shop-image-with-text__video-overlay', sizes: '50vw', widths: '600,700,800,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000' -}}
                   </button>

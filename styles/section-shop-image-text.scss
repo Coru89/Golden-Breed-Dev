@@ -228,6 +228,10 @@ h3.shop-image-with-text__heading {
 }
 
 .shop-image-with-text__overlay-button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
   width: 100%;
 
   @media screen and (min-width: 750px) {

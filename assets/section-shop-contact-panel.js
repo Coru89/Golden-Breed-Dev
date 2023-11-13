@@ -13,7 +13,6 @@ if (
     
   contactModalButtons.forEach(button => {
     button.addEventListener('click', (e) => {
-      console.log('we here');
       const modalEl = e.currentTarget.nextElementSibling;
 
       if (!modalEl) return;
