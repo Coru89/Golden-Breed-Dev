@@ -1,4 +1,4 @@
-
+console.log('attached');
 // checking if variables are defined previously so we dont run this code again if this section is used twice
 if (
   typeof contactModalButtons === "undefined" &&
@@ -6,9 +6,9 @@ if (
   typeof body === "undefined" &&
   typeof stickyHeader === "undefined"
   ) {
-  const contactModalButtons = document.querySelectorAll('.shop-contact__button');
+  const contactModalButtons = document.querySelectorAll('.shop-image-with-text__button');
   const body = document.querySelector('body');
-  const contactModalCloseButtons = document.querySelectorAll('.shop-contact__modal-close');
+  const contactModalCloseButtons = document.querySelectorAll('.shop-image-with-text__modal-close');
   const stickyHeader = document.querySelector('#shopify-section-header');
     
   contactModalButtons.forEach(button => {
@@ -17,7 +17,8 @@ if (
       const modalEl = e.currentTarget.nextElementSibling;
 
       if (!modalEl) return;
-      const overlayEl = e.currentTarget.closest('.shop-contact__button-row').querySelector('.shop-contact__modal-overlay');
+      // const overlayEl = e.currentTarget.closest('.shop-image-with-text__button-row').querySelector('.shop-image-with-text__modal-overlay');
+      const overlayEl = e.currentTarget.parentElement;
       modalEl.classList.add('gb-modal--active');
   
       if (!overlayEl) return;
@@ -33,10 +34,10 @@ if (
   
   contactModalCloseButtons.forEach(button => {
     button.addEventListener('click', (e) => {
-      const modalEl = e.currentTarget.closest('.shop-contact__modal');
+      const modalEl = e.currentTarget.closest('.shop-image-with-text__modal');
 
       if (!modalEl) return;
-      const overlayEl = e.currentTarget.closest('.shop-contact__button-row').querySelector('.shop-contact__modal-overlay');
+      const overlayEl = e.currentTarget.closest('.shop-image-with-text__video-wrapper').querySelector('.shop-image-with-text__modal-overlay');
       modalEl.classList.remove('gb-modal--active');
   
       if (!overlayEl) return;
