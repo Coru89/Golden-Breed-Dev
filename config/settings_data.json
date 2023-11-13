@@ -70,20 +70,20 @@
       "footer": {
         "type": "footer",
         "blocks": {
-           "footer-0": {
-             "type": "link_list",
-             "settings": {
-               "heading": "Shop",
-               "menu": "main-menu"
-             }
-           },
-           "84069167-495e-4f45-83b4-9480dc989fe9": {
-             "type": "link_list",
-             "settings": {
-               "heading": "Information",
-               "menu": "footer"
-             }
-           },
+          "footer-0": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Shop",
+              "menu": "main-menu"
+            }
+          },
+          "84069167-495e-4f45-83b4-9480dc989fe9": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Information",
+              "menu": "footer"
+            }
+          },
           "eee581e5-807e-4f21-a288-486a50a0faec": {
             "type": "image",
             "disabled": true,
@@ -102,8 +102,8 @@
           }
         },
         "block_order": [
-           "footer-0",
-           "84069167-495e-4f45-83b4-9480dc989fe9",
+          "footer-0",
+          "84069167-495e-4f45-83b4-9480dc989fe9",
           "eee581e5-807e-4f21-a288-486a50a0faec",
           "footer-1"
         ],
@@ -179,11 +179,6 @@
           }
         }
       }
-<<<<<<< HEAD
-    }
-  }
-}
-=======
     },
     "Craft": {
       "colors_solid_button_labels": "#EFECEC",
@@ -222,4 +217,3 @@
     }
   }
 }
->>>>>>> f3abe5e3bc8c03348a237ef68a5ad53bab3c6a4d
