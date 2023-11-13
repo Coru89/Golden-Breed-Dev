@@ -33,6 +33,9 @@ if (
   contactModalCloseButtons.forEach(button => {
     button.addEventListener('click', (e) => {
       const modalEl = e.currentTarget.closest('.shop-image-with-text__modal');
+      const frame = document.querySelector(".shop-image-with-text__iframe");
+      console.log('frame', frame);
+      frame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
 
       if (!modalEl) return;
       const overlayEl = e.currentTarget.closest('.shop-image-with-text__video-wrapper').querySelector('.shop-image-with-text__modal-overlay');
