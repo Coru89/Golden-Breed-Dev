@@ -60,7 +60,8 @@
         "0d25acea-af0d-45d7-8b09-4dfb30a84fac": {
           "type": "video_url",
           "settings": {
-            "video_url": ""
+            "overlay_image": "shopify:\/\/shop_images\/hero-full-story.jpg",
+            "video_url": "https:\/\/www.youtube.com\/watch?v=dQw4w9WgXcQ"
           }
         }
       },
