@@ -1,0 +1,223 @@
+.shop-image-with-text__inner {
+  padding-bottom: 6rem;
+  padding-top: 6rem;
+
+  @media screen and (min-width: 990px) {
+    padding-bottom: 8.5rem;
+    padding-top: 8.5rem;
+  }
+}
+
+.shop-image-with-text .grid {
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+.shop-image-with-text__grid {
+  overflow: hidden;
+  flex-direction: column-reverse;
+
+  @media screen and (min-width: 750px) {
+    flex-direction: unset;
+  }
+}
+
+.shop-image-with-text__grid--reverse {
+  @media screen and (min-width: 750px) {
+    flex-direction: row-reverse;
+
+    .shop-image-with-text__content {
+      margin-right: 1.5rem;
+    }
+
+    .shop-image-with-text__media {
+      margin-left: 1.5rem;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .shop-image-with-text__content,
+    .shop-image-with-text__media {
+      margin: unset;
+    }
+  }
+}
+
+.shop-image-with-text__media {
+  background-color: transparent;
+  min-height: 100%;
+
+  @media screen and (min-width: 750px) {
+    margin-right: 1.5rem;
+  }
+}
+
+.shop-image-with-text__media-mobile {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  @media screen and (min-width: 1200px) {
+    display: none;
+  }
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+}
+
+.shop-image-with-text__media-desktop {
+  display: none;
+
+  @media screen and (min-width: 1200px) {
+    display: block;
+  }
+}
+
+.shop-image-with-text__media--small {
+  height: 19.4rem;
+}
+
+.shop-image-with-text__media--large {
+  height: 43.5rem;
+}
+
+@media screen and (min-width: 750px) {
+  .shop-image-with-text__media--small {
+    height: 31.4rem;
+  }
+
+  .shop-image-with-text__media--large {
+    height: 69.5rem;
+  }
+}
+
+.shop-image-with-text__media--placeholder {
+  background-color: rgba(var(--color-foreground), 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.shop-image-with-text__media--placeholder.shop-image-with-text__media--adapt {
+  height: 20rem;
+}
+
+@media screen and (min-width: 750px) {
+  .shop-image-with-text__media--placeholder.shop-image-with-text__media--adapt {
+    height: 30rem;
+  }
+}
+
+.shop-image-with-text__media--placeholder > svg {
+  fill: currentColor;
+  left: 50%;
+  max-width: 80rem;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.shop-image-with-text__content {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-bottom: 3rem;
+
+  @media screen and (min-width: 750px) {
+    margin-bottom: 0;
+    margin-left: 1.5rem;
+  }
+
+  @media screen and (min-width: 1200px) {
+    justify-content: center;
+    margin: unset;
+    padding: 4rem calc(4rem / var(--font-body-scale)) 5rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .shop-image-with-text__grid--reverse .shop-image-with-text__content {
+    margin-left: auto;
+  }
+}
+
+.shop-image-with-text__content > * + * {
+  margin-top: 2rem;
+}
+
+.shop-image-with-text__content > .shop-image-with-text__text:empty ~ a {
+  margin-top: 2rem;
+}
+
+.shop-image-with-text__content
+  > :first-child:is(.shop-image-with-text__heading) {
+  margin-top: 0;
+}
+
+.shop-image-with-text__content :last-child:is(.shop-image-with-text__heading) {
+  margin-bottom: 0;
+}
+
+.shop-image-with-text__content .button + .shop-image-with-text__text {
+  margin-top: 2rem;
+}
+
+.shop-image-with-text__content .shop-image-with-text__text + .button {
+  margin-top: 3rem;
+}
+
+.shop-image-with-text__button {
+  background-color: #E78367;
+  color: #fff !important;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  padding: 0.9rem 3rem 1.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover, &:focus, &:active {
+    color: #fff;
+    text-decoration: underline;
+  }
+}
+
+  h2.shop-image-with-text__heading {
+  font-size: 28px;
+
+  @media screen and (min-width: 990px) {
+    font-size: 34px;
+  }
+}
+
+h3.shop-image-with-text__heading {
+  font-size: 18px;
+
+  @media screen and (min-width: 990px) {
+    font-size: 24px;
+  }
+}
+
+.shop-image-with-text__heading--mobile {
+  display: inline-block;
+  margin-bottom: 2rem;
+  width: 100%;
+
+  @media screen and (min-width: 750px) {
+    text-align: center;
+  }
+
+  @media screen and (min-width: 990px) {
+    display: none;
+  }
+}
+
+.shop-image-with-text__text p {
+  color: #265979;
+  font-family: 'Nunito Sans', sans-serif;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}

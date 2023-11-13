@@ -1,0 +1,85 @@
+.hero {
+  height: 234px;
+  position: relative;
+  width: 100%;
+
+  @media screen and (min-width: 1320px) {
+    background-position: unset;
+    height: 300px;
+  }
+
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+
+    @media screen and (min-width: 1320px) {
+      padding: 0 16rem;
+    }
+  }
+
+  &__media {
+    height: 234px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+
+    @media screen and (min-width: 1320px) {
+      height: 300px;
+    }
+  }
+
+  &__image {
+    z-index: -1;
+  }
+
+  &__heading {
+    --color-foreground: rgb(255, 255, 255);
+    color: var(--color-foreground);
+    line-height: 1;
+    position: relative;
+
+    &::after {
+      background-color: var(--color-foreground);
+      bottom: 5px;
+      content: "";
+      display: block;
+      height: 1px;
+      left: 0;
+      width: 215px;
+    }
+  }
+
+  &__alert {
+    background-color: #F2F1F0;
+    color: #265979;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 14px;
+    padding: 5px 0 5px 0;
+    text-align: center;
+  }
+
+  .placeholder + .hero__wrapper {
+    .hero__heading {
+      color: #1d5b78;
+
+      &::after {
+        background-color: #1d5b78;
+      }
+  
+    }
+  }
+}
+
+.template-page-surfboard-hire-byron {
+  .hero {
+    margin-bottom: 3rem;
+
+    @media screen and (min-width: 1320px) {
+      margin-bottom: 7.5rem;
+    }
+  }
+}
