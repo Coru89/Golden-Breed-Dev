@@ -75,20 +75,19 @@
               {%- when 'video_url' -%}
                 {%- if block.settings.video_url != blank -%}
                   <div class="shop-image-with-text__video-wrapper">
-                    <div class="gb-modal-overlay shop-image-with-text__modal-overlay"></div>
+                    <div class="shop-image-with-text__modal-overlay"></div>
                     <button class="shop-image-with-text__overlay-button">
       
                       {{- block.settings.overlay_image | image_url: width: 3000 | image_tag: draggable: false, class: 'shop-image-with-text__video-overlay', sizes: '50vw', widths: '600,700,800,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000' -}}
                     </button>
-                    <div class="gb-modal shop-image-with-text__modal">
-                      <div class="gb-modal-header shop-image-with-text__modal-header">
-                        <h2>{{block.settings.modal_heading }}</h2> 
-                        <button class="gb-modal-close shop-image-with-text__modal-close">
-                          <svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m14.835 14.364-.471.472a.667.667 0 0 1-.943 0L8 9.415l-5.421 5.42a.667.667 0 0 1-.943 0l-.471-.47a.667.667 0 0 1 0-.944l5.42-5.42-5.42-5.422a.667.667 0 0 1 0-.943l.471-.471c.26-.26.682-.26.943 0L8 6.586l5.421-5.421c.26-.26.683-.26.943 0l.471.471c.26.26.26.683 0 .943L9.415 8l5.42 5.421c.26.26.26.683 0 .943Z" fill="#000"/></svg>
-                        </button>
-                      </div>
-                      <div class="gb-modal-content shop-image-with-text__modal-content">
-                        <iframe src="https://www.youtube.com/embed/{{ block.settings.video_url.id }}?enablejsapi=1&autoplay=1&mute=1" class="js-youtube shop-image-with-text__iframe" allow="autoplay; encrypted-media" allowfullscreen></iframe>                    </div>
+                    <div class="shop-image-with-text__modal">
+                      {% comment %} <h2>{{block.settings.modal_heading }}</h2>  {% endcomment %}
+                      <button class="shop-image-with-text__modal-close">
+                        <svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m14.835 14.364-.471.472a.667.667 0 0 1-.943 0L8 9.415l-5.421 5.42a.667.667 0 0 1-.943 0l-.471-.47a.667.667 0 0 1 0-.944l5.42-5.42-5.42-5.422a.667.667 0 0 1 0-.943l.471-.471c.26-.26.682-.26.943 0L8 6.586l5.421-5.421c.26-.26.683-.26.943 0l.471.471c.26.26.26.683 0 .943L9.415 8l5.42 5.421c.26.26.26.683 0 .943Z" fill="#fff"/></svg>
+                      </button>
+
+                    <div class="shop-image-with-text__modal-content">
+                      <iframe src="https://www.youtube.com/embed/{{ block.settings.video_url.id }}?enablejsapi=1&autoplay=1&mute=1" class="js-youtube shop-image-with-text__iframe" allow="autoplay; encrypted-media" allowfullscreen></iframe>                    </div>
                     </div>
                   </div>
                 {%- endif -%}

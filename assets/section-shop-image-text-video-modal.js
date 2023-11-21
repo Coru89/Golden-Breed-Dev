@@ -1,71 +1,71 @@
 // checking if variables are defined previously so we dont run this code again if this section is used twice
 if (
-  typeof contactModalButtons === "undefined" &&
-  typeof contactModalCloseButtons === "undefined" &&
+  typeof modalButtons === "undefined" &&
+  typeof modalCloseButtons === "undefined" &&
   typeof body === "undefined" &&
   typeof stickyHeader === "undefined"
   ) {
-  const contactModalButtons = document.querySelectorAll('.shop-image-with-text__overlay-button');
+  const modalButtons = document.querySelectorAll('.shop-image-with-text__overlay-button');
   const body = document.querySelector('body');
-  const contactModalCloseButtons = document.querySelectorAll('.shop-image-with-text__modal-close');
+  const modalCloseButtons = document.querySelectorAll('.shop-image-with-text__modal-close');
   const stickyHeader = document.querySelector('#shopify-section-header');
     
-  contactModalButtons.forEach(button => {
+  modalButtons.forEach(button => {
     button.addEventListener('click', (e) => {
       const modalEl = e.currentTarget.nextElementSibling;
 
       if (!modalEl) return;
-      // const overlayEl = e.currentTarget.closest('.shop-image-with-text__button-row').querySelector('.shop-image-with-text__modal-overlay');
-      const overlayEl = e.currentTarget.parentElement;
-      modalEl.classList.add('gb-modal--active');
+      const overlayEl = e.currentTarget.previousElementSibling;
+      modalEl.classList.add('shop-image-with-text__modal--active');
   
       if (!overlayEl) return;
-      overlayEl.classList.add('gb-modal-overlay--active');
+      overlayEl.classList.add('shop-image-with-text__modal-overlay--active');
 
       if (!body) return;
-      body.classList.add('gb-modal--body-active');
+      body.classList.add('shop-image-with-text__modal--body-active');
 
       if (!stickyHeader) return;
       stickyHeader.classList.add('shopify-section-header-hidden');
     });
   });
   
-  contactModalCloseButtons.forEach(button => {
+  modalCloseButtons.forEach(button => {
     button.addEventListener('click', (e) => {
       const modalEl = e.currentTarget.closest('.shop-image-with-text__modal');
       const frame = document.querySelector(".shop-image-with-text__iframe");
-      console.log('frame', frame);
       frame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
 
       if (!modalEl) return;
       const overlayEl = e.currentTarget.closest('.shop-image-with-text__video-wrapper').querySelector('.shop-image-with-text__modal-overlay');
-      modalEl.classList.remove('gb-modal--active');
+      modalEl.classList.remove('shop-image-with-text__modal--active');
   
       if (!overlayEl) return;
-      overlayEl.classList.remove('gb-modal-overlay--active');
+      overlayEl.classList.remove('shop-image-with-text__modal-overlay--active');
 
       if (!body) return;
-      body.classList.remove('modal--body-active');
+      body.classList.remove('shop-image-with-text__modal--body-active');
 
       if (!stickyHeader) return;
       stickyHeader.classList.remove('shopify-section-header-hidden');
     });
   });
-}
 
   // close mobile nav if user clicks outside of nav
-  document.onclick = (e) => {
+  window.onclick = (e) => {
     const target = e.target;
-    if (target.classList.contains("gb-modal-overlay--active")) {
-      target.classList.remove('gb-modal-overlay--active');
 
-      const modalEl = document.querySelector('.gb-modal--active');
-      modalEl.classList.remove("gb-modal--active");
+    if (target.classList.contains("shop-image-with-text__modal--active")) {;
+
+      target.classList.remove('shop-image-with-text__modal--active');
+
+      const overlayEl = document.querySelector('.shop-image-with-text__modal-overlay--active');
+      overlayEl.classList.remove("shop-image-with-text__modal-overlay--active");
 
       if (!body) return;
-      body.classList.remove("gb-modal--body-active");
+      body.classList.remove("shop-image-with-text__modal--body-active");
 
       if (!stickyHeader) return;
       stickyHeader.classList.remove('shopify-section-header-hidden');
     }
   };
+}
