@@ -14,6 +14,9 @@ if (
     button.addEventListener('click', (e) => {
       const modalEl = e.currentTarget.nextElementSibling;
 
+      const frame = document.querySelector(".shop-image-with-text__iframe");
+      frame.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+
       if (!modalEl) return;
       const overlayEl = e.currentTarget.previousElementSibling;
       modalEl.classList.add('shop-image-with-text__modal--active');
