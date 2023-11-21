@@ -54,8 +54,10 @@ if (
   window.onclick = (e) => {
     const target = e.target;
 
-    if (target.classList.contains("shop-image-with-text__modal--active")) {;
-
+    if (target.classList.contains("shop-image-with-text__modal--active")) {
+      const frame = document.querySelector(".shop-image-with-text__iframe");
+      frame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      
       target.classList.remove('shop-image-with-text__modal--active');
 
       const overlayEl = document.querySelector('.shop-image-with-text__modal-overlay--active');
