@@ -14,7 +14,7 @@
         "template--16138112467123__f4d52c76-711e-4a98-80b4-445b3517398f-16781842288dbd83ee-0": {
           "type": "heading",
           "settings": {
-            "heading": "Rent a surfboard in Noosa",
+            "heading": "Rent A Surfboard In Noosa",
             "heading_type": "h2"
           }
         },
@@ -44,23 +44,10 @@
             "button_link": "https:\/\/goldenbreed.com.au\/pages\/noosa-heads-board-hire#shopify-section-template--16200157659335__493ab732-928d-42ff-be99-fb0afa80e11a"
           }
         },
-        "9c138ca2-df04-44f5-954a-5203deab1094": {
-          "type": "heading",
+        "34298aca-507c-4e6a-8544-107244347bd1": {
+          "type": "video_block",
           "settings": {
-            "heading": "Surfshop Image with Text",
-            "heading_type": "h2"
-          }
-        },
-        "4c155fb0-cadd-4e7a-937b-3b27d68afcac": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>"
-          }
-        },
-        "0d25acea-af0d-45d7-8b09-4dfb30a84fac": {
-          "type": "video_url",
-          "settings": {
-            "overlay_image": "shopify:\/\/shop_images\/hero-full-story.jpg",
+            "overlay_image": "shopify:\/\/shop_images\/noosa-where-to-surf-poster.jpg",
             "video_url": "https:\/\/www.youtube.com\/watch?v=DCXqrjd7RTU"
           }
         }
@@ -71,9 +58,7 @@
         "f3c3ee59-9726-490b-93f5-05dc4efd17b8",
         "5a9b2554-ef0d-4c91-a645-6b7a02a2e98a",
         "template--16138112467123__f4d52c76-711e-4a98-80b4-445b3517398f-16781842288dbd83ee-2",
-        "9c138ca2-df04-44f5-954a-5203deab1094",
-        "4c155fb0-cadd-4e7a-937b-3b27d68afcac",
-        "0d25acea-af0d-45d7-8b09-4dfb30a84fac"
+        "34298aca-507c-4e6a-8544-107244347bd1"
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/noosa-overlap.png",
@@ -221,6 +206,7 @@
         "c9ebea79-4ee6-41d2-ade9-2e284f72dbdd"
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/surfboard-guy-in-nossa.jpg",
         "image_mobile": "shopify:\/\/shop_images\/noosa-storefront.png",
         "height": "adapt",
         "color_scheme": "background-1",
@@ -232,6 +218,8 @@
       "settings": {
         "heading": "Put A Leash On It",
         "summary": "If you're hiring a board, or even buying one, we'll kit you out with a leggie, otherwise know as a leash, or leg rope that's going to keep you attached, and safe in the water. \n<br><br>\nOur Noosa surf store stocks stacks of gear, surf accessories and apparel. You'll be able to pick up wax, wax combs, sunscreen, bucket hats, rashie's, wet suits and everything you'll need before getting wet.  \n<br><br>\nIf you need advice on what size, what , what board, what leggie, or any technical question at all, our staff are knowledgeable and happy to assist.",
+        "main_image": "shopify:\/\/shop_images\/shop-girl.jpg",
+        "image_grid": "shopify:\/\/shop_images\/noosa-shop.png",
         "layout": "text_first"
       }
     },
@@ -541,6 +529,7 @@
       ],
       "settings": {
         "heading": "Check Out Our Hire Rates",
+        "description": "Please note, we cannot make bookings in advance. Golden Breed discounts do not apply to board hire rates and we do not deliver boards to your location. Come to the shop, feel the vibes and enjoy everything that Noosa has to offer. We're only footsteps away from world famous breaks",
         "anchorID": "rates"
       }
     },
