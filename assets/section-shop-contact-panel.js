@@ -42,7 +42,7 @@ if (
       overlayEl.classList.remove('gb-modal-overlay--active');
 
       if (!body) return;
-      body.classList.remove('gb-modal--body-active');
+      body.classList.remove('modal--body-active');
 
       if (!stickyHeader) return;
       stickyHeader.classList.remove('shopify-section-header-hidden');

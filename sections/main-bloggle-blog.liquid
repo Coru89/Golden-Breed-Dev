@@ -76,7 +76,7 @@
  {% capture emptyTitle %}{% endcapture %}
 {% endif %}
   <script async src="https://d2xvgzwm836rzd.cloudfront.net/lazysizes-bloggle.min.js" defer></script>
-  <link href="https://d2xvgzwm836rzd.cloudfront.net/blog_styles--staging-golden-breed.min.css?v=1698989710974" type="text/css" rel="stylesheet">
+  <link href="https://d2xvgzwm836rzd.cloudfront.net/blog_styles--staging-golden-breed.min.css?v=1698952318938" type="text/css" rel="stylesheet">
   <link href="https://d2xvgzwm836rzd.cloudfront.net/blog-layout.min.css" type="text/css" rel="stylesheet">
 
 <div id="bloggle--blog_layout"  class="{%if localization.language.iso_code == "ar" or localization.language.iso_code == "he" %} blggle-rtl{%endif%}">
@@ -120,7 +120,7 @@
     </div>
     
   </div>
-  {% paginate blog.articles by 12 %}
+  {% paginate blog.articles by 9 %}
     <div class="bloggle--blog-items blog-layout-v2 trois">
       {% for article in blog.articles %}
         <div class="bloggle--blog-item ai--flex-start-layout" style="border-radius: 0px;" >
@@ -130,6 +130,7 @@
             {% endif %}
             <div class="article-text-container responsive-div ai--flex-start-layout">
               <p class="bloggle--blog-item-title ">{{ article.title }}</p>
+              <p class="bloggle--blog-item-title ">{{ article.tags[0] }}</p>
               <p class="bloggle--blog-item-date">{{ article.published_at | time_tag: format: 'date' }}</p>
               {% if article.excerpt.size != 0 %}
                     {% assign allWords = article.excerpt | strip_html | split: " " %}
