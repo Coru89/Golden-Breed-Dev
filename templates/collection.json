@@ -44,7 +44,7 @@
       "settings": {
         "title": "{{ collection.metafields.custom.video_heading.value }}",
         "description": "<p>{{ collection.metafields.custom.video_description | metafield_tag }}<\/p>",
-        "video_url": "{{ collection.metafields.custom.youtube_video_id.value }}",
+        "video_url": "{{ collection.metafields.custom.youtube_video_url.value }}",
         "image": "{{ collection.metafields.custom.video_poster_image.value }}"
       }
     },
