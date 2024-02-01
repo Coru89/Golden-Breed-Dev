@@ -1,3 +1,6 @@
+{% comment %} <script src="https://vjs.zencdn.net/5.4.6/video.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.0/Youtube.min.js"></script> {% endcomment %}
+
 {{ 'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' | stylesheet_tag }}
 {{ 'vjs.css' | asset_url | stylesheet_tag }}
 {{ 'collection-video.css' | asset_url | stylesheet_tag }}
@@ -6,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
 
 {% if section.settings.video_url != blank %}
+
   <script>
     window.addEventListener('load', (event) => {
       const readmoreEl = document.querySelector('.collection-video__readmore');
@@ -26,8 +30,8 @@
       });
     });
   </script>
-
-  {% comment %} <script src="https://vjs.zencdn.net/5.4.6/video.js"></script> {% endcomment %}
+<script src="https://vjs.zencdn.net/5.4.6/video.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.0/Youtube.min.js"></script>
 
   <section class="collection-video">
     <div class="collection-video__inner">
@@ -49,28 +53,27 @@
         {% endif %}
       </div>
 
-      <iframe src="https://www.youtube.com/embed/{{ block.settings.video_url.id }}?enablejsapi=1&autoplay=1&mute=1" class="js-youtube shop-image-with-text__iframe" allow="autoplay; encrypted-media" allowfullscreen></iframe>                    </div>
-
-
-      {% comment %} <video
-        class="video-js collection-video__video"
-        id="my-video"
+      <video
+        class="video-js collection-video__yt-video"
         controls
         preload="auto"
         {% if section.settings.image %}
           poster="{{ section.settings.image | image_url }}"
         {% endif %}
-        data-setup=""
+        data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "{{ section.settings.video_url }}"}]}'
       >
-          <source src="{{ section.settings.video_url }}" type="video/mp4">
-      </video> {% endcomment %}
-    {% endif %}
+          {% comment %} <source src="{{ section.settings.video_url }}" type="video/mp4"> {% endcomment %}
+      </video>
+
     </div>
   </section>
 
+
+{% endif %}
+
 {% schema %}
 {
-  "name": "Collection YouTube Video",
+  "name": "Collection Video",
   "class": "shopify-section--video",
   "settings": [
     {
@@ -97,7 +100,7 @@
   ],
   "presets": [
     {
-      "name": "YouTube Video Collection"
+      "name": "Video Collection"
     }
   ]
 }

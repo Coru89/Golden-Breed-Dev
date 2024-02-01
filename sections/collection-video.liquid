@@ -27,7 +27,8 @@
     });
   </script>
 
-  <script src="https://vjs.zencdn.net/5.4.6/video.js"></script>
+<script src="https://vjs.zencdn.net/5.4.6/video.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.0/Youtube.min.js"></script>
 
   <section class="collection-video">
     <div class="collection-video__inner">
@@ -61,9 +62,10 @@
       >
           <source src="{{ section.settings.video_url }}" type="video/mp4">
       </video>
-    {% endif %}
+
     </div>
   </section>
+{% endif %}
 
 {% schema %}
 {

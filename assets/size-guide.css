@@ -97,9 +97,8 @@ tr.MuiTableRow-root.MuiTableRow-head {
 .MuiBox-root .form__label {
   padding-right: 24px;
   position: relative;
-  color: #F49600;
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
+  color: #F49600 !important;
+  text-decoration-line: underline;
   font-weight: 800;
   font-size: 1.4rem;
   margin: 0; }
