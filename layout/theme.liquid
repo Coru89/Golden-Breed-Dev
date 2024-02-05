@@ -7,9 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
 
   <head>
-    {% comment %} <script src="https://vjs.zencdn.net/5.4.6/video.min.js"></script> {% endcomment %}
-{% comment %} <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/3.0.0/Youtube.min.js"></script> {% endcomment %}
 	<!-- Added by AVADA SEO Suite -->
 	{% include 'avada-seo' %}
 	<!-- /Added by AVADA SEO Suite -->
@@ -67,8 +64,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     {{ content_for_header }}
 
-    <script src="https://vjs.zencdn.net/5.4.6/video.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.0/Youtube.min.js"></script>
+    {% comment %} <script src="https://vjs.zencdn.net/5.4.6/video.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.0/Youtube.min.js"></script> {% endcomment %}
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
