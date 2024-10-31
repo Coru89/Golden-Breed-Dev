@@ -61,7 +61,6 @@
                 {% endif %}
               {%- endfor -%}
 
-
               {% comment %} are there more than one color variant? {% endcomment %}
               {% assign unique_colors = "" %}
               {%- for variant in product.variants -%}
@@ -74,7 +73,7 @@
 
               {% comment %} if the product onnly has a single color variant, we will render the standard product-card, 
                if the product has multiple color variants, we will render variant-card {% endcomment %}
-              {% if unique_colors_count > 1 %}
+              {% if unique_colors_count > 1 and product.metafields.custom.dont_show_individual_variants != true %}
                 {% assign displayed_colors = "" %} <!-- Initialize displayed_colors -->
                 
                 {%- for variant in product.variants -%}
