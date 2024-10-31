@@ -14,14 +14,34 @@
 
 @media screen and (max-width: 749px) {
   .footer .grid {
-    display: block;
+    /* display: block; */
+    display: grid;
     margin-left: 0;
+    grid-template-columns: repeat(2, 1fr); /* Create two columns of equal width */
+    justify-content:space-between;
+    grid-column-gap: 1.5rem;
+  }
+
+  .list-social__item {
+    display: flex;
+    align-items: center;
   }
 
   .footer-block.grid__item {
     padding: 0;
-    margin: 4rem 0;
+    margin: 0 0 4rem 0;
     width: 100%;
+  }
+
+  @media screen and (min-width: 749px) {
+    .footer-block.grid__item {
+      margin: 4rem 0;
+
+    }
+  }
+
+  .footer-block.grid__item:last-child {
+    grid-column: 1 / span 2;
   }
 
   .footer-block.grid__item:first-child {
@@ -38,7 +58,7 @@
     margin-left: -3rem;
     row-gap: 6rem;
     margin-bottom: 30px;
-    margin-top:10px;
+    margin-top: 10px;
   }
 
   .footer__content-top .grid__item {
@@ -153,10 +173,10 @@
 }
 
 .footer-block__heading {
-  color: #C57886;
+  color: #c57886;
   margin-bottom: 2rem;
   margin-top: 0;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   font-size: calc(var(--font-heading-scale) * 1.4rem);
   font-weight: 700;
 }
@@ -198,7 +218,8 @@
     margin: 0;
   }
 
-  .footer-block__newsletter:not(:only-child) .newsletter-form__message--success {
+  .footer-block__newsletter:not(:only-child)
+    .newsletter-form__message--success {
     left: auto;
   }
 }
@@ -210,6 +231,7 @@
 @media screen and (max-width: 749px) {
   .footer__list-social.list-social {
     justify-content: center;
+    margin-top: 30px;
   }
 }
 
@@ -333,7 +355,7 @@ noscript .localization-form__select {
 
 .localization-form__select .icon-caret {
   position: absolute;
-  content: '';
+  content: "";
   height: 0.6rem;
   right: 1.5rem;
   top: calc(50% - 0.2rem);
@@ -368,7 +390,6 @@ noscript .localization-selector.link {
   opacity: 1;
   animation: animateLocalization var(--duration-default) ease;
 }
-
 
 @media screen and (min-width: 750px) {
   .footer__payment {
@@ -449,8 +470,8 @@ noscript .localization-selector.link {
 
 .copyright__content a,
 .copyright__content {
-  color: #C0C0C0;
-  font-family: 'Nunito Sans', sans-serif;
+  color: #c0c0c0;
+  font-family: "Nunito Sans", sans-serif;
   font-size: 14px;
 }
 
@@ -476,10 +497,9 @@ noscript .localization-selector.link {
   .footer-block__details-content .list-menu__item--link {
     padding-top: 1rem;
     padding-bottom: 1rem;
-     columns: 2 !important;
-  -webkit-columns: 2;
-  -moz-columns: 2;
-    
+    columns: 2 !important;
+    -webkit-columns: 2;
+    -moz-columns: 2;
   }
 }
 
@@ -506,7 +526,6 @@ noscript .localization-selector.link {
 
 .footer-block__details-content .placeholder-svg {
   max-width: 20rem;
-  
 }
 
 .copyright__content a {
@@ -542,5 +561,5 @@ noscript .localization-selector.link {
 .footer p,
 .footer .link {
   color: #265979;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
 }

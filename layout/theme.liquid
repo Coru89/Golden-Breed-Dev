@@ -5,7 +5,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
-
   <head>
 	<!-- Added by AVADA SEO Suite -->
 	{% include 'avada-seo' %}
@@ -47,7 +46,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       {{ page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {% comment %}{%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}{% endcomment %}
     </title>
 
     {% if page_description %}
@@ -61,11 +60,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     {% endif %}
 
-    
     {{ content_for_header }}
-
-    {% comment %} <script src="https://vjs.zencdn.net/5.4.6/video.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.0/Youtube.min.js"></script> {% endcomment %}
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
@@ -209,7 +204,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     </script>
 
-
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
@@ -219,6 +213,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   {% include 'subscribe-it-helper' %}</body>
 </html>
 
+{% render 'freegifts-snippet' %}
 
 <!-- Begin Shopify-Afterpay JavaScript Snippet (v1.0.12) -->
 <script type="text/javascript">
@@ -244,3 +239,4 @@ var afterpay_js_snippet_version = '1.0.12';
 </script>
 <script type="text/javascript" src="https://static.afterpay.com/shopify-afterpay-javascript.js"></script>
 <!-- End Shopify-Afterpay JavaScript Snippet (v1.0.12) -->
+
