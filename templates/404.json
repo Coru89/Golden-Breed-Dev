@@ -1,1 +1,104 @@
-{"sections":{"main":{"type":"main-404","settings":{}}},"order":["main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich_text_AycKLq": {
+      "type": "rich-text",
+      "blocks": {
+        "image_9AGLdt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Sad_Emoji_2.gif"
+          }
+        },
+        "heading_3GmBQW": {
+          "type": "heading",
+          "settings": {
+            "heading": "404<br>Oops! You've Drifted Off Course",
+            "heading_size": "h1"
+          }
+        },
+        "text_xyP6aD": {
+          "type": "text",
+          "settings": {
+            "text": "<p>It seems this page has caught a riptide! Try heading back to our homepage or browse our latest collections.</p>"
+          }
+        },
+        "button_jkmxCx": {
+          "type": "button",
+          "settings": {
+            "button_label": "Check out our new arrivals",
+            "button_link": "https://goldenbreed.com.au/collections/all-new-arrivals",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "image_9AGLdt",
+        "heading_3GmBQW",
+        "text_xyP6aD",
+        "button_jkmxCx"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true
+      }
+    },
+    "main": {
+      "type": "main-404",
+      "disabled": true,
+      "settings": {}
+    },
+    "collection_list_MtGQtJ": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_wTMrWA": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "all-new-arrivals"
+          }
+        },
+        "featured_collection_APhVGH": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "bestsellers"
+          }
+        },
+        "featured_collection_Xbpfwk": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "accessories"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_wTMrWA",
+        "featured_collection_APhVGH",
+        "featured_collection_Xbpfwk"
+      ],
+      "custom_css": [
+        "* {text-align: center !important;}"
+      ],
+      "settings": {
+        "title": "Check out some of our popular collections",
+        "image_ratio": "square",
+        "color_scheme": "background-1",
+        "swipe_on_mobile": false,
+        "image_padding": false,
+        "show_view_all": false
+      }
+    }
+  },
+  "order": [
+    "rich_text_AycKLq",
+    "main",
+    "collection_list_MtGQtJ"
+  ]
+}

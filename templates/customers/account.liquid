@@ -2,16 +2,17 @@
 
 <div class="customer account">
   <div>
-    <h1>{{ 'customer.account.title' | t }}</h1>
+    <h1>Welcome to your Account</h1>
     <a href="{{ routes.account_logout_url }}">
       <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" fill="none" viewBox="0 0 18 19">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M6 4.5a3 3 0 116 0 3 3 0 01-6 0zm3-4a4 4 0 100 8 4 4 0 000-8zm5.58 12.15c1.12.82 1.83 2.24 1.91 4.85H1.51c.08-2.6.79-4.03 1.9-4.85C4.66 11.75 6.5 11.5 9 11.5s4.35.26 5.58 1.15zM9 10.5c-2.5 0-4.65.24-6.17 1.35C1.27 12.98.5 14.93.5 18v.5h17V18c0-3.07-.77-5.02-2.33-6.15-1.52-1.1-3.67-1.35-6.17-1.35z" fill="currentColor">
       </svg>
       {{ 'customer.log_out' | t }}
     </a>
+          <p>Welcome to your Golden Breed account dashboard! Here, you can keep track of all your recent orders, update your personal details, view information about your rewards and enjoy a seamless shopping experience tailored just for you. From tracking the journey of your latest purchase to discovering new collections and exclusive member benefits, everything you need is right at your fingertips. We're here to help you stay connected to the spirit of surf culture and keep you geared up for every adventure. Dive in, explore, and enjoy the Golden Breed lifestyle!</p>
   </div>
 
-  <div>
+  <div style="background:#F0F8FC;margin-bottom:40px;padding:20px;">
     <div>
       <h2>{{ 'customer.orders.title' | t }}</h2>
 
@@ -115,4 +116,40 @@
     </div>
 
   </div>
+
+                          <div class="banner__buttons"><a href="/collections/all-new-arrivals" class="button button--primary" style="    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 1rem 3rem 1.1rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 0;
+    background-color: #e78367;
+    box-shadow: none;
+    color: #fff !important;
+    min-width: 12rem;
+    min-height: 4.5rem;
+    transition: box-shadow var(--duration-short) ease;
+    -webkit-appearance: none;
+    appearance: none;
+    font-family: Nunito Sans, sans-serif;
+    font-weight: 700;
+    font-size: 16px;" rel="me" target="_parent">Shop Our New Arrivals</a></div>
+            
+                          <div style="padding-top:60px;"><h2>Your Rewards</h2>
+                            <p>View your points balance, redeem rewards, and explore your exclusive benefits as part of the Golden Breed community!</p>
+                          <button id="triggerButton" style="background-color:#E3AD4B;">View My Rewards</button>
+                          <script>
+    // Adding a click event listener to the button
+    document.getElementById('triggerButton').addEventListener('click', function() {
+        // Trigger a click on the element with the class 'cp-launcher'
+        const cpLauncher = document.querySelector('.cp-launcher-btn');
+        if (cpLauncher) {
+            cpLauncher.click();
+        }
+    });
+</script></div>
+                            
 </div>

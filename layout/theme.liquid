@@ -1,11 +1,52 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
   <head>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+ <script>
+  $(window).scroll(function() {
+    if (document.getElementById('limoniapps-discountninja-stickybar-wrapper')) {
+      var targetOffset = $('.announcement-bar').offset().top;
+      function toggleBodyClass() {
+        var scrollPosition = $(window).scrollTop();
+        if (scrollPosition > targetOffset) {
+          $('body').addClass('scrolled');
+        } else {
+          $('body').removeClass('scrolled');
+        }
+      }
+       
+      toggleBodyClass();
+
+      
+        
+            var elementHeight = $("#limoniapps-discountninja-stickybar-wrapper").height();
+            document.documentElement.style.setProperty('--limo-height', elementHeight + 'px');
+            toggleBodyClass();
+        
+       
+
+      };
+      });
+  </script>  
+    {% comment %} attempting to block indexing of pages with query strings {% endcomment %}
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.location.href.indexOf('?') > -1) {
+          var metaNoIndex = document.createElement('meta');
+          metaNoIndex.name = 'robots';
+          metaNoIndex.content = 'noindex';
+          document.getElementsByTagName('head')[0].appendChild(metaNoIndex);
+        }
+      });
+    </script>
+      
 	<!-- Added by AVADA SEO Suite -->
 	{% include 'avada-seo' %}
 	<!-- /Added by AVADA SEO Suite -->
@@ -41,14 +82,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
-
+{% if template.name == 'account' %}
+  <title>My Golden Breed Account</title>
+    {% else %}
     <title>
       {{ page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
       {% comment %}{%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}{% endcomment %}
     </title>
-
+{% endif %}
+    
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
@@ -210,7 +254,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% include 'sumo' %}
     {{ 'glide.core.css' | asset_url | stylesheet_tag }}
    
-  {% include 'subscribe-it-helper' %}</body>
+  {% include 'subscribe-it-helper' %}
+  {% render 'globo.swatch.custom' %}
+  </body>
 </html>
 
 {% render 'freegifts-snippet' %}

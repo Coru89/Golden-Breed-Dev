@@ -13,7 +13,7 @@
       "type": "hero",
       "settings": {
         "heading_title": "Byron Bay Store",
-        "image": "shopify://shop_images/byron-hero.png",
+        "image": "shopify://shop_images/byron_bay_surf_store.png",
         "banner_alert_message": ""
       }
     },
@@ -39,11 +39,46 @@
         "template--16138112467123__f4d52c76-711e-4a98-80b4-445b3517398f-16781842288dbd83ee-1"
       ],
       "settings": {
-        "image": "shopify://shop_images/flinders.jpg",
+        "image": "shopify://shop_images/byron-bay-shop.png",
         "image_mobile": "shopify://shop_images/byron-interior.png",
         "height": "adapt",
         "color_scheme": "background-1",
         "layout": "text_first"
+      }
+    },
+    "rich_text_YfE6cg": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_axBGpP": {
+          "type": "heading",
+          "settings": {
+            "heading": "Byron Surfboard Rentals",
+            "heading_size": "h1"
+          }
+        },
+        "text_eJpUWY": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Whether you're an experienced surfer or just getting started, our Byron Bay store offers a wide range of top-quality surfboards for hire to suit your needs. Located in one of Australia's most iconic surf destinations, we make it easy for you to grab a board and enjoy the waves. Our friendly team is on hand to help you choose the right board for your skill level and style. Enjoy the ultimate Byron Bay surfing experience with our convenient and flexible rental options.</p>"
+          }
+        },
+        "button_Ka8dk8": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "https://goldenbreed.com.au/pages/byron-bay-board-hire",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_axBGpP",
+        "text_eJpUWY",
+        "button_Ka8dk8"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true
       }
     },
     "554dd024-c9a3-46c0-b76c-4665b0cc603d": {
@@ -54,7 +89,7 @@
         "google_maps_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14006.267053801497!2d153.6137753!3d-28.6427439!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b90623a28d72431%3A0xb3eebd8653a10083!2sGolden%20Breed%20Byron%20Bay!5e0!3m2!1sen!2snz!4v1724043037577!5m2!1sen!2snz\" width=\"600\" height=\"350\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
         "shop_name": "Golden Breed Byron Bay",
         "address": "10 Lawson Street, Byron Bay NSW 2481",
-        "hours": "<p>Monday - Friday 10:00am - 4:00pm</p><p>Saturday 9:00am - 5:00pm</p><p>Sunday 9:00am - 4:00pm</p>",
+        "hours": "<p>Monday - Saturday 9:00am - 5:30pm</p><p>Sunday 9:00am - 5:00pm</p>",
         "phone": "1300 882 914",
         "phoneLink": "tel:1300 882 914",
         "whatsapp": "1300 882 914",
@@ -125,20 +160,20 @@
         "template--16138112467123__48048996-d24c-4463-b513-cb5451d66010-16781842288dbd83ee-1": {
           "type": "text",
           "settings": {
-            "text": "<p>TBA</p>"
+            "text": "<p>If you’re in Byron Bay, finding Golden Breed's surf shop at 10 Lawson Street is pretty easy. From the town centre, head towards Jonson Street, passing the Visitor Information Centre and the Beach Hotel. Turn onto Lawson Street, and you’ll spot Golden Breed on your left, just a short stroll from Main Beach. We've got an iconic wall with our retro branding that tends to be Instafamous. You can't miss us.</p>"
           }
         },
         "5c9b6e78-ea19-45fb-8a14-b29f929bd96d": {
           "type": "heading",
           "settings": {
-            "heading": "Parking Information",
+            "heading": "Byron Parking Information",
             "heading_type": "h2"
           }
         },
         "53dfb156-69d4-478c-a327-c2f811bafa1d": {
           "type": "text",
           "settings": {
-            "text": "<p>TBA</p>"
+            "text": "<p>Parking in Byron Bay is straightforward, with several options near Golden Breed. On Lawson Street, there’s a 1-hour parking zone for $5 per hour, while Fletcher Street offers a 2-hour zone at the same rate. </p><p>For longer stays, the Byron Street Carpark (off Fletcher Street), Middleton Street Carpark, and both the north and south Lawson Street Carparks provide 4-hour parking for $5 per hour. </p><p>If you’re looking for free parking, Somerset Street is just a 5-minute walk into town, making it a convenient choice.</p>"
           }
         }
       },
@@ -149,7 +184,7 @@
         "53dfb156-69d4-478c-a327-c2f811bafa1d"
       ],
       "settings": {
-        "image": "shopify://shop_images/flinders-tee_1.jpg",
+        "image": "shopify://shop_images/byron-interior.png",
         "image_mobile": "shopify://shop_images/byron-beach.png",
         "height": "adapt",
         "color_scheme": "background-1",
@@ -162,20 +197,20 @@
         "heading_4kTG8M": {
           "type": "heading",
           "settings": {
-            "heading": "Wheel chair accessibility",
+            "heading": "Wheel Chair Accessibility",
             "heading_type": "h2"
           }
         },
         "text_QJzDDW": {
           "type": "text",
           "settings": {
-            "text": "<p>TBA</p>"
+            "text": "<p>Yes, if you're using a wheelchair, our surf shop caters for you with a ramp and ground level toilets. Come in, we'd love to have you.</p>"
           }
         },
         "heading_zqhgf4": {
           "type": "heading",
           "settings": {
-            "heading": "We are Pet Friendly",
+            "heading": "Pet Friendly Surf Store",
             "heading_type": "h2"
           }
         },
@@ -193,45 +228,10 @@
         "text_LxtEa6"
       ],
       "settings": {
-        "image": "shopify://shop_images/flinders-hoodie-4_1.jpg",
+        "image": "shopify://shop_images/byron-bay-shop.png",
         "height": "adapt",
         "color_scheme": "background-1",
         "layout": "text_first"
-      }
-    },
-    "rich_text_YfE6cg": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_axBGpP": {
-          "type": "heading",
-          "settings": {
-            "heading": "Ride the Waves: Surfboard Rentals",
-            "heading_size": "h1"
-          }
-        },
-        "text_eJpUWY": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Whether you're an experienced surfer or just getting started, our Byron Bay store offers a wide range of top-quality surfboards for hire to suit your needs. Located in one of Australia's most iconic surf destinations, we make it easy for you to grab a board and enjoy the waves. Our friendly team is on hand to help you choose the right board for your skill level and style. Enjoy the ultimate Byron Bay surfing experience with our convenient and flexible rental options.</p>"
-          }
-        },
-        "button_Ka8dk8": {
-          "type": "button",
-          "settings": {
-            "button_label": "Learn More",
-            "button_link": "https://goldenbreed.com.au/pages/byron-bay-board-hire",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_axBGpP",
-        "text_eJpUWY",
-        "button_Ka8dk8"
-      ],
-      "settings": {
-        "color_scheme": "background-1",
-        "full_width": true
       }
     },
     "25c46024-1bb7-4607-8d0d-54e868c531f4": {
@@ -280,24 +280,40 @@
         "dba7340e-c2ba-4f41-8326-01ad6fad0885": {
           "type": "accordion_item",
           "settings": {
-            "accordion_label": "Do you offer surfboard rentals at your Flinders location?",
-            "accordion_content": "No, our Flinders store does not offer surfboard rentals. However, we provide a wide selection of premium surfboards for purchase, along with apparel and accessories. Our knowledgeable staff can help you choose the right gear and offer advice on the best local surf spots."
+            "accordion_label": "What types of products does Golden Breed Byron Bay offer?",
+            "accordion_content": "Our store offers a wide range of beachwear, surf apparel, accessories, and lifestyle items. We carry board shorts, swimwear, T-shirts, hats, and a curated selection of beach and surf gear. You’ll also find unique Byron Bay souvenirs and Golden Breed branded merchandise."
+          }
+        },
+        "accordion_item_pFdzEJ": {
+          "type": "accordion_item",
+          "settings": {
+            "accordion_label": "Do you offer gift cards?",
+            "accordion_content": "Yes, we offer gift cards that can be used in-store and make a perfect gift for any beach or surf enthusiast. Visit us to purchase one, and our staff will be happy to assist you with your selection."
           }
         },
         "cffc097b-c126-4ff2-845d-7dd4374810fc": {
           "type": "accordion_item",
           "settings": {
-            "accordion_label": "Can your staff provide advice on local surfing conditions and spots?",
-            "accordion_content": "Absolutely! Our friendly and experienced staff are well-versed in the local surf conditions and can provide expert advice on the best spots to surf in and around Flinders. Whether you're new to surfing or a seasoned pro, we're here to help you make the most of your surfing experience."
+            "accordion_label": "Can I find exclusive Golden Breed products at this location?",
+            "accordion_content": "Yes! Our Byron Bay store features exclusive Golden Breed products and limited-edition items that you may not find at other locations or online. It’s a great spot to pick up unique pieces that reflect the Golden Breed lifestyle."
+          }
+        },
+        "accordion_item_gJqwRR": {
+          "type": "accordion_item",
+          "settings": {
+            "accordion_label": "Are there any sales or discounts offered in-store?",
+            "accordion_content": "We occasionally offer in-store sales and seasonal discounts. Follow us on social media or subscribe to our newsletter for updates on exclusive promotions, special events, and sales."
           }
         }
       },
       "block_order": [
         "dba7340e-c2ba-4f41-8326-01ad6fad0885",
-        "cffc097b-c126-4ff2-845d-7dd4374810fc"
+        "accordion_item_pFdzEJ",
+        "cffc097b-c126-4ff2-845d-7dd4374810fc",
+        "accordion_item_gJqwRR"
       ],
       "settings": {
-        "heading": "FAQs",
+        "heading": "FAQs About Our Byron Bay Surf Shop",
         "sub_heading": "Our commonly asked questions..."
       }
     }
@@ -305,11 +321,11 @@
   "order": [
     "main",
     "f4d52c76-711e-4a98-80b4-445b3517398f",
+    "rich_text_YfE6cg",
     "554dd024-c9a3-46c0-b76c-4665b0cc603d",
     "172039901981c24038",
     "48048996-d24c-4463-b513-cb5451d66010",
     "shop_image_text_ez6Jwd",
-    "rich_text_YfE6cg",
     "25c46024-1bb7-4607-8d0d-54e868c531f4",
     "7a575310-7f34-4910-8427-5e7100bbbae5"
   ]

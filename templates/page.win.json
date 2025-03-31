@@ -11,8 +11,7 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "settings": {
-      }
+      "settings": {}
     },
     "0471e7a0-b09a-4d40-917a-407deba17fa9": {
       "type": "rich-text",

@@ -2762,5 +2762,23 @@ section#shopify-section-template--16164438474951__16631201915756bdaa {
   height: 30px !important;
 }
 
+/* marsello widget */
+:root {--cp-color-font:#3a3a3a!important;}
+#marsello-portal-root .cp-launcher .cp-launcher-btn .cp-launcher-label, #marsello-widget-root .cp-launcher .cp-launcher-btn .cp-launcher-label {padding-top:3px;}
+#marsello-widget-root > div > div > div > div > span > span > span {color:#3a3a3a!important;}
+#marsello-widget-root:hover > div > div > div > div > span > span > span {color:#ffffff!important;}
+/*#marsello-widget-root > div > div > div > div > svg > path {color:#3a3a3a;}*/
+#marsello-widget-root > div > div > div > div > svg > path {color:#E78367;fill:#E78367;}
+#marsello-widget-root:hover > div > div > div > div > svg > path {color:#ffffff!important;}
+#marsello-widget-panel .cp-footer span {color:#3a3a3a!important;}
+.cp-footer {background:grey;border:1px solid red;}
+#marsello-widget-panel > div > main > div > div.cp-footer > span {color:#3a3a3a!important;}
 
+/* gb stores page */
+#shopify-section-template--16298788028615__44705638-d49c-4954-bea1-47ad5e064715 > section {background:#f0f8fc;}
+.shop-image-with-text__grid.color-background-1 {background:transparent!important;}
+.image-with-text__button a:hover {background:#447797!important;}
 
+/* 404 */
+#shopify-section-template--16288740638919__rich_text_AycKLq > div > div > div > img {width:300px!important;}
+/*.announcement-bar__link {display:none!important;}*/

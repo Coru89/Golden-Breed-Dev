@@ -18,9 +18,10 @@
     },
     "mobile_hp_banner_LmaiVx": {
       "type": "mobile-hp-banner",
+      "disabled": true,
       "settings": {
-        "image": "shopify://shop_images/October_31_-_Website_Header_Mobile_df45042c-6e35-4ca4-a84e-04e0602cdccc.jpg",
-        "banner_url": "shopify://collections/spooky-sale-31-off",
+        "image": "shopify://shop_images/March_20_-_Website_Header_Mobile.jpg",
+        "banner_url": "shopify://collections/free-retro-cap",
         "image_height": "medium",
         "adapt_height_first_image": true,
         "desktop_text_box_position": "center",
@@ -38,7 +39,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Shop Now",
-            "button_link_1": "shopify://collections/spooky-sale-31-off",
+            "button_link_1": "https://goldenbreed.com.au/collections/free-retro-cap",
             "button_style_secondary_1": false,
             "button_custom_link_attributes_1": "rel=\"me\" target=\"_parent\"",
             "button_label_2": "",
@@ -51,8 +52,9 @@
       "block_order": [
         "buttons_Lf63bB"
       ],
+      "disabled": true,
       "settings": {
-        "image": "shopify://shop_images/October_31_-_Website_Desktop_Header.jpg",
+        "image": "shopify://shop_images/March_20_-_Website_Header_Desktop.jpg",
         "image_height": "medium",
         "adapt_height_first_image": true,
         "desktop_text_box_position": "flex-end",
@@ -81,7 +83,6 @@
       "block_order": [
         "16389277979e6dee71-2"
       ],
-      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/GB-HOME-HEADER-MEN.jpg",
         "title-1": "",
@@ -154,7 +155,7 @@
         "show_view_all": true,
         "swipe_on_mobile": true,
         "image_ratio": "portrait",
-        "show_secondary_image": false,
+        "show_secondary_image": true,
         "add_image_padding": false,
         "show_image_outline": true,
         "show_vendor": true,
@@ -261,6 +262,73 @@
         "swipe_on_mobile": true
       }
     },
+    "accordion_9FxdTD": {
+      "type": "accordion",
+      "blocks": {
+        "accordion_item_fRtT3m": {
+          "type": "accordion_item",
+          "settings": {
+            "accordion_label": "What is your return and exchange policy?",
+            "accordion_content": "We accept returns and exchanges within 30 days of purchase, provided the item is unworn, in its original condition, and with tags attached. Please visit our Returns & Exchanges page for more details."
+          }
+        },
+        "accordion_item_VmNgCx": {
+          "type": "accordion_item",
+          "settings": {
+            "accordion_label": "How long does shipping take, and what are the costs?",
+            "accordion_content": "Standard shipping within Australia typically takes 3-7 business days, while express shipping takes 1-3 business days. Orders over $75 qualify for free standard shipping. International shipping rates and times vary."
+          }
+        },
+        "accordion_item_H7GLwk": {
+          "type": "accordion_item",
+          "settings": {
+            "accordion_label": "How do I track my order?",
+            "accordion_content": "Once your order is shipped, you will receive a tracking number via email. You can track your order directly on our website or through the shipping provider’s tracking system."
+          }
+        },
+        "accordion_item_LqkKre": {
+          "type": "accordion_item",
+          "settings": {
+            "accordion_label": "Do you offer in-store pickup?",
+            "accordion_content": "Yes! You can select “In-Store Pickup” at checkout if you’d like to collect your order from one of our store locations. You’ll receive an email notification when your order is ready for pickup."
+          }
+        },
+        "accordion_item_gDjYBx": {
+          "type": "accordion_item",
+          "settings": {
+            "accordion_label": "How do I know which size to order?",
+            "accordion_content": "We provide a detailed size guide on each product page. If you’re unsure, feel free to contact our support team, and we’d be happy to help you find the perfect fit."
+          }
+        },
+        "accordion_item_nWXf3P": {
+          "type": "accordion_item",
+          "settings": {
+            "accordion_label": "What exactly is retro vintage surf clothing?",
+            "accordion_content": "It's the essence of nostalgia! Golden Breed's Retro vintage surf clothing refers to the iconic styles from the 70s & 80s that capture the carefree spirit of beach vibes and surf lifestyles with a modern twist. These pieces often feature bold colors, unique patterns, and a vibe that's true to its roots."
+          }
+        },
+        "accordion_item_ii6xm3": {
+          "type": "accordion_item",
+          "settings": {
+            "accordion_label": "What size should I order for vintage surfwear?",
+            "accordion_content": "Typically, our vintage surfwear is a loose fit style. So if you're usually a size large, you might want to check the size chart and maybe size down to a medium. But remember, if it doesn't fit, you can always use our free returns policy."
+          }
+        }
+      },
+      "block_order": [
+        "accordion_item_fRtT3m",
+        "accordion_item_VmNgCx",
+        "accordion_item_H7GLwk",
+        "accordion_item_LqkKre",
+        "accordion_item_gDjYBx",
+        "accordion_item_nWXf3P",
+        "accordion_item_ii6xm3"
+      ],
+      "settings": {
+        "heading": "FAQs",
+        "sub_heading": "Our commonly asked questions"
+      }
+    },
     "1638938467e517f824": {
       "type": "image-banner",
       "blocks": {
@@ -310,6 +378,7 @@
     "163894817194625549",
     "1638926734988978b1",
     "16389384641b4e0b94",
+    "accordion_9FxdTD",
     "1638938467e517f824"
   ]
 }

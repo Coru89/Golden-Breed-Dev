@@ -12,7 +12,7 @@
     "main": {
       "type": "hero",
       "settings": {
-        "heading_title": "Flinders Surf Store",
+        "heading_title": "Manly Surf Store",
         "image": "shopify://shop_images/byron_bay_surf_store.png",
         "banner_alert_message": ""
       }
@@ -23,24 +23,39 @@
         "template--16138112467123__f4d52c76-711e-4a98-80b4-445b3517398f-16781842288dbd83ee-0": {
           "type": "heading",
           "settings": {
-            "heading": "Golden Breed's Flinders Surf Store",
+            "heading": "Golden Breed's Manly Surf Store",
             "heading_type": "h2"
+          }
+        },
+        "text_aXTRjm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Located right in the heart of Manly's most famous  and most favourite shopping strip - The new Golden Breed Surf store is now open - 47 The Corso. Everyday new goodies are arriving. Drop in and check out our range of retro  surfwear, sunnies, tees, hoodies, swimwear, gifts ideas and beach accessories. Our staff are knowledgeable about the local surf breaks, so if you're new to the area and need some advice, feel free to swing by and ask. </p>"
+          }
+        },
+        "heading_pM9hik": {
+          "type": "heading",
+          "settings": {
+            "heading": "Manly Beach",
+            "heading_type": "h3"
           }
         },
         "template--16138112467123__f4d52c76-711e-4a98-80b4-445b3517398f-16781842288dbd83ee-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Located in the charming town of Flinders, south of Melbourne, our store is your go-to destination for premium surfboards, apparel, and accessories. Whether you're a beginner or an experienced surfer, our friendly and knowledgeable staff are here to help you find the perfect gear and provide expert advice on local surf spots. </p><p>Come on down and explore our latest collections and seasonal gear to stay updated with the best in surf culture. Get ready to hit the waves with style and confidence! </p>"
+            "text": "<p>Manly Beach is one of Australia’s most renowned surf beaches, and it'd be wrong for Golden Breed not to be in the heart of it. Manly is best known for being the site of the world’s first surfing contest in 1964. The beach stretches two kilometers from South Steyne to North Steyne and Queenscliff, offering golden sands lined with magnificent Norfolk pines and world class breaks. It’s a must-see destination for both locals and tourists, providing the epic waves and chilled beach vibes.</p>"
           }
         }
       },
       "block_order": [
         "template--16138112467123__f4d52c76-711e-4a98-80b4-445b3517398f-16781842288dbd83ee-0",
+        "text_aXTRjm",
+        "heading_pM9hik",
         "template--16138112467123__f4d52c76-711e-4a98-80b4-445b3517398f-16781842288dbd83ee-1"
       ],
       "settings": {
-        "image": "shopify://shop_images/flinders.jpg",
-        "image_mobile": "shopify://shop_images/byron-interior.png",
+        "image": "shopify://shop_images/golden-breed-surf-store-manly.jpg",
+        "image_mobile": "shopify://shop_images/manly-2.jpg",
         "height": "adapt",
         "color_scheme": "background-1",
         "layout": "text_first"
@@ -51,15 +66,15 @@
       "settings": {
         "heading": "Contact Us To Find Out More",
         "description": "",
-        "google_maps_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12494.388711680545!2d145.0187856!3d-38.4738601!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad5b8e579c0d605%3A0xaba6df8d3e6f49eb!2sGolden%20Breed%20Flinders!5e0!3m2!1sen!2snz!4v1720401467449!5m2!1sen!2snz\" width=\"620\" height=\"350\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-        "shop_name": "Golden Breed Flinders",
-        "address": "34-36 Cook St, Flinders VIC 3929",
-        "hours": "<p>Monday - Saturday 9:00am - 5:00pm</p><p>Sunday 9am - 4:00pm</p>",
+        "google_maps_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13262.270147200386!2d151.2865658!3d-33.7976643!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ab7e211b9845%3A0x29b523d98dd8b963!2sGolden%20Breed%20Manly!5e0!3m2!1sen!2snz!4v1733184527674!5m2!1sen!2snz\" width=\"620\" height=\"350\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+        "shop_name": "Golden Breed Manly",
+        "address": "47 The Corso, Manly NSW 2095",
+        "hours": "<p>Monday to Sunday - 9:00am - 5:30pm</p>",
         "phone": "1300 882 914",
         "phoneLink": "tel:1300 882 914",
         "whatsapp": "1300 882 914",
         "whatsappLink": "tel:1300 882 914",
-        "email": "GBFlinders@goldenbreed.com.au",
+        "email": "gbmanly@goldenbreed.com.au",
         "driving_directions": "",
         "driving_directions_heading": "",
         "parking_information": "",
@@ -125,7 +140,7 @@
         "template--16138112467123__48048996-d24c-4463-b513-cb5451d66010-16781842288dbd83ee-1": {
           "type": "text",
           "settings": {
-            "text": "<p>If you’re in Flinders, you can find Golden Breed's surf shop at 34-36 Cook Street,<br/>Flinders, VIC, 3929. We are in the town centre right by the roundabout on the corner<br/>of Wood Street and Cook Street, diagonal from the Flinders Hotel. <br/>Our windows are quite tinted, so we have two flags out the front of the store to<br/>indicate we are open.</p>"
+            "text": "<p>To reach Golden Breed Manly at 47 The Corso, start by navigating towards Manly, a coastal suburb in New South Wales. If you're driving from Sydney CBD, head north via the Bradfield Highway and Warringah Freeway. Continue onto Military Road, which transitions to Spit Road, and follow the signs leading into Manly. Once you arrive, note that The Corso is a pedestrian-only area, so you'll need to find parking nearby.</p>"
           }
         },
         "5c9b6e78-ea19-45fb-8a14-b29f929bd96d": {
@@ -138,7 +153,7 @@
         "53dfb156-69d4-478c-a327-c2f811bafa1d": {
           "type": "text",
           "settings": {
-            "text": "<p>In Flinders we have lots of free parking space; On Wood Street - by the back of our store we have an open gravel car park. On Cook Street - you may park to the left of our Golden Breed store by the front of our neighbouring café; Pier Provedore. Across the road directly in front of our Golden Breed store is a small parking lot by the Flinders Fish and Chip Shop.</p>"
+            "text": "<p>Parking near Golden Breed Manly at 47 The Corso includes a mix of paid and free options. For paid parking, the Manly National Car Park on Whistler Street offers rates starting at $3.10 per hour, with daily maximums around $30. The Manly Wharf Car Park is another convenient choice near the beach and ferry terminal, though rates are higher during peak periods. Discounts are available for Northern Beaches residents with a Resident Card. Private parking spaces are also available through services like Parking Made Easy, with hourly rates as low as $2 or long-term options starting at $120 per week. For free parking, nearby residential streets offer limited-time options, while unrestricted parking can be found in areas like Kenneth Road or Fairlight, though these are farther from the center. Visitors can save time by pre-booking parking spaces online or considering public transport, as Manly is well connected by buses and ferries</p>"
           }
         }
       },
@@ -149,7 +164,7 @@
         "53dfb156-69d4-478c-a327-c2f811bafa1d"
       ],
       "settings": {
-        "image": "shopify://shop_images/flinders-tee_1.jpg",
+        "image": "shopify://shop_images/EB2_6463_resized.jpg",
         "image_mobile": "shopify://shop_images/byron-beach.png",
         "height": "adapt",
         "color_scheme": "background-1",
@@ -169,7 +184,7 @@
         "text_QJzDDW": {
           "type": "text",
           "settings": {
-            "text": "<p>If you’re using a wheelchair, we have a ramp entering the front door. There is a few small ledges in our store; towards our men’s wear section by the far left of the shop and towards our back door where we stock our sale items. If you need assistance to get up or down these ledges don’t hesitate to ask a staff member.</p>"
+            "text": "<p>Golden Breed's Manly Surf store is wheelchair friendly. So roll on in, although some parts of the shop might be a little challenging to manoeuvre. IF you need assistance, please just ask. We're happy to help.</p>"
           }
         },
         "heading_zqhgf4": {
@@ -182,7 +197,7 @@
         "text_LxtEa6": {
           "type": "text",
           "settings": {
-            "text": "<p>Good news for all the dog lovers out there - Our shop is dog-friendly! That's right, you can bring your pooch along as long as they're well-behaved and don't hassle the other customers. We all want to have a chilled shopping experience without any dramas. If your fur buddy is chill and just wants to hang out while you browse our range then bring 'em in, no worries! Otherwise we do have a few poles out the front of the shop to tie your dog too.</p>"
+            "text": "<p>Good news for all the dog lovers out there - Our shop is dog-friendly! That's right, you can bring your pooch along as long as they're well-behaved and don't hassle the other customers. We all want to have a chilled shopping experience without any dramas. If your fur buddy is chill and just wants to hang out while you browse our range then bring 'em in, no worries!</p>"
           }
         }
       },
@@ -193,7 +208,7 @@
         "text_LxtEa6"
       ],
       "settings": {
-        "image": "shopify://shop_images/flinders-hoodie-4_1.jpg",
+        "image": "shopify://shop_images/EB2_8250resized_6e92bdb5-8ce3-47cf-816f-c76fed1b93f0.jpg",
         "height": "adapt",
         "color_scheme": "background-1",
         "layout": "text_first"
@@ -206,7 +221,7 @@
           "type": "testimonial",
           "settings": {
             "name": "Barry P",
-            "quote": "Loved this brand back in the day, and it’s awesome to see it making a comeback! The team at Flinders are fantastic—super friendly and helpful. They had a great sale when I visited, and I picked up a high-quality hoodie for my nephew. Love the Flinders branding, colours, and overall vibe—timeless and effortlessly cool!"
+            "quote": "Loved this brand back in the day, and it’s awesome to see it making a comeback! The team at Manly are fantastic—super friendly and helpful. They had a great sale when I visited, and I picked up a high-quality hoodie for my nephew. Love the Flinders branding, colours, and overall vibe—timeless and effortlessly cool!"
           }
         },
         "284c5a80-cb2c-4da8-86e3-08e24283e8de": {
@@ -221,7 +236,7 @@
           "type": "testimonial",
           "settings": {
             "name": "Jason Howarth",
-            "quote": "A little not-so-hidden gem! I just realized a lot of my favorite clothes are from Flinders—great quality, style, and always a go-to for me!",
+            "quote": "A little not-so-hidden gem in Manly! I just realized a lot of my favorite clothes—great quality, style, and always a go-to for me!",
             "background_image": "shopify://shop_images/2021-d_ac5d11ee-1b68-4767-8981-afbb669c48a6.jpg"
           }
         }
@@ -232,9 +247,9 @@
         "5d39b0f6-e3d3-43b0-8635-5323f195bf58"
       ],
       "settings": {
-        "shopName": "Golden Breed Flinders",
-        "addressLocality": "Flinders",
-        "streetAddress": "34-36 Cook St, Flinders VIC 3929, Australia",
+        "shopName": "Golden Breed Manly",
+        "addressLocality": "Manly",
+        "streetAddress": "47 The Corso, Manly NSW 2095, Australia",
         "tel": "+61 1300 882 914"
       }
     },
@@ -244,15 +259,15 @@
         "dba7340e-c2ba-4f41-8326-01ad6fad0885": {
           "type": "accordion_item",
           "settings": {
-            "accordion_label": "Do you offer surfboard rentals at your Flinders location?",
-            "accordion_content": "No, our Flinders store does not offer surfboard rentals. However, we provide a wide selection of premium surfboards for purchase, along with apparel and accessories. Our knowledgeable staff can help you choose the right gear and offer advice on the best local surf spots."
+            "accordion_label": "Do you offer surfboard rentals at your Manly location?",
+            "accordion_content": "No, our Manly store doesn't offer surfboard rentals YET, but we will. However, we provide a wide selection of premium G&S surfboards for purchase, along with apparel and accessories. Our knowledgeable staff can help you choose the right gear and offer advice on the best local surf spots."
           }
         },
         "cffc097b-c126-4ff2-845d-7dd4374810fc": {
           "type": "accordion_item",
           "settings": {
             "accordion_label": "Can your staff provide advice on local surfing conditions and spots?",
-            "accordion_content": "Absolutely! Our friendly and experienced staff are well-versed in the local surf conditions and can provide expert advice on the best spots to surf in and around Flinders. Whether you're new to surfing or a seasoned pro, we're here to help you make the most of your surfing experience."
+            "accordion_content": "Absolutely! Our friendly and experienced staff are well-versed in the local surf conditions and can provide expert advice on the best spots to surf in and around the Manly area. Whether you're new to surfing or a seasoned pro, we're here to help you make the most of your surfing experience."
           }
         }
       },
@@ -261,7 +276,7 @@
         "cffc097b-c126-4ff2-845d-7dd4374810fc"
       ],
       "settings": {
-        "heading": "Flinders Surf Store FAQs",
+        "heading": "FAQs About Our Manly Surf Shop",
         "sub_heading": "Our commonly asked questions..."
       }
     }

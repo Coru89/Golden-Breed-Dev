@@ -12,8 +12,8 @@
     "main": {
       "type": "hero",
       "settings": {
-        "heading_title": "Noosa Store",
-        "image": "shopify://shop_images/byron-hero.png",
+        "heading_title": "Noosa Surf Store",
+        "image": "shopify://shop_images/byron_bay_surf_store.png",
         "banner_alert_message": ""
       }
     },
@@ -39,11 +39,46 @@
         "template--16138112467123__f4d52c76-711e-4a98-80b4-445b3517398f-16781842288dbd83ee-1"
       ],
       "settings": {
-        "image": "shopify://shop_images/flinders.jpg",
-        "image_mobile": "shopify://shop_images/byron-interior.png",
+        "image": "shopify://shop_images/noosa_bd72e6b8-fd0f-4404-b8af-9088707ad261.jpg",
+        "image_mobile": "shopify://shop_images/noosa.webp",
         "height": "adapt",
         "color_scheme": "background-1",
         "layout": "text_first"
+      }
+    },
+    "rich_text_fj6TyN": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_WGUL9r": {
+          "type": "heading",
+          "settings": {
+            "heading": "Surf's Up? <br>Noosa Surfboard Hire",
+            "heading_size": "h1"
+          }
+        },
+        "text_pcNPiy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Whether you're a seasoned pro or just starting out, our surfboard hire service offers a wide range of high-quality boards to suit your needs. Conveniently located right by the beach, we make it easy for you to grab a board and hit the waves. Our friendly staff is here to help you choose the perfect board for your skill level and surfing style. Experience the thrill of surfing in Noosa with our hassle-free rental options.</p>"
+          }
+        },
+        "button_rz9QBj": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "https://goldenbreed.com.au/pages/noosa-heads-board-hire",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_WGUL9r",
+        "text_pcNPiy",
+        "button_rz9QBj"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true
       }
     },
     "554dd024-c9a3-46c0-b76c-4665b0cc603d": {
@@ -51,10 +86,10 @@
       "settings": {
         "heading": "Contact Us To Find Out More",
         "description": "",
-        "google_maps_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12494.388711680545!2d145.0187856!3d-38.4738601!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad5b8e579c0d605%3A0xaba6df8d3e6f49eb!2sGolden%20Breed%20Flinders!5e0!3m2!1sen!2snz!4v1720401467449!5m2!1sen!2snz\" width=\"620\" height=\"350\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+        "google_maps_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14296.359187898755!2d153.0918131!3d-26.3882864!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b93699de7e6fccf%3A0x2522cc554a2616d6!2sGolden%20Breed%20Noosa!5e0!3m2!1sen!2snz!4v1731550430354!5m2!1sen!2snz\" width=\"600\" height=\"350\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
         "shop_name": "Golden Breed Noosa",
-        "address": "34-36 Cook St, Flinders VIC 3929",
-        "hours": "<p>Monday - Friday 10:00am - 4:00pm</p><p>Saturday 9:00am - 5:00pm</p><p>Sunday 9:00am - 4:00pm</p>",
+        "address": "13 Noosa Drive, Noosa Heads Qld 4567",
+        "hours": "<p>Monday - Sunday 8:30am - 5pm*</p><p>*Extended opening hours throughout Summer months and School Holidays</p>",
         "phone": "1300 882 914",
         "phoneLink": "tel:1300 882 914",
         "whatsapp": "1300 882 914",
@@ -125,7 +160,7 @@
         "template--16138112467123__48048996-d24c-4463-b513-cb5451d66010-16781842288dbd83ee-1": {
           "type": "text",
           "settings": {
-            "text": "<p>TBA</p>"
+            "text": "<p>If you're in Noosa, getting to our iconic Surf Store at 13 Noosa Dr is easy! From Noosa Junction, simply drive up and over the hill towards the famous Hastings Street and National Park. We’re right on the roundabout as you make your way down - you won’t miss us! Be sure to swing by and explore our collection of Golden Breed gear.<br/></p><p>Can’t wait to see you!</p>"
           }
         },
         "5c9b6e78-ea19-45fb-8a14-b29f929bd96d": {
@@ -138,7 +173,7 @@
         "53dfb156-69d4-478c-a327-c2f811bafa1d": {
           "type": "text",
           "settings": {
-            "text": "<p>TBA</p>"
+            "text": "<p>There’s plenty of free parking around our store, with options ranging from 2 to 4 hours! The Noosa Lions Park, just across the road, offers the most parking spots and the longest time limits. Just make sure to check the signs for the details.</p>"
           }
         }
       },
@@ -149,7 +184,7 @@
         "53dfb156-69d4-478c-a327-c2f811bafa1d"
       ],
       "settings": {
-        "image": "shopify://shop_images/flinders-tee_1.jpg",
+        "image": "shopify://shop_images/noosa_shop.png",
         "image_mobile": "shopify://shop_images/byron-beach.png",
         "height": "adapt",
         "color_scheme": "background-1",
@@ -169,7 +204,7 @@
         "text_QJzDDW": {
           "type": "text",
           "settings": {
-            "text": "<p>TBA</p>"
+            "text": "<p>Yes, if you're using a wheelchair, our surf shop caters for you with a ramp up the side of the store and ground level toilets. If you need any assistance please don’t hesitate to ask one of our friendly team members! Come in, we'd love to have you.</p>"
           }
         },
         "heading_zqhgf4": {
@@ -193,45 +228,10 @@
         "text_LxtEa6"
       ],
       "settings": {
-        "image": "shopify://shop_images/flinders-hoodie-4_1.jpg",
+        "image": "shopify://shop_images/noosaretro.jpg",
         "height": "adapt",
         "color_scheme": "background-1",
         "layout": "text_first"
-      }
-    },
-    "rich_text_fj6TyN": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_WGUL9r": {
-          "type": "heading",
-          "settings": {
-            "heading": "Ride the Waves with our  Surfboard Hire",
-            "heading_size": "h1"
-          }
-        },
-        "text_pcNPiy": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Whether you're a seasoned pro or just starting out, our surfboard hire service offers a wide range of high-quality boards to suit your needs. Conveniently located right by the beach, we make it easy for you to grab a board and hit the waves. Our friendly staff is here to help you choose the perfect board for your skill level and surfing style. Experience the thrill of surfing in Noosa with our hassle-free rental options.</p>"
-          }
-        },
-        "button_rz9QBj": {
-          "type": "button",
-          "settings": {
-            "button_label": "Learn More",
-            "button_link": "https://goldenbreed.com.au/pages/noosa-heads-board-hire",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_WGUL9r",
-        "text_pcNPiy",
-        "button_rz9QBj"
-      ],
-      "settings": {
-        "color_scheme": "background-1",
-        "full_width": true
       }
     },
     "25c46024-1bb7-4607-8d0d-54e868c531f4": {
@@ -241,8 +241,7 @@
           "type": "testimonial",
           "settings": {
             "name": "Barry P",
-            "quote": "Loved this brand back in the 70s and great to see its reboot. Fantastic people working in the Byron Bay store with a great sale on when I was there. Got a high quality hoodie for my nephew. Love the Golden Breed branding, colours and vibe, 70s cool.",
-            "background_image": "shopify://shop_images/byron-hero.png"
+            "quote": "I’ve always loved this brand, and it’s great to see it thriving again! The team at Noosa were awesome—super friendly and made the shopping experience even better. I was lucky to visit during a sale and picked up a top-notch hoodie for my nephew. The Flinders style, colours, and retro vibe are just unbeatable!"
           }
         },
         "284c5a80-cb2c-4da8-86e3-08e24283e8de": {
@@ -257,7 +256,7 @@
           "type": "testimonial",
           "settings": {
             "name": "Jason Howarth",
-            "quote": "A little not so hidden gem in Byron. I recently realised a lot of my clothes are from here!",
+            "quote": "Noosa is definitely a go-to spot! I only just realized how many of my favorite wardrobe pieces come from here. The quality, style, and effortless coastal vibe keep me coming back for more!",
             "background_image": "shopify://shop_images/2021-d_ac5d11ee-1b68-4767-8981-afbb669c48a6.jpg"
           }
         }
@@ -268,10 +267,10 @@
         "5d39b0f6-e3d3-43b0-8635-5323f195bf58"
       ],
       "settings": {
-        "shopName": "Golden Breed Byron Bay",
-        "addressLocality": "Byron Bay",
-        "streetAddress": "10 Lawson Street, Byron Bay NSW 2481",
-        "tel": "02 6680 7944"
+        "shopName": "Golden Breed Noosa",
+        "addressLocality": "Noosa",
+        "streetAddress": "13 Noosa Dr, Noosa Heads QLD 4567, Australia",
+        "tel": "+61 1300 882 914"
       }
     },
     "7a575310-7f34-4910-8427-5e7100bbbae5": {
@@ -280,24 +279,40 @@
         "dba7340e-c2ba-4f41-8326-01ad6fad0885": {
           "type": "accordion_item",
           "settings": {
-            "accordion_label": "Do you offer surfboard rentals at your Flinders location?",
-            "accordion_content": "No, our Flinders store does not offer surfboard rentals. However, we provide a wide selection of premium surfboards for purchase, along with apparel and accessories. Our knowledgeable staff can help you choose the right gear and offer advice on the best local surf spots."
+            "accordion_label": "What types of products does Golden Breed Noosa Heads offer?",
+            "accordion_content": "Our store provides a wide range of beachwear, surf apparel, accessories, and lifestyle items. You'll find board shorts, swimwear, T-shirts, hats, and a curated selection of beach and surf gear. We also offer unique Noosa Heads souvenirs and exclusive Golden Breed branded merchandise."
           }
         },
         "cffc097b-c126-4ff2-845d-7dd4374810fc": {
           "type": "accordion_item",
           "settings": {
-            "accordion_label": "Can your staff provide advice on local surfing conditions and spots?",
-            "accordion_content": "Absolutely! Our friendly and experienced staff are well-versed in the local surf conditions and can provide expert advice on the best spots to surf in and around Flinders. Whether you're new to surfing or a seasoned pro, we're here to help you make the most of your surfing experience."
+            "accordion_label": "Can I find exclusive Golden Breed products at this location?",
+            "accordion_content": "Yes! Our Noosa Heads store features exclusive Golden Breed products and limited-edition items that may not be available at other locations or online. It's an excellent place to discover unique pieces that embody the Golden Breed lifestyle."
+          }
+        },
+        "accordion_item_7rC8yY": {
+          "type": "accordion_item",
+          "settings": {
+            "accordion_label": "Do you offer gift cards?",
+            "accordion_content": "Yes, we offer gift cards that can be used in-store, making them a perfect gift for any beach or surf enthusiast. Visit us to purchase one, and our staff will be happy to assist you with your selection."
+          }
+        },
+        "accordion_item_CFqLfY": {
+          "type": "accordion_item",
+          "settings": {
+            "accordion_label": "Are there any sales or discounts offered in-store?",
+            "accordion_content": "We occasionally offer in-store sales and seasonal discounts. Follow us on social media or subscribe to our newsletter for updates on exclusive promotions, special events, and sales."
           }
         }
       },
       "block_order": [
         "dba7340e-c2ba-4f41-8326-01ad6fad0885",
-        "cffc097b-c126-4ff2-845d-7dd4374810fc"
+        "cffc097b-c126-4ff2-845d-7dd4374810fc",
+        "accordion_item_7rC8yY",
+        "accordion_item_CFqLfY"
       ],
       "settings": {
-        "heading": "FAQs",
+        "heading": "Noosa Surf Store FAQs",
         "sub_heading": "Our commonly asked questions..."
       }
     }
@@ -305,11 +320,11 @@
   "order": [
     "main",
     "f4d52c76-711e-4a98-80b4-445b3517398f",
+    "rich_text_fj6TyN",
     "554dd024-c9a3-46c0-b76c-4665b0cc603d",
     "172039901981c24038",
     "48048996-d24c-4463-b513-cb5451d66010",
     "shop_image_text_ez6Jwd",
-    "rich_text_fj6TyN",
     "25c46024-1bb7-4607-8d0d-54e868c531f4",
     "7a575310-7f34-4910-8427-5e7100bbbae5"
   ]

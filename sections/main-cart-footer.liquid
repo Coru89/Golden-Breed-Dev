@@ -6,6 +6,7 @@
 <div class="page-width{% if cart == empty %} is-empty{% endif %}" id="main-cart-footer" data-id="{{ section.id }}">
   <div>
     <div class="cart__footer">
+   
       {%- if section.settings.show_cart_note -%}
         <cart-note class="cart__note field">
           <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
@@ -14,7 +15,9 @@
       {%- endif -%}
 
       <div class="cart__blocks">
-        <div class="totals" style=""><center>
+           <div data-la-dn-promotion-summary-placeholder></div>
+            <div data-la-dn-promocodefield-placeholder></div>
+        <div class="totals limoniapps-discountninja-whenactivepromotions-hide" style=""><center>
                   {%- if cart.cart_level_discount_applications.size > 0 -%}
                     <ul style="" role="list" aria-label="{{ 'customer.order.discount' | t }}">
                       {%- for discount in cart.cart_level_discount_applications -%}
@@ -37,10 +40,12 @@
             {%- when '@app' -%}
               {% render block %}
             {%- when 'subtotal' -%}
+            {% comment %}Added/Modified by Limoni Apps on 21/03/25 to support Discount Ninja{% endcomment %}
+
               <div class="js-contents" {{ block.shopify_attributes }}>
-                <div class="totals">
+                <div class="totals limoniapps-discountninja-cart-subtotal">
                   <h3 class="totals__subtotal">Total : </h3>
-                  <p class="totals__subtotal-value">{{ cart.total_price | money_with_currency }}</p>
+                  <p class="totals__subtotal-value limoniapps-discountninja-cart-subtotal-price">{{ cart.total_price | money_with_currency }}</p>
                 </div>
                 
 
@@ -57,6 +62,14 @@
                     {{ 'sections.cart.update' | t }}
                   </button>
                 </noscript>
+
+                <div>
+                  <small class="tax-note caption-large rte">
+                    Free Delivery On Orders Over $75<br>within Australia
+                  </small>
+                  
+                </div>
+
 
                 <button type="submit" id="checkout" class="cart__checkout-button button" name="checkout"{% if cart == empty %} disabled{% endif %} form="cart">
               Proceed To Checkout →

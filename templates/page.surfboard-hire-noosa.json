@@ -90,14 +90,14 @@
       "settings": {
         "heading": "Rent A Surfboard",
         "description": "Book your Noosa surfboard hire with our friendly team",
-        "google_maps_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1750.7795425585543!2d153.61229122354789!3d-28.642973930336595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b90623a28d72431%3A0xb3eebd8653a10083!2sGolden%20Breed%20Byron%20Bay!5e0!3m2!1sen!2sth!4v1677559143274!5m2!1sen!2sth\" width=\"800\" height=\"800\" loading=\"lazy\" frameborder=\"0\" scrolling=\"no\"></iframe>",
+        "google_maps_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3574.089796974689!2d153.09181310000002!3d-26.388286399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b93699de7e6fccf%3A0x2522cc554a2616d6!2sGolden%20Breed%20Noosa!5e0!3m2!1sen!2snz!4v1741659479838!5m2!1sen!2snz\" width=\"600\" height=\"360\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
         "shop_name": "Golden Breed - Noosa",
         "address": "13 Noosa Drive, Noosa Heads QLD 4567",
         "hours": "<p>8:30am - 5pm</p>",
         "phone": "07 5357 6053",
         "phoneLink": "tel:+6105356053",
         "whatsapp": "07 5357 6053",
-        "whatsappLink": "07 5357 6053",
+        "whatsappLink": "https://wa.me/0753576053",
         "email": "",
         "driving_directions": "",
         "driving_directions_heading": "How to find us!",
@@ -259,6 +259,7 @@
         },
         "0a5595e1-8f54-4be9-81b1-cbaf76a3b698": {
           "type": "table_row",
+          "disabled": true,
           "settings": {
             "column_1_data": "2 Hours",
             "column_2_data": "$25",
@@ -269,7 +270,7 @@
           "type": "table_row",
           "settings": {
             "column_1_data": "4 Hours",
-            "column_2_data": "$40",
+            "column_2_data": "$30",
             "header": false
           }
         },
@@ -566,8 +567,8 @@
         "driving_directions_heading": "How to find us!",
         "parking_information": "<p>Find us at the Golden Breed roundabout at 13 Noosa Drive, Noosa Heads.As you're heading up Noosa Parade, or coming down the hill from Junction towards Hastings Street, you'll hit the Golden Breed roundabout.</p>\n\n<p>You can't miss us. We're smack-bam in your direct line of sight in the retro green coloured shop-front. We're right next to Deus who serve up an epic coffee, and if you get to Grilled, you've gone too far.</p>",
         "parking_information_heading": "Where to park?",
-        "wheel_chair_accessibility_information": "<p>Our new Noosa surf store has been built with a wheelchair friendly ramp, and enough space to move between the isles. Come on down, check out out surf fashion and we're happy to accommodate for all abilities.</p>",
-        "wheel_chair_accessibility_information_heading": "Wheel chair accessibility",
+        "wheel_chair_accessibility_information": "<p>Our new Noosa surf store has been built with a wheelchair friendly ramp, and enough space to move between the isles. Come on down, check out our surf fashion and we're happy to accommodate for all abilities.</p>",
+        "wheel_chair_accessibility_information_heading": "Wheelchair accessibility",
         "pet_friendliness": "<p>Want to bring your pooch? Fur buddies are 100% welcome, providing their well behaved, chill and toilet trained. Just please be aware that some other customers may not love doggo's as much as you do, so please consider those in the shop.</p>",
         "pet_friendliness_heading": "We are pet friendly!",
         "remove_bottom_border": true

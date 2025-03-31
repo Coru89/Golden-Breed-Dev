@@ -29,7 +29,7 @@
       "settings": {
         "products_per_page": 52,
         "image_ratio": "portrait",
-        "show_secondary_image": false,
+        "show_secondary_image": true,
         "add_image_padding": false,
         "show_image_outline": true,
         "show_vendor": false,
@@ -59,8 +59,7 @@
     },
     "c6cc63e0-facc-44b2-bf99-f32e3449fcc5": {
       "type": "accordion-meta-object",
-      "settings": {
-      }
+      "settings": {}
     },
     "ffc44b5b-3f32-4f29-8499-10049cac7a4f": {
       "type": "image-banner-4",
@@ -130,10 +129,12 @@
         "title-1": "",
         "button-text-1": "Shop Now",
         "link-1": "shopify://collections/beach-lifestyle",
+        "button_custom_link_attributes_1": "",
         "image_2": "shopify://shop_images/gns.jpg",
         "title-2": "",
         "button-text-2": "Shop Now",
         "link-2": "shopify://collections/gordon-smith-1",
+        "button_custom_link_attributes_2": "",
         "image_height": "medium",
         "adapt_height_first_image": true,
         "desktop_text_box_position": "flex-end",

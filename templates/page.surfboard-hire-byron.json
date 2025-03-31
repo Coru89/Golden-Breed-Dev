@@ -13,7 +13,7 @@
       "type": "hero",
       "settings": {
         "heading_title": "Surfboard Hire Byron Bay",
-        "image": "shopify://shop_images/byron-hero.png",
+        "image": "shopify://shop_images/byron_bay_surf_store.png",
         "banner_alert_message": ""
       }
     },
@@ -75,14 +75,14 @@
       "settings": {
         "heading": "Contact Us To Find Out More",
         "description": "",
-        "google_maps_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1750.7795425585543!2d153.61229122354789!3d-28.642973930336595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b90623a28d72431%3A0xb3eebd8653a10083!2sGolden%20Breed%20Byron%20Bay!5e0!3m2!1sen!2sth!4v1677559143274!5m2!1sen!2sth\" width=\"800\" height=\"800\" loading=\"lazy\" frameborder=\"0\" scrolling=\"no\"></iframe>",
+        "google_maps_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2475.980268799178!2d153.61336364518917!3d-28.64280043598363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b90623a28d72431%3A0xb3eebd8653a10083!2sGolden%20Breed%20Byron%20Bay!5e0!3m2!1sen!2snz!4v1741659365254!5m2!1sen!2snz\" width=\"600\" height=\"360\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
         "shop_name": "Golden Breed - Byron Bay",
         "address": "10 Lawson Street, Byron Bay NSW 2481",
         "hours": "",
-        "phone": "02 6680 7944",
-        "phoneLink": "02 6680 7944",
-        "whatsapp": "02 6680 7944",
-        "whatsappLink": "02 6680 7944",
+        "phone": "02 5624 5019",
+        "phoneLink": "tel:02 5624 5019",
+        "whatsapp": "02 5624 5019",
+        "whatsappLink": "https://wa.me/0256245019",
         "email": "GBByronbay@goldenbreed.com.au",
         "driving_directions": "",
         "driving_directions_heading": "",
@@ -278,7 +278,7 @@
           "type": "table_row",
           "settings": {
             "column_1_data": "2 Days",
-            "column_2_data": "$95",
+            "column_2_data": "$60",
             "header": false
           }
         },
@@ -344,19 +344,19 @@
             "header": true
           }
         },
-        "311fe5d9-5215-4890-ba29-80a04aadcfdc": {
+        "200e2ac4-01e6-4edd-ab3b-14b00feafcf7": {
           "type": "table_row",
           "settings": {
-            "column_1_data": "24 Hours",
+            "column_1_data": "Half day",
             "column_2_data": "$15",
             "header": false
           }
         },
-        "200e2ac4-01e6-4edd-ab3b-14b00feafcf7": {
+        "311fe5d9-5215-4890-ba29-80a04aadcfdc": {
           "type": "table_row",
           "settings": {
-            "column_1_data": "After 3 Days (per 24 hours)",
-            "column_2_data": "$5",
+            "column_1_data": "Full day",
+            "column_2_data": "$20 overnight",
             "header": false
           }
         }
@@ -377,8 +377,8 @@
         "90aca3c3-f359-4065-b4c3-a54c9ed20fc3",
         "144cdffa-870c-4be2-b4da-cd5ad44a7582",
         "a7ac5f76-1a61-4cb7-b587-3a072da4d7da",
-        "311fe5d9-5215-4890-ba29-80a04aadcfdc",
-        "200e2ac4-01e6-4edd-ab3b-14b00feafcf7"
+        "200e2ac4-01e6-4edd-ab3b-14b00feafcf7",
+        "311fe5d9-5215-4890-ba29-80a04aadcfdc"
       ],
       "settings": {
         "heading": "Surf, Body Board Rates",
@@ -393,8 +393,7 @@
           "type": "testimonial",
           "settings": {
             "name": "Barry P",
-            "quote": "Loved this brand back in the 70s and great to see its reboot. Fantastic people working in the Byron Bay store with a great sale on when I was there. Got a high quality hoodie for my nephew. Love the Golden Breed branding, colours and vibe, 70s cool.",
-            "background_image": "shopify://shop_images/byron-hero.png"
+            "quote": "Loved this brand back in the 70s and great to see its reboot. Fantastic people working in the Byron Bay store with a great sale on when I was there. Got a high quality hoodie for my nephew. Love the Golden Breed branding, colours and vibe, 70s cool."
           }
         },
         "284c5a80-cb2c-4da8-86e3-08e24283e8de": {
@@ -591,8 +590,8 @@
         "driving_directions_heading": "How to find us!",
         "parking_information": "<p> If you're only planning a quick visit, Lawson Street has 1-hour parking for $5 an hour, or if you need a a little longer, Fletcher St's got a 2-hour zone at the same rate. For longer stays, there's the Byron Street Carpark (just off Fletcher St), and the Middleton St Carpark, both offering 4-hour parking, once again at @ $5 an hour.<br><br>\n\nYou can also park at Lawson St Carpark's North and South Car Parks, with 4-hour zones at the same rate. If you're a bit tight on cash, you can park for free at Somerset St, which is only a short 5-minute walk into town. Just remember to move your wheels to another zone once time's up, they'll sting you in a heart beat. <br><br>\n\nPaid parking's available from 9 am to 6 pm, seven days a week. Or for $25 you can grab all-day parking. Pay at the meter or through the Pay Stay App.</p>",
         "parking_information_heading": "Where to park?",
-        "wheel_chair_accessibility_information": "<p>Our Byron Bay surf store has been built with a wheelchair friendly ramp, and enough space to move between the isles. Come on down, check out out surf fashion and we're happy to accommodate for all abilities.</p>",
-        "wheel_chair_accessibility_information_heading": "Wheel chair accessibility",
+        "wheel_chair_accessibility_information": "<p>Our Byron Bay surf store has been built with a wheelchair friendly ramp, and enough space to move between the isles. Come on down, check out our surf fashion and we're happy to accommodate for all abilities.</p>",
+        "wheel_chair_accessibility_information_heading": "Wheelchair accessibility",
         "pet_friendliness": "<p>Good news for all the dog lovers out there - Our shop is dog-friendly! That's right, you can bring your pooch along as long as they're well-behaved and don't hassle the other customers. We all want to have a chilled shopping experience without any dramas. If your fur buddy is chill and just wants to hang out while you browse our range then bring 'em in, no worries!</p>",
         "pet_friendliness_heading": "We are pet friendly!",
         "remove_bottom_border": true

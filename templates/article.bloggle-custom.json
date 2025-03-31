@@ -11,8 +11,7 @@
   "sections": {
     "blog": {
       "type": "main-bloggle-article",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [

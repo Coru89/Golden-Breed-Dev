@@ -367,6 +367,7 @@
                 
   
               </span>
+{% comment %}Added/Modified by Limoni Apps on 21/03/25 to support Discount Ninja{% endcomment %}
 
             {%- when 'price' -%}
               <div style="order: {{ forloop.index }}" class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
@@ -376,6 +377,7 @@
                   show_badges: true,
                   price_class: 'price--large'
                 -%}
+                <div la-dn-product-banner></div>
               </div>
 
               <div style="order: {{ forloop.index }}" {{ block.shopify_attributes }}>
