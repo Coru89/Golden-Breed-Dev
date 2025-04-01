@@ -1,7 +1,5 @@
 .smartsizechart_content .smartsizechart_instruction table {
-  width: 100% !important;
-  margin-top: 5rem !important;
-}
+  width: 100% !important; }
 
 .smartsizechart_content {
   padding: 18px 23px; }
@@ -68,9 +66,7 @@ tr.MuiTableRow-root.MuiTableRow-head {
 
 .MuiBox-root *,
 .MuiTableCell-root {
-  color: #265979 !important;
-  text-align: center;
-}
+  color: #265979 !important; }
 
 .MuiTableCell-head {
   font-weight: 700; }
@@ -101,7 +97,7 @@ tr.MuiTableRow-root.MuiTableRow-head {
 .MuiBox-root .form__label {
   padding-right: 24px;
   position: relative;
-  color: #F49600;
+  color: #F49600 !important;
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
   font-weight: 800;
@@ -130,15 +126,3 @@ tr.MuiTableRow-root.MuiTableRow-head {
 table {
   table-layout: fixed;
   width: 100%; }
-
-  .smartsizechart_content .smartsizechart_instruction .chartsize-table tbody tr {
-    display: table-row;
-  }
-  .smartsizechart_content .smartsizechart_instruction table tbody tr td {
-    font-size: 16px;
-    padding: 16px;
-  }
-
-  th.MuiTableCell-root.MuiTableCell-head {
-    font-size: 17px;
-  }

@@ -19,6 +19,24 @@
     }
   }
 
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+  }
+
+  &__content p,
+  &__content a  {
+    --color-foreground: rgb(255, 255, 255);
+    color: var(--color-foreground);
+    position: relative;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 14px;
+    margin-bottom: 1.4rem;
+  }
+
   &__media {
     height: 234px;
     left: 0;
@@ -53,6 +71,16 @@
     }
   }
 
+  &__subheading {
+    --color-foreground: rgb(255, 255, 255);
+    color: var(--color-foreground);
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    padding-top: 1.3rem;
+    position: relative;
+  }
+
   &__alert {
     background-color: #F2F1F0;
     color: #265979;
@@ -73,6 +101,7 @@
     }
   }
 }
+
 
 .template-page-surfboard-hire-byron {
   .hero {

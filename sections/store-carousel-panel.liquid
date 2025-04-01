@@ -3,143 +3,126 @@
 
 {{ 'store-carousel-panel.css' | asset_url | stylesheet_tag }}
 
-
-
 <style>
   :root {
-      --swiper-image-ratio: 50%; /* ratio 16:9 = 56.25% */
-
-      --swiper-width: 80%;
-      --swiper-inactive-scale: .5; /* makes the other slide smaller */
-
-      /* responsive settings */
-      --swiper-mobile-width: 90%;
-      --swiper-mobile-inactive-scale: .5;
-    }
+    --swiper-image-ratio: 50%; /* ratio 16:9 = 56.25% */
 
 
+    --swiper-width: 80%;
+    --swiper-inactive-scale: 0.5; /* makes the other slide smaller */
+
+    /* responsive settings */
+    --swiper-mobile-width: 90%;
+    --swiper-mobile-inactive-scale: 0.5;
+  }
 </style>
 
-<section>
-  {% if section.settings.include_store_menu %}
-    <div class="store-panel__menu">
-      <h4>Store Menu</h4>
-      <ul>
-        {% for link in linklists[section.settings.store_menu_navigation].links %}
-          <li>
-            <a href="{{ link.url }}">{{ link.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
+<section id="{{ section.settings.anchor_id }}">
+  {% if section.settings.background_style == "white" %}
+    <img class="store-panel__bg" src="{{ 'bg-elements-white.png' | asset_url }}">
+
+  {% elsif section.settings.background_style == "orange" %}
+    <img class="store-panel__bg" src="{{ 'bg-elements-orange.png' | asset_url }}">
   {% endif %}
 
-  <h2 class="store-panel__heading">
-    {{ section.settings.heading }}
-  </h2>
+  {%  if section.settings.include_top_border %}
+    <div class="store-panel__border"></div>
+  {% endif %}
+  <div class="store-panel__inner{% if section.settings.include_store_menu %} store-panel__inner--menu{% endif %}">
+    {% if section.settings.include_store_menu %}
+      <div class="store-panel__menu">
+        <ul class="store-panel__menu-list">
 
-  <div class="container">
-    <div class="swiper">
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <!-- Loop through the blocks to create slides -->
-        {% for block in section.blocks %}
-          {% if block.type == 'carousel_image' %}
-            <div class="swiper-slide">
-              <div class="swiper-image">
-                <img src="{{ block.settings.image | img_url: 'master' }}" alt="Carousel Image">
-              </div>
-            </div>
-          {% endif %}
-        {% endfor %}
+
+          {% for link in linklists[section.settings.store_menu_navigation].links %}
+            <li class="store-panel__menu-item">
+              <a class="store-panel__menu-link" href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
       </div>
-
-      <!-- Swiper Pagination -->
-      <div class="swiper-pagination"></div>
-
-      <!-- Navigation Buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+    {% endif %}
+  
+    <h2 class="store-panel__heading--main">
+      {{ section.settings.heading }}
+    </h2>
+  
+    <div class="store-panel__slider container">
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Loop through the blocks to create slides -->
+          {% for block in section.blocks %}
+            {% if block.type == 'carousel_image' %}
+              <div class="swiper-slide">
+                <div class="swiper-image">
+                  <img src="{{ block.settings.image | img_url: 'master' }}" alt="Carousel Image">
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+  
+        <!-- Swiper Pagination -->
+        <div class="swiper-pagination"></div>
+  
+        <!-- Navigation Buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
     </div>
+  
+    <div class="store-panel__content page-width">
+      <div class="store-panel__text">
+        <h3 class="store-panel__heading">{{ section.settings.content_heading }}</h3>
+        <div class="store-panel__description">
+          {{ section.settings.content | newline_to_br }}
+        </div>
+
+        <a href="{{ section.settings.button_url }}" class="store-panel__button button button--primary">
+          {{ section.settings.button_text }}
+        </a>
+      </div>
+  
+      <div class="store-panel__contact">
+        <h3 class="store-panel__heading">{{ section.settings.address_name }}</h3>
+        <div class="store-panel__address">
+          {{ section.settings.address_line_1 }}
+        </div>
+        <div class="store-panel__telephone">
+          {{ section.settings.telephone }}
+        </div>
+        <div class="store-panel__email">
+          {{ section.settings.email }}
+        </div>
+        <div class="store-panel__opening-hours">
+          <h3 class="store-panel__heading">{{ section.settings.opening_hours_title }}</h4>
+          {% for block in section.blocks %}
+            {% if block.type == 'opening_hour' %}
+              <div class="store-panel__opening-hour">
+                {{ block.settings.hour }}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+
   </div>
 
-  {% comment %}
-    <div class="store-pnael__ carousel container">
-        <div class="swiper">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Loop through the blocks to create slides -->
-                {% for block in section.blocks %}
-                    {% if block.type == 'carousel_image' %}
-                        <div class="swiper-slide">
-                            <div class="swiper-image">
-                                <img src="{{ block.settings.image | img_url: 'master' }}" alt="Carousel Image">
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-
-            <!-- Swiper Pagination -->
-            <div class="swiper-pagination"></div>
-
-            <!-- Navigation Buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
-    </div>
-  {% endcomment %}
-  {% comment %}
-    <div class="store-panel__content">
-        <div class="store-panel__text">
-            <h3>{{ section.settings.content_heading }}</h3>
-            <div class="store-panel__description">
-                {{ section.settings.content }}
-            </div>
-            <a href="{{ section.settings.button_url }}" class="shop-image-with-text__button">
-                {{ section.settings.button_text }}
-              </a>
-        </div>
-
-        <div class="store-panel__contact">
-            <h3>{{ section.settings.address_name }}</h3>
-            <div class="store-panel__address">
-                {{ section.settings.address_line_1 }}
-            </div>
-            <div class="store-panel__telephone">
-                {{ section.settings.telephone }}
-            </div>
-            <div class="store-panel__email">
-                {{ section.settings.email }}
-            </div>
-            <div class="store-panel__opening-hours">
-                <h4>{{ section.settings.opening_hours_title }}</h4>
-                {% for block in section.blocks %}
-                    {% if block.type == 'opening_hour' %}
-                        <div class="store-panel__opening-hour">
-                            {{ block.settings.hour }}
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-
-
-        </div>
-
-    </div>
-  {% endcomment %}
 </section>
 
 <script>
   const swiper = new Swiper('.swiper', {
-    slidesPerView: 1.1,
-    spaceBetween: 20, // Creates the overlapping effect
+    slidesPerView: 1.15,
+    spaceBetween: -50, // Creates the overlapping effect
     centeredSlides: true, // Center slides for smaller screens
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    initialSlide: 2,
     loop: true,
     allowSlideNext: true,
     allowSlidePrev: true,
@@ -148,7 +131,6 @@
     freeMode: true,
     centeredSlides: true,
     centerInsufficientSlides: false,
-
     pagination: {
       el: '.swiper-pagination',
       dynamicBullets: true,
@@ -160,12 +142,11 @@
       750: {
         slidesPerView: 3.8,
         spaceBetween: -400, // Creates the overlapping effect
-    },
+      },
       900: {
         slidesPerView: 3.8,
         simulateTouch: true,
         spaceBetween: -370, // Creates the overlapping effect
-       
       },
 
       1100: {
@@ -348,6 +329,12 @@
       "id": "include_top_border",
       "label": "Include Top Border",
       "default": true
+    },
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor Link ID",
+      "info": "Specify a unique ID for this section to use as an anchor link (e.g., 'store-carousel')."
     }
   ],
   "blocks": [
