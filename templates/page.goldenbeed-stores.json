@@ -30,6 +30,24 @@
     "store_carousel_panel_AGW3ik": {
       "type": "store-carousel-panel",
       "blocks": {
+        "opening_hour_XiDUXB": {
+          "type": "opening_hour",
+          "settings": {
+            "hour": "Monday - Thursday 9:00am - 5:30pm"
+          }
+        },
+        "opening_hour_A3LnJh": {
+          "type": "opening_hour",
+          "settings": {
+            "hour": "Friday / Saturday 9:00am - 6:00pm"
+          }
+        },
+        "opening_hour_74qYmc": {
+          "type": "opening_hour",
+          "settings": {
+            "hour": "Sunday 9:00am - 5:00pm"
+          }
+        },
         "carousel_image_VBDPtt": {
           "type": "carousel_image",
           "settings": {
@@ -62,6 +80,9 @@
         }
       },
       "block_order": [
+        "opening_hour_XiDUXB",
+        "opening_hour_A3LnJh",
+        "opening_hour_74qYmc",
         "carousel_image_VBDPtt",
         "carousel_image_Dccwxj",
         "carousel_image_XUJ8jr",
