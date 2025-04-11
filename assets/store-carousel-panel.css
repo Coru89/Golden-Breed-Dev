@@ -98,7 +98,8 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 100%; }
+    width: 100%;
+    text-transform: uppercase; }
     @media screen and (min-width: 750px) {
       .store-panel__button {
         width: auto;

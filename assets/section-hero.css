@@ -59,21 +59,15 @@
     --color-foreground: rgb(255, 255, 255);
     color: var(--color-foreground);
     line-height: 1;
-    position: relative; }
-    .hero__heading::after {
-      background-color: var(--color-foreground);
-      bottom: 5px;
-      content: "";
-      display: block;
-      height: 1px;
-      left: 0;
-      width: 215px; }
+    position: relative;
+    font-family: Sooky70s, sans-serif; }
   .hero__subheading {
     --color-foreground: rgb(255, 255, 255);
     color: var(--color-foreground);
     font-family: "Nunito Sans", sans-serif;
     font-size: 18px;
     font-weight: 700;
+    margin-bottom: 1.4rem;
     padding-top: 1.3rem;
     position: relative; }
   .hero__alert {
@@ -87,6 +81,12 @@
     color: #1d5b78; }
     .hero .placeholder + .hero__wrapper .hero__heading::after {
       background-color: #1d5b78; }
+
+.template-page-goldenbeed-stores .hero {
+  height: 375px; }
+  @media screen and (min-width: 1320px) {
+    .template-page-goldenbeed-stores .hero {
+      height: 410px; } }
 
 .template-page-surfboard-hire-byron .hero {
   margin-bottom: 3rem; }
