@@ -88,7 +88,6 @@
     },
     "store_carousel_panel_jVhLpJ": {
       "type": "store-carousel-panel",
-      "disabled": true,
       "settings": {
         "heading": "Store Name",
         "content_heading": "About the store",
