@@ -22,6 +22,7 @@
         "title": "Head Office (for General & Social Media enquiries)",
         "address": "34 - 36 Cook Street, Flinders VIC 3929",
         "phone": "1300 882 914",
+        "phone_link": "tel:+1234567890",
         "email": "info@goldenbreed.com.au",
         "banner_alert_message": ""
       }
@@ -79,54 +80,31 @@
         "email": "GBByronbay@goldenbreed.com.au",
         "opening_hours_title": "Opening Hours",
         "background_style": "white",
-        "include_store_menu": false,
-        "store_menu_navigation": "",
+        "include_store_menu": true,
+        "store_menu_navigation": "store-page-menu",
         "include_top_border": true,
         "anchor_id": ""
       }
     },
-    "image_banner_p3xVJD": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_jVhA4n": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "medium"
-          }
-        },
-        "text_DRAHPL": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template."
-          }
-        },
-        "buttons_gix3cJ": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Button label",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "Button label",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_jVhA4n",
-        "text_DRAHPL",
-        "buttons_gix3cJ"
-      ],
+    "store_carousel_panel_jVhLpJ": {
+      "type": "store-carousel-panel",
+      "disabled": true,
       "settings": {
-        "image_height": "medium",
-        "adapt_height_first_image": false,
-        "desktop_text_box_position": "center",
-        "show_text_box": true,
-        "image_overlay_opacity": 0,
-        "color_scheme": "background-1",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
+        "heading": "Store Name",
+        "content_heading": "About the store",
+        "content": "Enter your store description here.",
+        "button_text": "View Store Info",
+        "button_url": "",
+        "address_name": "",
+        "address_line_1": "",
+        "telephone": "",
+        "email": "",
+        "opening_hours_title": "Opening Hours",
+        "background_style": "orange",
+        "include_store_menu": false,
+        "store_menu_navigation": "",
+        "include_top_border": true,
+        "anchor_id": ""
       }
     }
   },
@@ -134,6 +112,6 @@
     "main",
     "hero_TxJMYE",
     "store_carousel_panel_AGW3ik",
-    "image_banner_p3xVJD"
+    "store_carousel_panel_jVhLpJ"
   ]
 }
