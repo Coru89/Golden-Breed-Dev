@@ -74,7 +74,7 @@
   
     <div class="store-panel__content page-width">
       <div class="store-panel__text">
-        <h3 class="store-panel__heading">{{ section.settings.content_heading }}</h3>
+        <h3 class="store-panel__heading store-panel__heading--about">{{ section.settings.content_heading }}</h3>
         <div class="store-panel__description">
           {{ section.settings.content | newline_to_br }}
         </div>
@@ -116,7 +116,7 @@
 <script>
   const swiper = new Swiper('.swiper', {
     slidesPerView: 1.15,
-    spaceBetween: -50, // Creates the overlapping effect
+    spaceBetween: 5, // Creates the overlapping effect
     centeredSlides: true, // Center slides for smaller screens
     navigation: {
       nextEl: '.swiper-button-next',
@@ -139,10 +139,10 @@
     //spaceBetween: -550, // Creates the overlapping effect
     breakpoints: {
       // Add a breakpoint for 750px
-      750: {
+      {% comment %} 750: {
         slidesPerView: 3.8,
         spaceBetween: -400, // Creates the overlapping effect
-      },
+      }, {% endcomment %}
       900: {
         slidesPerView: 3.8,
         simulateTouch: true,
