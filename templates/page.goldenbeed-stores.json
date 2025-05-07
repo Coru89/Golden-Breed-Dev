@@ -110,6 +110,36 @@
     "store_carousel_panel_jVhLpJ": {
       "type": "store-carousel-panel",
       "blocks": {
+        "carousel_image_gAb3qg": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/unsplash_YFFGkE3y4F8_2ec400c7-fe3d-42ab-82ba-3e3c7bf84648.png"
+          }
+        },
+        "carousel_image_37E6KX": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/unsplash_cqbLg3lZEpk_ab7233f3-573e-4114-8a97-d92f08b46f44.png"
+          }
+        },
+        "carousel_image_KCmKCt": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/unsplash_g30P1zcOzXo_eb5e6a0c-2546-4eaf-8a61-17340dacc68a.png"
+          }
+        },
+        "carousel_image_bwbHKa": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/unsplash_s3EjzLRA4Yw_c9db5a86-f50b-4646-b774-2fbf56226186.png"
+          }
+        },
+        "carousel_image_qJzMrW": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/unsplash_xfngap_DToE_d4ade41f-300a-4587-9ff3-89c3fc775748.png"
+          }
+        },
         "opening_hour_zLABHR": {
           "type": "opening_hour",
           "settings": {
@@ -124,6 +154,11 @@
         }
       },
       "block_order": [
+        "carousel_image_gAb3qg",
+        "carousel_image_37E6KX",
+        "carousel_image_KCmKCt",
+        "carousel_image_bwbHKa",
+        "carousel_image_qJzMrW",
         "opening_hour_zLABHR",
         "opening_hour_KNbiL6"
       ],
