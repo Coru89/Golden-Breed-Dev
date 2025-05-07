@@ -362,12 +362,47 @@
           "settings": {
             "hour": "Lorem ipsum dolor sit amet"
           }
+        },
+        "carousel_image_JxBNHV": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/bali-carousel-1.png"
+          }
+        },
+        "carousel_image_ieHpNV": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/bali-carousel-2.png"
+          }
+        },
+        "carousel_image_FHGPTd": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/bali-carousel-3.png"
+          }
+        },
+        "carousel_image_KFhmFq": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/manly-carousel-4.png"
+          }
+        },
+        "carousel_image_9imCRb": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/manly-carousel-5.png"
+          }
         }
       },
       "block_order": [
         "opening_hour_M9rdi8",
         "opening_hour_A6hT9D",
-        "opening_hour_TMmcQW"
+        "opening_hour_TMmcQW",
+        "carousel_image_JxBNHV",
+        "carousel_image_ieHpNV",
+        "carousel_image_FHGPTd",
+        "carousel_image_KFhmFq",
+        "carousel_image_9imCRb"
       ],
       "name": "Store Carousel Panel",
       "settings": {
