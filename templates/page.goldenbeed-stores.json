@@ -89,7 +89,6 @@
         "carousel_image_J4gGKG",
         "carousel_image_GNVyi7"
       ],
-      "disabled": true,
       "settings": {
         "heading": "Byron Bay",
         "content_heading": "About the store",
@@ -201,12 +200,47 @@
           "settings": {
             "hour": "Sunday 9:00am - 4:00pm"
           }
+        },
+        "carousel_image_KJ6qjg": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/flinders-carousel-1.png"
+          }
+        },
+        "carousel_image_nbrRp8": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/flinders-carousel-2.png"
+          }
+        },
+        "carousel_image_Dz7e7K": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/flinders-carousel-3.png"
+          }
+        },
+        "carousel_image_79gzUy": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/flinders-carousel-4.png"
+          }
+        },
+        "carousel_image_9TMijt": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/flinders-carousel-5.png"
+          }
         }
       },
       "block_order": [
         "opening_hour_hDpqhQ",
         "opening_hour_3URynH",
-        "opening_hour_X7afxW"
+        "opening_hour_X7afxW",
+        "carousel_image_KJ6qjg",
+        "carousel_image_nbrRp8",
+        "carousel_image_Dz7e7K",
+        "carousel_image_79gzUy",
+        "carousel_image_9TMijt"
       ],
       "name": "Store Carousel Panel",
       "settings": {
