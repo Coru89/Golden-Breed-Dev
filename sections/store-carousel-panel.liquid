@@ -57,7 +57,7 @@
   
     {% if has_carousel_images %}
       <div class="store-panel__slider container">
-        <div class="swiper">
+        <div id="swiper-{{ section.id }}" class="swiper">
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Loop through the blocks to create slides -->
@@ -132,7 +132,8 @@
 </section>
 
 <script>
-  const swiper = new Swiper('.swiper', {
+  document.addEventListener('DOMContentLoaded', function () {
+  const swiper = new Swiper('#swiper-{{ section.id }}', {
     slidesPerView: 1.15,
     spaceBetween: 5, // Creates the overlapping effect
     centeredSlides: true, // Center slides for smaller screens
@@ -252,6 +253,7 @@
     updateSlideClasses(swiper);
     callback();
   }
+});
 </script>
 
 {% schema %}
