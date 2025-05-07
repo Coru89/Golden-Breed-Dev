@@ -92,7 +92,7 @@
       "settings": {
         "heading": "Byron Bay",
         "content_heading": "About the store",
-        "content": "Lorem ipsum odor amet, consectetuer adipiscing elit. Turpis mollis urna etiam malesuada est efficitur tempor erat. Hac nam habitant aenean malesuada potenti lacinia ac. Sagittis vitae natoque nisl justo, dapibus aliquet sodales. \n\n\nPharetra id nibh eleifend eleifend ad dictum natoque. Condimentum mollis maximus venenatis lobortis velit massa. Feugiat lorem cursus pretium aptent natoque maecenas massa scelerisque.\n\n\nSem interdum natoque aptent malesuada neque lectus magna habitant. Platea suspendisse nunc viverra dictum tellus morbi efficitur consequat dapibus. Elit est fermentum lobortis lorem erat rhoncus dictumst conubia et.",
+        "content": "Lorem ipsum odor amet, consectetuer adipiscing elit. Turpis mollis urna etiam malesuada est efficitur tempor erat. Hac nam habitant aenean malesuada potenti lacinia ac. Sagittis vitae natoque nisl justo, dapibus aliquet sodales. \n\nPharetra id nibh eleifend eleifend ad dictum natoque. Condimentum mollis maximus venenatis lobortis velit massa. Feugiat lorem cursus pretium aptent natoque maecenas massa scelerisque.\n\nSem interdum natoque aptent malesuada neque lectus magna habitant. Platea suspendisse nunc viverra dictum tellus morbi efficitur consequat dapibus. Elit est fermentum lobortis lorem erat rhoncus dictumst conubia et.",
         "button_text": "Learn More",
         "button_url": "shopify://pages/byron-surf-store",
         "address_name": "Byron Bay",
@@ -130,7 +130,7 @@
       "settings": {
         "heading": "Noosa heads",
         "content_heading": "About the store",
-        "content": "Lorem ipsum odor amet, consectetuer adipiscing elit. Turpis mollis urna etiam malesuada est efficitur tempor erat. Hac nam habitant aenean malesuada potenti lacinia ac. Sagittis vitae natoque nisl justo, dapibus aliquet sodales. \nPharetra id nibh eleifend eleifend ad dictum natoque. Condimentum mollis maximus venenatis lobortis velit massa. Feugiat lorem cursus pretium aptent natoque maecenas massa scelerisque.\nSem interdum natoque aptent malesuada neque lectus magna habitant. Platea suspendisse nunc viverra dictum tellus morbi efficitur consequat dapibus. Elit est fermentum lobortis lorem erat rhoncus dictumst conubia et.",
+        "content": "Lorem ipsum odor amet, consectetuer adipiscing elit. Turpis mollis urna etiam malesuada est efficitur tempor erat. Hac nam habitant aenean malesuada potenti lacinia ac. Sagittis vitae natoque nisl justo, dapibus aliquet sodales. \n\nPharetra id nibh eleifend eleifend ad dictum natoque. Condimentum mollis maximus venenatis lobortis velit massa. Feugiat lorem cursus pretium aptent natoque maecenas massa scelerisque.\n\nSem interdum natoque aptent malesuada neque lectus magna habitant. Platea suspendisse nunc viverra dictum tellus morbi efficitur consequat dapibus. Elit est fermentum lobortis lorem erat rhoncus dictumst conubia et.",
         "button_text": "View Store Info",
         "button_url": "shopify://pages/noosa-surf-store",
         "address_name": "Noosa Heads",
@@ -144,12 +144,34 @@
         "include_top_border": true,
         "anchor_id": "noosa"
       }
+    },
+    "store_carousel_panel_QzPLyF": {
+      "type": "store-carousel-panel",
+      "name": "Store Carousel Panel",
+      "settings": {
+        "heading": "Flinders",
+        "content_heading": "About the store",
+        "content": "Lorem ipsum odor amet, consectetuer adipiscing elit. Turpis mollis urna etiam malesuada est efficitur tempor erat. Hac nam habitant aenean malesuada potenti lacinia ac. Sagittis vitae natoque nisl justo, dapibus aliquet sodales. \n\nPharetra id nibh eleifend eleifend ad dictum natoque. Condimentum mollis maximus venenatis lobortis velit massa. Feugiat lorem cursus pretium aptent natoque maecenas massa scelerisque.\n\nSem interdum natoque aptent malesuada neque lectus magna habitant. Platea suspendisse nunc viverra dictum tellus morbi efficitur consequat dapibus. Elit est fermentum lobortis lorem erat rhoncus dictumst conubia et.",
+        "button_text": "View Store Info",
+        "button_url": "",
+        "address_name": "",
+        "address_line_1": "",
+        "telephone": "",
+        "email": "",
+        "opening_hours_title": "Opening Hours",
+        "background_style": "white",
+        "include_store_menu": false,
+        "store_menu_navigation": "",
+        "include_top_border": true,
+        "anchor_id": ""
+      }
     }
   },
   "order": [
     "main",
     "hero_TxJMYE",
     "store_carousel_panel_AGW3ik",
-    "store_carousel_panel_jVhLpJ"
+    "store_carousel_panel_jVhLpJ",
+    "store_carousel_panel_QzPLyF"
   ]
 }
