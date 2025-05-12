@@ -11,9 +11,9 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
   <head>
 	<!-- Added by AVADA SEO Suite -->
-	{% include 'avada-seo' %}
+	{% render 'avada-seo' %}
 	<!-- /Added by AVADA SEO Suite -->
-{% include "starapps-core" %}
+{% render "starapps-core" %}
 
   
     
@@ -156,7 +156,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {%- endif -%}
 
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
-  {% include 'sales-motivator-init' %}</head>
+  {% render 'sales-motivator-init' %}</head>
 
   <body class="gradient template-{{ template | replace: '.', '-' | replace: '/', '-' }}"><div class="pagefly-container">{{ content_for_layout }}</div></body>
 </html>
