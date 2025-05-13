@@ -246,7 +246,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       window.cartStrings = {
         error: `{{ 'sections.cart.cart_error' | t }}`,
-        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`
+        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`,
+        currentCurrency: `{{ cart.currency.symbol}}`,
       }
 
       window.variantStrings = {
@@ -258,6 +259,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       window.accessibilityStrings = {
         shareSuccess: `{{ 'general.share.success_message' | t }}`,
       }
+      
     </script>
 
     {%- if settings.predictive_search_enabled -%}
