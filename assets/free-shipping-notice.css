@@ -4,7 +4,7 @@
   max-width: 516px;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
-  margin-top: 3rem; }
+  margin: 3rem 0; }
 
 .free-shipping-notice__bar {
   height: 8px;

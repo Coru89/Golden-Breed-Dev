@@ -4,10 +4,6 @@
 <section class="main-cart">
     <div class="main-cart__inner page-width page-width-desktop">
         <div class="column">
-            {%- if settings.show_free_shipping_notice -%}
-                {% render 'free-shipping-notice' %}
-            {%  endif %}
-
             <div class="cart__items">
                 {% render 'main-cart-items' %}
             </div>
