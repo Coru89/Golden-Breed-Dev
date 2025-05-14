@@ -3,6 +3,13 @@
 
 <section class="main-cart">
     <div class="main-cart__inner page-width page-width-desktop">
+      <div class="main-cart__row">
+          <div class="title-wrapper-with-link">
+            <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
+            <a href="/" class="underlined-link">{{ 'general.continue_shopping' | t }}</a>
+        </div>
+      </div>
+      <div class="main-cart__row">
         <div class="column">
             <div class="cart__items">
                 {% render 'main-cart-items' %}
@@ -14,6 +21,7 @@
                 {% render 'cart-price' %}
             </div>
         </div>
+      </div>
     </div>
 </section>
 
