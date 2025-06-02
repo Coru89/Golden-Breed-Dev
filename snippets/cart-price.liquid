@@ -3,7 +3,7 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 
-<div class="page-width{% if cart == empty %} is-empty{% endif %}" id="main-cart-footer" data-id="{{ section.id }}">
+<div class="{% if cart == empty %} is-empty{% endif %}" id="main-cart-footer" data-id="{{ section.id }}">
   <div>
     <div class="cart__footer">
    
@@ -15,26 +15,30 @@
       {%- endif -%}
 
       <div class="cart__blocks">
-           <div data-la-dn-promotion-summary-placeholder></div>
-            <div data-la-dn-promocodefield-placeholder></div>
-        <div class="totals limoniapps-discountninja-whenactivepromotions-hide" style=""><center>
-                  {%- if cart.cart_level_discount_applications.size > 0 -%}
-                    <ul style="" role="list" aria-label="{{ 'customer.order.discount' | t }}">
-                      {%- for discount in cart.cart_level_discount_applications -%}
-                       <span style="color:#c04353;  font-size:13px; margin-bottom:10px;">
-                         
-                         <center>  <b>DISCOUNT CODE APPLIED ✓</b></center>
-                        </span>
-                        <li class="discounts__discount" style="color:#c04353; font-size:15px;">
-                         
-                          {%- render 'icon-discount' -%}
-                          {{ discount.title }}
-                          SAVED : {{ discount.total_allocated_amount | money }}
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-          {%- endif -%}</center>
-                </div>
+        <div data-la-dn-promocodefield-placeholder></div>
+        <div>{{ cart.item_count }} items</div>
+        <div data-la-dn-promotion-summary-placeholder></div>
+        {% comment %} <div class="totals limoniapps-discountninja-whenactivepromotions-hide" style="">
+          <center>
+            {%- if cart.cart_level_discount_applications.size > 0 -%}
+              <ul style="" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                {%- for discount in cart.cart_level_discount_applications -%}
+                <span style="color:#c04353;  font-size:13px; margin-bottom:10px;">
+                  
+                  <center>  <b>DISCOUNT CODE APPLIED ✓</b></center>
+                  </span>
+                  <li class="discounts__discount" style="color:#c04353; font-size:15px;">
+                  
+                    {%- render 'icon-discount' -%}
+                    {{ discount.title }}
+                    SAVED : {{ discount.total_allocated_amount | money }}
+                  </li>
+                {%- endfor -%}
+              </ul>
+          {%- endif -%}
+          </center>
+        </div> {% endcomment %}
+
         {% for block in section.blocks %}
           {%- case block.type -%}
             {%- when '@app' -%}
@@ -76,7 +80,7 @@
                 </button>
               </div>
 
-             <ul style="margin-top:20px;" class="list list-payment" role="list">
+            <ul style="margin-top:20px;" class="list list-payment" role="list">
               {%- for type in shop.enabled_payment_types -%}
                 <li class="list-payment__item">
                   {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}

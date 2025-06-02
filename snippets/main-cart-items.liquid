@@ -44,10 +44,16 @@
                   >
                     <a
                       href="{{ item.url_to_remove }}"
-                      class="button button--tertiary"
+                      class=""
                       aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
                     >
-                      {% render 'icon-remove' %}
+                      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.9691 3.21895C11.1937 2.99439 11.5571 2.99439 11.7816 3.21895C12.0061 3.4435 12.0062 3.80693 11.7816 4.03145L8.3129 7.5002L11.7816 10.9689C12.0061 11.1935 12.0062 11.5569 11.7816 11.7814C11.5571 12.0059 11.1937 12.0059 10.9691 11.7814L7.5004 8.3127L4.03165 11.7814C3.80712 12.0059 3.44367 12.0059 3.21915 11.7814C2.99463 11.5569 2.99469 11.1935 3.21915 10.9689L6.6879 7.5002L3.21915 4.03145C2.99463 3.80693 2.99469 3.4435 3.21915 3.21895C3.4437 2.99439 3.80709 2.99439 4.03165 3.21895L7.5004 6.6877L10.9691 3.21895Z" fill="#265979"/>
+                      </svg>
+                      <span class="visually-hidden">
+                        {{ 'sections.cart.remove_title' | t: title: item.title }}
+                      </span>                   
+
                     </a>
                   </cart-remove-button>
                 </div>
@@ -73,12 +79,30 @@
                   <!-- Title -->
                   <a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a>
 
+                  <script>
+                    console.log("Cart Item: ", {{ item | json }});
+                    console.log("Cart Item Product: ", {{ item.product | json }});
+                  </script>
+
+                  {%- liquid
+                    if item.variant.compare_at_price > item.variant.price
+                      assign variant_price_reduced = true
+                    else
+                      assign variant_price_reduced = false
+                    endif
+                  -%}
+
                   <!-- Price -->
                   <div class="cart-item__prices">
-                    {%- if item.original_price != item.final_price -%}
-                      <div class="cart-item__discounted-prices">
-                        <s class="cart-item__old-price">{{ item.original_price | money }}</s>
-                        <strong class="cart-item__final-price">{{ item.final_price | money }}</strong>
+                    {%- if variant_price_reduced or item.original_price != item.final_price -%}
+                      <div class="cart-item__discounted-prices price--on-sale">
+                    
+                        {%- if variant_price_reduced -%}
+                          <s class="cart-item__old-price">{{ item.variant.compare_at_price | money }}</s>
+                        {%- else -%}
+                          <s class="cart-item__old-price">{{ item.original_price | money }}</s>
+                        {%- endif -%}
+                        <strong class="cart-item__final-price price__sale">&nbsp;{{ item.final_price | money }}</strong>
                       </div>
                     {%- else -%}
                       <div class="cart-item__price">{{ item.original_price | money }}</div>
