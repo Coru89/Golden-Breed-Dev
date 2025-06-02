@@ -137,6 +137,19 @@
         "show_vendor": false,
         "show_rating": false
       }
+    },
+    "product_upsell_q4Hyrw": {
+      "type": "product-upsell",
+      "name": "Upsells",
+      "settings": {
+        "collection": "",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_image_outline": true,
+        "show_vendor": false,
+        "show_rating": false
+      }
     }
   },
   "order": [
@@ -145,6 +158,7 @@
     "cart-items",
     "cart-footer",
     "main_cart_HxAhqT",
-    "16404371506932ac6d"
+    "16404371506932ac6d",
+    "product_upsell_q4Hyrw"
   ]
 }
