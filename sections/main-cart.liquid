@@ -1,7 +1,8 @@
 {{ 'main-cart.css' | asset_url | stylesheet_tag }}
 {{ 'free-shipping-notice.css' | asset_url | stylesheet_tag }}
 
-<section class="main-cart">
+
+<section class="main-cart{% if cart == empty %} is-empty{% endif %}" data-id="{{ section.id }}" id="main-cart">
     <div class="main-cart__inner page-width page-width-desktop">
       <div class="main-cart__row">
           <div class="title-wrapper-with-link">
@@ -18,7 +19,7 @@
 
         <div class="column">
             <div class="cart__price">
-                {% render 'cart-price' %}
+              {% render 'cart-price' %}
             </div>
         </div>
       </div>

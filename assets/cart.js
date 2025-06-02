@@ -50,20 +50,31 @@ class CartItems extends HTMLElement {
         selector: '.shopify-section'
       },
       {
-        id: 'main-cart-footer',
-        section: document.getElementById('main-cart-footer').dataset.id,
-        selector: '.js-contents',
-      },
-      {
-        id: 'free-shipping-notice',
-        section: 'free-shipping-notice',
-        selector: '.free-shipping-container'
-      }
+           id: 'main-cart',
+           section: 'main-cart',
+           selector: '.main-cart',
+       },
+      //   {
+      //     id: 'main-cart-footer',
+      //     section: document.getElementById('main-cart-footer').dataset.id,
+      //     selector: '.js-contents'
+      // },
+      // {
+      //    id: 'cart-errors',
+      //    section: 'cart-errors',
+      //    selector: '.shopify-section'
+      //  }
+      //  {
+      //    id: 'free-shipping-notice',
+      //    section: 'free-shipping-notice',
+      //    selector: '.free-shipping-container'
+      //  }
     ];
   }
 
   updateQuantity(line, quantity, name) {
     this.enableLoading(line);
+
 
     // Filter out the 'main-cart-footer' section
     const sectionsToRender = this.getSectionsToRender()
@@ -82,24 +93,54 @@ class CartItems extends HTMLElement {
         return response.text();
       })
       .then((state) => {
-        const parsedState = JSON.parse(state);
-        console.log('parsedState', parsedState);
-        this.updateFreeShippingProgress(parsedState); // Update the progress bar
+  const parsedState = JSON.parse(state);
+
+  // Extract discounted total from the new section HTML (not the DOM)
+
+  let discountedTotal = null;
+
+    const discountedTotalEl = document.querySelector('.limoniapps-discountninja-money');
+    if (discountedTotalEl && discountedTotalEl.hasAttribute('data-geolizr-price')) {
+      discountedTotal = parseFloat(discountedTotalEl.getAttribute('data-geolizr-price'));
+    }
+
+    console.log('discountedTotal from main-cart-price:', discountedTotal);
+
+  parsedState.discounted_total = discountedTotal;
+
+        //this.updateFreeShippingProgress(parsedState); // Update the progress bar
 
         this.classList.toggle('is-empty', parsedState.item_count === 0);
         const cartFooter = document.getElementById('main-cart-footer');
 
         if (cartFooter) cartFooter.classList.toggle('is-empty', parsedState.item_count === 0);
+        // alert('Updating sections...');
 
-        this.getSectionsToRender().forEach((section) => {
-          if (section.id === 'main-cart-footer') return; // Skip updating the footer
+        try {
+          this.getSectionsToRender().forEach((section) => {
+            const container = document.getElementById(section.id);
+            if (!container) {
+              console.error('Container not found for section:', section.id);
+              return;
+            }
+            const elementToReplace = container.querySelector(section.selector) || container;
+            const sectionHtml = parsedState.sections[section.section];
+            if (!sectionHtml) {
+              console.error('Section HTML not found for:', section.section);
+              return;
+            }
+            elementToReplace.innerHTML = this.getSectionInnerHTML(sectionHtml, section.selector);
+          });
+        } catch (e) {
+          console.error('Error updating sections:', e);
+        }
 
-          const elementToReplace =
-            document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
+          // Now you can use parsedState.discounted_total for anything else
+          this.updateFreeShippingProgress(parsedState, discountedTotal);
 
-          elementToReplace.innerHTML =
-            this.getSectionInnerHTML(parsedState.sections[section.section], section.selector);
-        });
+
+        // Move this call here, after DOM updates
+        //this.updateFreeShippingProgress(parsedState);
 
         this.updateLiveRegions(line, parsedState.item_count);
         const lineItem = document.getElementById(`CartItem-${line}`);
@@ -113,61 +154,84 @@ class CartItems extends HTMLElement {
       });
   }
 
-  updateFreeShippingProgress(parsedState) {
-    // Get the free shipping notice element
-    const freeShippingNotice = document.getElementById('free-shipping-notice');
-    if (!freeShippingNotice) {
-      console.error('Free shipping notice element not found');
-      return;
+updateCartTotal(parsedState, discountedTotal ) {
+
+}
+
+
+
+updateFreeShippingProgress(parsedState, discountedTotal ) {
+   discountedTotal ? discountedTotal : null;
+
+
+    const discountedTotalEl = document.querySelector('.limoniapps-discountninja-money');
+    // console.log('discountedTotalEl:', discountedTotalEl);
+    if (discountedTotalEl && discountedTotalEl.hasAttribute('data-geolizr-price')) {
+      // Use the data-geolizr-price attribute (should be in cents)
+      discountedTotal = parseFloat(discountedTotalEl.getAttribute('data-geolizr-price'));
+      console.log('discountedTotal from data-geolizr-price:', discountedTotal);
     }
 
-    // Retrieve the free shipping minimum from the data attribute
-    const freeShippingMinimum = Number(freeShippingNotice.dataset.minimum);
+
+  // Fallback to cartTotal if discountedTotal is not found
+  const freeShippingNotice = document.getElementById('free-shipping-notice');
+  if (!freeShippingNotice) return;
+  const freeShippingMinimum = Number(freeShippingNotice.dataset.minimum);
+  if (!freeShippingMinimum || freeShippingMinimum <= 0) return;
+
+  // Use discountedTotal (in cents) or fallback to parsedState.total_price (in cents)
+  let progress = 0;
+  let cartTotal = discountedTotal;
+  let totalAfterDiscounts = null;
+  if (discountedTotal !== null && !isNaN(discountedTotal)) {
+    totalAfterDiscounts = parsedState.total_price - discountedTotal;
+    console.log('totalAfterDiscounts:', totalAfterDiscounts);
+    progress = Math.min((totalAfterDiscounts / freeShippingMinimum) * 100, 100);
+    const progressBarParent = document.querySelector('.free-shipping-notice');
+    if (!progressBarParent) return;
+    console.log('progressBarParent:', progressBarParent);
+    progressBarParent.setAttribute('data-current-total', totalAfterDiscounts);
 
 
-    if (!freeShippingMinimum || freeShippingMinimum <= 0) {
-      console.error('Invalid freeShippingMinimum:', freeShippingMinimum);
-      return;
-    }
+    console.log('progress:', progress);
+  } else if (typeof parsedState.total_price === 'number') {
+    cartTotal = parsedState.total_price;
+    progress = Math.min((parsedState.total_price / freeShippingMinimum) * 100, 100);
+  }
 
-    // Calculate the cart total from parsedState
-    const cartTotal = parsedState.total_price; // Convert cents to dollars
-    if (!cartTotal || cartTotal <= 0) {
-      console.error('Invalid cartTotal:', cartTotal);
-      return;
-    }
+  // Update the progress bar
+  const progressBar = document.querySelector('.free-shipping-notice__bar');
 
-    // Calculate the progress percentage
-    const progress = Math.min((cartTotal / freeShippingMinimum) * 100, 100); // Ensure progress does not exceed 100%
+  const noticeText = document.querySelector('.notice_text');
+  if (!progressBar || !noticeText) return;
 
-    // Update the progress bar
-    const progressBar = document.querySelector('.free-shipping-notice__bar');
-    if (progressBar) {
+
+
       progressBar.style.setProperty('--progress', `${progress}%`);
 
-      // Update the notice text
-      const noticeText = document.querySelector('.notice_text');
 
-      if (cartTotal >= freeShippingMinimum) {
-        noticeText.innerHTML =
-        `<strong>You've got free shipping</strong>!
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path fill="#265979" d="m22.32 13.45-.622-2.486a.376.376 0 0 0 .298-.367v-.401a1.58 1.58 0 0 0-1.578-1.578h-2.831V7.79a.778.778 0 0 0-.777-.777h-5.264l3.199-1.28a.376.376 0 0 0-.28-.697l-2.618 1.048c.798-.513 1.588-1.076 1.888-1.47a1.752 1.752 0 0 0-.33-2.453 1.752 1.752 0 0 0-2.453.33c-.428.56-.992 2.136-1.357 3.247-.365-1.11-.93-2.686-1.357-3.247a1.752 1.752 0 0 0-2.453-.33 1.752 1.752 0 0 0-.33 2.453c.3.394 1.09.957 1.888 1.47L4.724 5.037a.376.376 0 1 0-.279.698l3.199 1.28H2.38a.777.777 0 0 0-.777.776v6.814a.376.376 0 0 0 .752 0V7.791c0-.014.011-.025.025-.025h14.43c.014 0 .025.011.025.025v6.814a.376.376 0 0 0 .752 0v-.426h4.434a1.23 1.23 0 0 1 1.168.852h-1.168a.376.376 0 0 0-.376.376v.802c0 .649.528 1.177 1.178 1.177h.425v1.653h-.982a2.384 2.384 0 0 0-2.25-1.603c-1.04 0-1.926.671-2.248 1.603h-.181v-2.83a.376.376 0 0 0-.752 0v2.83H9.038a2.384 2.384 0 0 0-2.249-1.603c-1.04 0-1.926.671-2.249 1.603H2.38a.025.025 0 0 1-.025-.025v-.826h1.628a.376.376 0 1 0 0-.752H.376a.376.376 0 1 0 0 .752h1.227v.826c0 .428.349.777.777.777h2.03v.025a2.383 2.383 0 0 0 2.38 2.38 2.383 2.383 0 0 0 2.38-2.38l-.002-.025h8.47l-.001.025a2.383 2.383 0 0 0 2.38 2.38 2.383 2.383 0 0 0 2.38-2.38l-.001-.025h1.228a.376.376 0 0 0 .376-.376v-4.008c0-.99-.73-1.812-1.68-1.957ZM8.105 5.675C6.622 4.754 6.183 4.33 6.052 4.159A1 1 0 0 1 7.64 2.948c.364.477.933 2.08 1.31 3.237-.255-.15-.546-.324-.845-.51Zm2.136.51c.376-1.156.945-2.76 1.309-3.237a1 1 0 0 1 1.587 1.211c-.13.17-.57.595-2.052 1.516-.299.186-.59.36-.844.51Zm7.346 3.184h2.83c.456 0 .827.371.827.827v.025h-3.657v-.852Zm0 4.059v-2.456h3.339l.614 2.456h-3.953ZM6.789 21.444a1.63 1.63 0 0 1-1.628-1.628c0-.898.73-1.628 1.628-1.628.898 0 1.629.73 1.629 1.628a1.63 1.63 0 0 1-1.629 1.628Zm13.228 0a1.63 1.63 0 0 1-1.629-1.628c0-.898.73-1.628 1.629-1.628.898 0 1.628.73 1.628 1.628a1.63 1.63 0 0 1-1.628 1.628Zm3.232-4.81h-.426a.426.426 0 0 1-.426-.426v-.425h.851v.851Z"/><path fill="#265979" d="M6.788 19.04a.777.777 0 1 0 .002 1.554.777.777 0 0 0-.002-1.555ZM20.015 19.04a.778.778 0 1 0 .002 1.554.778.778 0 0 0-.002-1.555ZM15.609 17.436H9.997a.376.376 0 0 0 0 .752h5.612a.376.376 0 1 0 0-.752ZM5.987 15.833h-4.81a.376.376 0 0 0 0 .751h4.81a.376.376 0 1 0 0-.751ZM5.987 10.22H4.384a.376.376 0 0 0-.376.377v3.206a.376.376 0 0 0 .751 0v-1.227h.827a.376.376 0 1 0 0-.752H4.76v-.851h1.228a.376.376 0 1 0 0-.752ZM8.943 12.752a1.378 1.378 0 0 0-.753-2.531H7.188a.376.376 0 0 0-.375.376v3.206a.376.376 0 0 0 .751 0v-.826h.626l.69 1.035a.375.375 0 1 0 .625-.417l-.562-.843Zm-.753-.527h-.626v-1.252h.626a.627.627 0 0 1 0 1.252ZM11.999 13.428H10.77v-.853H11.598a.376.376 0 0 0 0-.75H10.77v-.852H12a.376.376 0 1 0 0-.752h-1.604a.376.376 0 0 0-.375.376v3.206c0 .208.168.376.375.376H12a.376.376 0 0 0 0-.751ZM14.807 13.428H13.58v-.852h.426a.376.376 0 0 0 0-.752h-.426v-.851h1.227a.376.376 0 1 0 0-.752h-1.603a.376.376 0 0 0-.376.376v3.206c0 .208.168.376.376.376h1.603a.376.376 0 0 0 0-.751Z"/></svg>`;
-      } else {
-        const deficit = freeShippingMinimum - cartTotal;
+
+    // const currency = window.cartStrings && window.cartStrings.currentCurrency ? window.cartStrings.currentCurrency : '';
+
+    console.log('freeShippingMinimum:', freeShippingMinimum);
+       console.log('cartTotal:', cartTotal);
+       console.log('discountedTotal:', discountedTotal);
+       const freeShippingHtml = "<strong>You've got free shipping!</strong><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" fill=\"none\"><path fill=\"#265979\" d=\"m22.32 13.45-.622-2.486a.376.376 0 0 0 .298-.367v-.401a1.58 1.58 0 0 0-1.578-1.578h-2.831V7.79a.778.778 0 0 0-.777-.777h-5.264l3.199-1.28a.376.376 0 0 0-.28-.697l-2.618 1.048c.798-.513 1.588-1.076 1.888-1.47a1.752 1.752 0 0 0-.33-2.453 1.752 1.752 0 0 0-2.453.33c-.428.56-.992 2.136-1.357 3.247-.365-1.11-.93-2.686-1.357-3.247a1.752 1.752 0 0 0-2.453-.33 1.752 1.752 0 0 0-.33 2.453c.3.394 1.09.957 1.888 1.47L4.724 5.037a.376.376 0 1 0-.279.698l3.199 1.28H2.38a.777.777 0 0 0-.777.776v6.814a.376.376 0 0 0 .752 0V7.791c0-.014.011-.025.025-.025h14.43c.014 0 .025.011.025.025v6.814a.376.376 0 0 0 .752 0v-.426h4.434a1.23 1.23 0 0 1 1.168.852h-1.168a.376.376 0 0 0-.376.376v.802c0 .649.528 1.177 1.178 1.177h.425v1.653h-.982a2.384 2.384 0 0 0-2.25-1.603c-1.04 0-1.926.671-2.248 1.603h-.181v-2.83a.376.376 0 0 0-.752 0v2.83H9.038a2.384 2.384 0 0 0-2.249-1.603c-1.04 0-1.926.671-2.249 1.603H2.38a.025.025 0 0 1-.025-.025v-.826h1.628a.376.376 0 1 0 0-.752H.376a.376.376 0 1 0 0 .752h1.227v.826c0 .428.349.777.777.777h2.03v.025a2.383 2.383 0 0 0 2.38 2.38 2.383 2.383 0 0 0 2.38-2.38l-.002-.025h8.47l-.001.025a2.383 2.383 0 0 0 2.38 2.38 2.383 2.383 0 0 0 2.38-2.38l-.001-.025h1.228a.376.376 0 0 0 .376-.376v-4.008c0-.99-.73-1.812-1.68-1.957ZM8.105 5.675C6.622 4.754 6.183 4.33 6.052 4.159A1 1 0 0 1 7.64 2.948c.364.477.933 2.08 1.31 3.237-.255-.15-.546-.324-.845-.51Zm2.136.51c.376-1.156.945-2.76 1.309-3.237a1 1 0 0 1 1.587 1.211c-.13.17-.57.595-2.052 1.516-.299.186-.59.36-.844.51Zm7.346 3.184h2.83c.456 0 .827.371.827.827v.025h-3.657v-.852Zm0 4.059v-2.456h3.339l.614 2.456h-3.953ZM6.789 21.444a1.63 1.63 0 0 1-1.628-1.628c0-.898.73-1.628 1.628-1.628.898 0 1.629.73 1.629 1.628a1.63 1.63 0 0 1-1.629 1.628Zm13.228 0a1.63 1.63 0 0 1-1.629-1.628c0-.898.73-1.628 1.629-1.628.898 0 1.628.73 1.628 1.628a1.63 1.63 0 0 1-1.628 1.628Zm3.232-4.81h-.426a.426.426 0 0 1-.426-.426v-.425h.851v.851Z\"/><path fill=\"#265979\" d=\"M6.788 19.04a.777.777 0 1 0 .002 1.554.777.777 0 0 0-.002-1.555ZM20.015 19.04a.778.778 0 1 0 .002 1.554.778.778 0 0 0-.002-1.555ZM15.609 17.436H9.997a.376.376 0 0 0 0 .752h5.612a.376.376 0 1 0 0-.752ZM5.987 15.833h-4.81a.376.376 0 0 0 0 .751h4.81a.376.376 0 1 0 0-.751ZM5.987 10.22H4.384a.376.376 0 0 0-.376.377v3.206a.376.376 0 0 0 .751 0v-1.227h.827a.376.376 0 1 0 0-.752H4.76v-.851h1.228a.376.376 0 1 0 0-.752ZM8.943 12.752a1.378 1.378 0 0 0-.753-2.531H7.188a.376.376 0 0 0-.375.376v3.206a.376.376 0 0 0 .751 0v-.826h.626l.69 1.035a.375.375 0 1 0 .625-.417l-.562-.843Zm-.753-.527h-.626v-1.252h.626a.627.627 0 0 1 0 1.252ZM11.999 13.428H10.77v-.853H11.598a.376.376 0 0 0 0-.75H10.77v-.852H12a.376.376 0 1 0 0-.752h-1.604a.376.376 0 0 0-.375.376v3.206c0 .208.168.376.375.376H12a.376.376 0 0 0 0-.751ZM14.807 13.428H13.58v-.852h.426a.376.376 0 0 0 0-.752h-.426v-.851h1.227a.376.376 0 1 0 0-.752h-1.603a.376.376 0 0 0-.376.376v3.206c0 .208.168.376.376.376h1.603a.376.376 0 0 0 0-.751Z\"/></svg>";
+
+  if (totalAfterDiscounts && totalAfterDiscounts >= freeShippingMinimum) {
+        noticeText.innerHTML = freeShippingHtml;
+        } else {
+        const deficit = freeShippingMinimum - totalAfterDiscounts;
         console.log('Deficit:', deficit);
         console.log('noticeText:', noticeText);
         noticeText.innerHTML = 
-        `<span>Spend ${this.formatMoney(deficit * 100)} ${window.cartStrings.currentCurrency} more to receive free shipping</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path fill="#265979" d="m22.32 13.45-.622-2.486a.376.376 0 0 0 .298-.367v-.401a1.58 1.58 0 0 0-1.578-1.578h-2.831V7.79a.778.778 0 0 0-.777-.777h-5.264l3.199-1.28a.376.376 0 0 0-.28-.697l-2.618 1.048c.798-.513 1.588-1.076 1.888-1.47a1.752 1.752 0 0 0-.33-2.453 1.752 1.752 0 0 0-2.453.33c-.428.56-.992 2.136-1.357 3.247-.365-1.11-.93-2.686-1.357-3.247a1.752 1.752 0 0 0-2.453-.33 1.752 1.752 0 0 0-.33 2.453c.3.394 1.09.957 1.888 1.47L4.724 5.037a.376.376 0 1 0-.279.698l3.199 1.28H2.38a.777.777 0 0 0-.777.776v6.814a.376.376 0 0 0 .752 0V7.791c0-.014.011-.025.025-.025h14.43c.014 0 .025.011.025.025v6.814a.376.376 0 0 0 .752 0v-.426h4.434a1.23 1.23 0 0 1 1.168.852h-1.168a.376.376 0 0 0-.376.376v.802c0 .649.528 1.177 1.178 1.177h.425v1.653h-.982a2.384 2.384 0 0 0-2.25-1.603c-1.04 0-1.926.671-2.248 1.603h-.181v-2.83a.376.376 0 0 0-.752 0v2.83H9.038a2.384 2.384 0 0 0-2.249-1.603c-1.04 0-1.926.671-2.249 1.603H2.38a.025.025 0 0 1-.025-.025v-.826h1.628a.376.376 0 1 0 0-.752H.376a.376.376 0 1 0 0 .752h1.227v.826c0 .428.349.777.777.777h2.03v.025a2.383 2.383 0 0 0 2.38 2.38 2.383 2.383 0 0 0 2.38-2.38l-.002-.025h8.47l-.001.025a2.383 2.383 0 0 0 2.38 2.38 2.383 2.383 0 0 0 2.38-2.38l-.001-.025h1.228a.376.376 0 0 0 .376-.376v-4.008c0-.99-.73-1.812-1.68-1.957ZM8.105 5.675C6.622 4.754 6.183 4.33 6.052 4.159A1 1 0 0 1 7.64 2.948c.364.477.933 2.08 1.31 3.237-.255-.15-.546-.324-.845-.51Zm2.136.51c.376-1.156.945-2.76 1.309-3.237a1 1 0 0 1 1.587 1.211c-.13.17-.57.595-2.052 1.516-.299.186-.59.36-.844.51Zm7.346 3.184h2.83c.456 0 .827.371.827.827v.025h-3.657v-.852Zm0 4.059v-2.456h3.339l.614 2.456h-3.953ZM6.789 21.444a1.63 1.63 0 0 1-1.628-1.628c0-.898.73-1.628 1.628-1.628.898 0 1.629.73 1.629 1.628a1.63 1.63 0 0 1-1.629 1.628Zm13.228 0a1.63 1.63 0 0 1-1.629-1.628c0-.898.73-1.628 1.629-1.628.898 0 1.628.73 1.628 1.628a1.63 1.63 0 0 1-1.628 1.628Zm3.232-4.81h-.426a.426.426 0 0 1-.426-.426v-.425h.851v.851Z"/><path fill="#265979" d="M6.788 19.04a.777.777 0 1 0 .002 1.554.777.777 0 0 0-.002-1.555ZM20.015 19.04a.778.778 0 1 0 .002 1.554.778.778 0 0 0-.002-1.555ZM15.609 17.436H9.997a.376.376 0 0 0 0 .752h5.612a.376.376 0 1 0 0-.752ZM5.987 15.833h-4.81a.376.376 0 0 0 0 .751h4.81a.376.376 0 1 0 0-.751ZM5.987 10.22H4.384a.376.376 0 0 0-.376.377v3.206a.376.376 0 0 0 .751 0v-1.227h.827a.376.376 0 1 0 0-.752H4.76v-.851h1.228a.376.376 0 1 0 0-.752ZM8.943 12.752a1.378 1.378 0 0 0-.753-2.531H7.188a.376.376 0 0 0-.375.376v3.206a.376.376 0 0 0 .751 0v-.826h.626l.69 1.035a.375.375 0 1 0 .625-.417l-.562-.843Zm-.753-.527h-.626v-1.252h.626a.627.627 0 0 1 0 1.252ZM11.999 13.428H10.77v-.853H11.598a.376.376 0 0 0 0-.75H10.77v-.852H12a.376.376 0 1 0 0-.752h-1.604a.376.376 0 0 0-.375.376v3.206c0 .208.168.376.375.376H12a.376.376 0 0 0 0-.751ZM14.807 13.428H13.58v-.852h.426a.376.376 0 0 0 0-.752h-.426v-.851h1.227a.376.376 0 1 0 0-.752h-1.603a.376.376 0 0 0-.376.376v3.206c0 .208.168.376.376.376h1.603a.376.376 0 0 0 0-.751Z"/></svg>`;
+          `<span>Spend ${(deficit / 100).toFixed(2)} ${window.cartStrings.currentCurrency} more to receive free shipping</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path fill="#265979" d="m22.32 13.45-.622-2.486a.376.376 0 0 0 .298-.367v-.401a1.58 1.58 0 0 0-1.578-1.578h-2.831V7.79a.778.778 0 0 0-.777-.777h-5.264l3.199-1.28a.376.376 0 0 0-.28-.697l-2.618 1.048c.798-.513 1.588-1.076 1.888-1.47a1.752 1.752 0 0 0-.33-2.453 1.752 1.752 0 0 0-2.453.33c-.428.56-.992 2.136-1.357 3.247-.365-1.11-.93-2.686-1.357-3.247a1.752 1.752 0 0 0-2.453-.33 1.752 1.752 0 0 0-.33 2.453c.3.394 1.09.957 1.888 1.47L4.724 5.037a.376.376 0 1 0-.279.698l3.199 1.28H2.38a.777.777 0 0 0-.777.776v6.814a.376.376 0 0 0 .752 0V7.791c0-.014.011-.025.025-.025h14.43c.014 0 .025.011.025.025v6.814a.376.376 0 0 0 .752 0v-.426h4.434a1.23 1.23 0 0 1 1.168.852h-1.168a.376.376 0 0 0-.376.376v.802c0 .649.528 1.177 1.178 1.177h.425v1.653h-.982a2.384 2.384 0 0 0-2.25-1.603c-1.04 0-1.926.671-2.248 1.603h-.181v-2.83a.376.376 0 0 0-.752 0v2.83H9.038a2.384 2.384 0 0 0-2.249-1.603c-1.04 0-1.926.671-2.249 1.603H2.38a.025.025 0 0 1-.025-.025v-.826h1.628a.376.376 0 1 0 0-.752H.376a.376.376 0 1 0 0 .752h1.227v.826c0 .428.349.777.777.777h2.03v.025a2.383 2.383 0 0 0 2.38 2.38 2.383 2.383 0 0 0 2.38-2.38l-.002-.025h8.47l-.001.025a2.383 2.383 0 0 0 2.38 2.38 2.383 2.383 0 0 0 2.38-2.38l-.001-.025h1.228a.376.376 0 0 0 .376-.376v-4.008c0-.99-.73-1.812-1.68-1.957ZM8.105 5.675C6.622 4.754 6.183 4.33 6.052 4.159A1 1 0 0 1 7.64 2.948c.364.477.933 2.08 1.31 3.237-.255-.15-.546-.324-.845-.51Zm2.136.51c.376-1.156.945-2.76 1.309-3.237a1 1 0 0 1 1.587 1.211c-.13.17-.57.595-2.052 1.516-.299.186-.59.36-.844.51Zm7.346 3.184h2.83c.456 0 .827.371.827.827v.025h-3.657v-.852Zm0 4.059v-2.456h3.339l.614 2.456h-3.953ZM6.789 21.444a1.63 1.63 0 0 1-1.628-1.628c0-.898.73-1.628 1.628-1.628.898 0 1.629.73 1.629 1.628a1.63 1.63 0 0 1-1.629 1.628Zm13.228 0a1.63 1.63 0 0 1-1.629-1.628c0-.898.73-1.628 1.629-1.628.898 0 1.628.73 1.628 1.628a1.63 1.63 0 0 1-1.628 1.628Zm3.232-4.81h-.426a.426.426 0 0 1-.426-.426v-.425h.851v.851Z"/><path fill="#265979" d="M6.788 19.04a.777.777 0 1 0 .002 1.554.777.777 0 0 0-.002-1.555ZM20.015 19.04a.778.778 0 1 0 .002 1.554.778.778 0 0 0-.002-1.555ZM15.609 17.436H9.997a.376.376 0 0 0 0 .752h5.612a.376.376 0 1 0 0-.752ZM5.987 15.833h-4.81a.376.376 0 0 0 0 .751h4.81a.376.376 0 1 0 0-.751ZM5.987 10.22H4.384a.376.376 0 0 0-.376.377v3.206a.376.376 0 0 0 .751 0v-1.227h.827a.376.376 0 1 0 0-.752H4.76v-.851h1.228a.376.376 0 1 0 0-.752ZM8.943 12.752a1.378 1.378 0 0 0-.753-2.531H7.188a.376.376 0 0 0-.375.376v3.206a.376.376 0 0 0 .751 0v-.826h.626l.69 1.035a.375.375 0 1 0 .625-.417l-.562-.843Zm-.753-.527h-.626v-1.252h.626a.627.627 0 0 1 0 1.252ZM11.999 13.428H10.77v-.853H11.598a.376.376 0 0 0 0-.75H10.77v-.852H12a.376.376 0 1 0 0-.752h-1.604a.376.376 0 0 0-.375.376v3.206c0 .208.168.376.375.376H12a.376.376 0 0 0 0-.751ZM14.807 13.428H13.58v-.852h.426a.376.376 0 0 0 0-.752h-.426v-.851h1.227a.376.376 0 1 0 0-.752h-1.603a.376.376 0 0 0-.376.376v3.206c0 .208.168.376.376.376h1.603a.376.376 0 0 0 0-.751Z"/></svg>`;
 
-   
-        // noticeText.innerHTML = `Spend <strong>${Shopify.formatMoney(deficit * 100)}</strong> more to receive free shipping`;
+
       }
-    } else {
-      console.error('Progress bar element not found');
-    }
+    
   }
-
   // Custom money formatting function
   formatMoney(cents) {
     return `${(cents / 10000).toFixed(2)}`; // Converts cents to dollars and formats to 2 decimal places
