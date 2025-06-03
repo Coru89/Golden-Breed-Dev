@@ -17,7 +17,8 @@
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
-          flex-direction: column; }
+          flex-direction: column;
+  gap: 2rem; }
   @media screen and (min-width: 750px) {
     .main-cart__row {
       -webkit-box-orient: horizontal;
