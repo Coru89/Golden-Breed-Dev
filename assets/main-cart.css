@@ -37,7 +37,8 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    gap: 2rem; } }
+    gap: 2rem;
+    margin-bottom: 2rem; } }
 
 .main-cart .cart-item__name {
   font-family: 'Noto Sans', sans-serif;
