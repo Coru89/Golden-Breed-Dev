@@ -63,27 +63,21 @@ class CartItems extends HTMLElement {
         section: 'cart-live-region-text',
         selector: '.shopify-section'
       },
-      {
-           id: 'main-cart',
-           section: 'main-cart',
-           selector: '.main-cart',
-       },
-      //   {
-      //     id: 'main-cart-footer',
-      //     section: document.getElementById('main-cart-footer').dataset.id,
-      //     selector: '.js-contents'
+      // {
+      //   id: 'main-cart-footer',
+      //   section: document.getElementById('main-cart-footer').dataset.id,
+      //   selector: '.js-contents',
       // },
       // {
-      //    id: 'cart-errors',
-      //    section: 'cart-errors',
-      //    selector: '.shopify-section'
-      //  }
+      //   id: 'free-shipping-notice',
+      //   section: 'free-shipping-notice',
+      //   selector: '.free-shipping-container'
+      // }
     ];
   }
 
   updateQuantity(line, quantity, name) {
     this.enableLoading(line);
-
 
     // Filter out the 'main-cart-footer' section
     const sectionsToRender = this.getSectionsToRender()
