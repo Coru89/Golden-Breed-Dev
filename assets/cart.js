@@ -63,16 +63,11 @@ class CartItems extends HTMLElement {
         section: 'cart-live-region-text',
         selector: '.shopify-section'
       },
-      // {
-      //   id: 'main-cart-footer',
-      //   section: document.getElementById('main-cart-footer').dataset.id,
-      //   selector: '.js-contents',
-      // },
-      // {
-      //   id: 'free-shipping-notice',
-      //   section: 'free-shipping-notice',
-      //   selector: '.free-shipping-container'
-      // }
+      {
+        id: 'cart-errors',
+        section: 'cart-errors',
+        selector: '.shopify-section'
+     }
     ];
   }
 
@@ -93,6 +88,9 @@ class CartItems extends HTMLElement {
 
     fetch(`${routes.cart_change_url}`, { ...fetchConfig(), ...{ body } })
       .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
         return response.text();
       })
       .then((state) => {
@@ -111,6 +109,12 @@ class CartItems extends HTMLElement {
               return;
             }
             const elementToReplace = container.querySelector(section.selector) || container;
+
+            if (!parsedState.sections) {
+              console.error('No sections found in cart response:', parsedState);
+              return;
+            }
+
             const sectionHtml = parsedState.sections[section.section];
             if (!sectionHtml) {
               console.error('Section HTML not found for:', section.section);
@@ -124,7 +128,6 @@ class CartItems extends HTMLElement {
 
         // pass in this.total_price (from discount ninja event listener)
         this.updateFreeShippingProgress(this.total_price || parsedState.total_price);
-
 
         this.updateLiveRegions(line, parsedState.item_count);
         const lineItem = document.getElementById(`CartItem-${line}`);
