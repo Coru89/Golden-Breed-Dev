@@ -380,8 +380,11 @@
                 <div la-dn-product-banner></div>
               </div>
 
-              <div style="order: {{ forloop.index }}" {{ block.shopify_attributes }}>
-                
+              <div style="order: {{ forloop.index }}" {{ block.shopify_attributes }}></div>
+            {%- when 'installment' -%}
+              <div style="order: {{ forloop.index }}">
+                {% comment %} price class determined where the installment text renders{% endcomment %}
+                <div class="price"></div>
                 {%- form 'product', product, id: 'product-form-installment', class: 'installment caption-large' -%}
                   <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
                   {{ form | payment_terms }}
@@ -870,6 +873,18 @@
                         {{ form | payment_button }}
                       {%- endif -%}
                     </div>
+
+                    
+                  <ul style="margin-top:20px;" class="list list-payment" role="list">
+                    {%- for type in shop.enabled_payment_types -%}
+                      <li class="list-payment__item">
+                        {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                      </li>
+                    {%- endfor -%}
+                          <li class="list-payment__item"><img style="width:100px;" src="https://static.afterpay.com/integration/product-page/logo-afterpay-colour@2x.png"></li>
+                  </ul>
+
+                                    
                   {%- endform -%}
                 </product-form>
 
@@ -1091,6 +1106,63 @@
   });
 </script>
 
+    {% assign bullets_metaobjects = product.metafields.custom.media_gallery_bullets.value %}
+
+    <script>
+      console.log("Bullets Metaobjects: ", {{ bullets_metaobjects | json }});
+    </script>
+
+    {% capture product_bullets %}
+      <div class="media-gallery-bullets">
+        <ul class="media-gallery-list default">
+            {% if bullets_metaobjects %}
+                {% for bullet in bullets_metaobjects %}
+                  <li class="item"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="19" fill="none"><g clip-path="url(#a)"><path fill="#265979" d="M.731 11.888c1.38 1.025 1.903 1.168 3.052 2.705 1.882 2.521 1.61 3.567 2.174 4.038.565.471 3.115.86 4.87-1.332 1.757-2.193 4.474-8.24 7.965-11.867 3.49-3.628 5.12-4.674 6.166-5.227 1.045-.553-2.278-.43-8.8 4.653-4.557 3.545-7.755 8.444-7.755 8.444s-.899-2.664-2.927-4.448C3.45 7.071-1.547 10.207.731 11.888Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.145 0h25v19h-25z"/></clipPath></defs></svg>
+                  {{ bullet.bullet }}</li>
+                {% endfor %}
+
+                {% else %}
+                  {% for bullet in default_bullets %}
+                    <li>{{ bullet }}</li>
+                  {% endfor %}
+            {% endif %}
+        </ul>
+      </div>
+
+    {% endcapture %} 
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const rioMediaGallery = document.querySelector('.rio-media-gallery .pwzrswiper-wrapper');
+    if (!rioMediaGallery) return;
+
+    // Get all slides
+    const slides = rioMediaGallery.querySelectorAll('.pwzrswiper-slide');
+    if (slides.length < 4) return;
+
+    // Clone the 4th slide (index 3)
+    const slideToClone = slides[3];
+    const duplicate = slideToClone.cloneNode(true);
+
+    // Remove the id from the duplicate
+    duplicate.removeAttribute('id');
+
+    // Remove the <img> tag from the duplicate
+    const img = duplicate.querySelector('img');
+    if (img) img.remove();
+
+    // Dummy HTML to inject (replace with your Liquid variable if needed)
+
+    var newHtml = `{{ product_bullets }}`
+
+    // Inject the new HTML
+    duplicate.insertAdjacentHTML('beforeend', newHtml);
+
+    // Insert the duplicate as the 4th slide (after index 2)
+    slides[2].after(duplicate);
+  });
+</script>
+
 {%- if first_3d_model -%}
   <script type="application/json" id="ProductJSON-{{ product.id }}">
     {{ product.media | where: 'media_type', 'model' | json }}
@@ -1231,6 +1303,11 @@
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.info"
         }
       ]
+    },
+    {
+      "type": "installment",
+      "name": "Installment",
+      "limit": 1,
     },
     {
       "type": "description",
