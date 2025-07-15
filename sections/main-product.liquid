@@ -448,6 +448,19 @@
                   </details>
                 </div>
               {% endif %}
+            {%- when 'stats' -%}
+              {% comment %} <h1>Stats Section</h1> {% endcomment %}
+
+              {% comment %} note to self:
+               metafield made on product already,
+               shop metafield made for default value
+              {% endcomment %}
+
+
+
+
+
+
             {%- when 'freebie_message' -%}
               {% if product.metafields.custom.freebie == true %}
                 <div style="order: {{ forloop.index }}" class="product-message">
@@ -1109,7 +1122,36 @@
     {% assign bullets_metaobjects = product.metafields.custom.media_gallery_bullets.value %}
     {% assign default_bullets_metaobject = shop.metafields.custom.default_product_gallery_bullets.value %}
 
+
     {% if hide_bullets != true %}
+
+      <style>
+        .pwzrswiper-slide--bullets {
+          background-color: #F7F6EF;
+        }
+
+        .media-gallery-bullets {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          max-width: 235px;
+          width: 100%;
+        }
+
+        .media-gallery-bullets ul {
+          list-style: none;
+          gap: 12px;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .media-gallery-bullets li {
+          text-transform: uppercase;
+          font-size: 16px;
+        }
+      </style>
+
       {% capture product_bullets %}
         <div class="media-gallery-bullets">
           <ul class="media-gallery-list default">
@@ -1150,6 +1192,7 @@
 
           // Remove the id from the duplicate
           duplicate.removeAttribute('id');
+          duplicate.classList.add('pwzrswiper-slide--bullets');
 
           // Remove the <img> tag from the duplicate
           const img = duplicate.querySelector('img');
@@ -1270,6 +1313,11 @@
     {
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
+      "limit": 1
+    },
+    {
+      "type": "stats",
+      "name": "Product Stats",
       "limit": 1
     },
     {
