@@ -173,11 +173,6 @@
           "allowed_templates": ""
         }
       },
-      "3322588378562147075": {
-        "type": "shopify://apps/marsello-loyalty-email-sms/blocks/widget/2f8afca8-ebe2-41cc-a30f-c0ab7d4ac8be",
-        "disabled": false,
-        "settings": {}
-      },
       "15870211849024486148": {
         "type": "shopify://apps/da-redirects/blocks/link_tracker/e7993789-f4e0-4d27-95f9-d952daf886fe",
         "disabled": false,
@@ -187,6 +182,13 @@
         "type": "shopify://apps/discount-ninja/blocks/la-dn-app-embed-core-v5-assetless/b9a933ba-e276-459f-a4bf-3571d5a1e81c",
         "disabled": false,
         "settings": {}
+      },
+      "15796953133730294439": {
+        "type": "shopify://apps/growave-loyalty-wishlist/blocks/block.embed.socialshopwave-helper/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
+        "disabled": false,
+        "settings": {
+          "disable_shadow_root_globally": false
+        }
       }
     }
   },
