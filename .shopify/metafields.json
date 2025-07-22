@@ -400,6 +400,46 @@
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
+    },
+    {
+      "key": "media_gallery_bullets",
+      "namespace": "custom",
+      "name": "Media Gallery Bullets",
+      "description": "",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "hide_product_gallery_bullets",
+      "namespace": "custom",
+      "name": "Hide Product Gallery Bullets",
+      "description": "",
+      "type": {
+        "name": "boolean",
+        "category": "TRUE_FALSE"
+      }
+    },
+    {
+      "key": "product_stats",
+      "namespace": "custom",
+      "name": "Product Stats",
+      "description": "",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "hide_product_stats",
+      "namespace": "custom",
+      "name": "Hide Product Stats",
+      "description": "",
+      "type": {
+        "name": "boolean",
+        "category": "TRUE_FALSE"
+      }
     }
   ],
   "variant": [
@@ -514,5 +554,26 @@
       }
     }
   ],
-  "shop": []
+  "shop": [
+    {
+      "key": "default_product_gallery_bullets",
+      "namespace": "custom",
+      "name": "Default Product Gallery Bullets",
+      "description": "",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "default_product_stats",
+      "namespace": "custom",
+      "name": "Default Product Stats",
+      "description": "",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    }
+  ]
 }

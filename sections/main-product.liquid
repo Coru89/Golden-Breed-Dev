@@ -456,8 +456,57 @@
                shop metafield made for default value
               {% endcomment %}
 
+              {% assign hide_stats = product.metafields.custom.hide_product_stats %}
 
 
+              {% if hide_stats != true %}
+                <style>
+
+                  .product-stats {
+                    display: grid;
+                    gap: 1.5rem;
+                    grid-template-columns: repeat(2, 1fr);
+                    justify-content: center;
+                    margin-top: 2rem;
+                    padding: 0;
+                  }
+                  .product-stat {
+                    display: flex;
+                    align-items: center;  
+                  }
+                  .stat-icon {
+                    flex-shrink: 0;
+                    margin-right: 6px;
+                  }
+                  .stat-value {
+                    font-size: 14px;
+                    color: #265979;
+                    text-transform: uppercase;
+                  }
+                </style>
+
+
+                {% assign stats_metaobjects = product.metafields.custom.product_stats.value %}
+                {% assign default_stats_metaobject = shop.metafields.custom.default_product_stats.value %}
+                <ul style="order: {{ forloop.index }};" class="product-stats">
+                  {% if stats_metaobjects %}
+                    {% for stat in stats_metaobjects %}
+                      <li class="product-stat">
+                        <span class="stat-icon">{{ stat.svg }}</span>
+                        <span class="stat-value">{{ stat.text }}</span>
+                      </li>
+                    {% endfor %}
+
+                    {% else %}
+                      {% for stat in default_stats_metaobject %}
+                        <li class="product-stat">
+                          <span class="stat-icon">{{ stat.svg }}</span>
+                          <span class="stat-value">{{ stat.text }}</span>
+                        </li>
+                    {% endfor %}
+                  {% endif %}
+                </ul>
+              {% endif %}
 
 
 
@@ -521,13 +570,28 @@
             {%- when 'share' -%}
               <share-button id="Share-{{ section.id }}" style="order: {{ forloop.index }}" class="share-button" {{ block.shopify_attributes }}>
                 <button class="share-button__button hidden">
-                  {% render 'icon-share' %}
-                  {{ block.settings.share_label | escape }}
+                  {% comment %} {% render 'icon-share' %} {% endcomment %}
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 15C7.65685 15 9 13.6569 9 12C9 10.3431 7.65685 9 6 9C4.34315 9 3 10.3431 3 12C3 13.6569 4.34315 15 6 15Z" stroke="#104363" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16.5 21.75C18.1569 21.75 19.5 20.4069 19.5 18.75C19.5 17.0931 18.1569 15.75 16.5 15.75C14.8431 15.75 13.5 17.0931 13.5 18.75C13.5 20.4069 14.8431 21.75 16.5 21.75Z" stroke="#104363" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16.5 8.25C18.1569 8.25 19.5 6.90685 19.5 5.25C19.5 3.59315 18.1569 2.25 16.5 2.25C14.8431 2.25 13.5 3.59315 13.5 5.25C13.5 6.90685 14.8431 8.25 16.5 8.25Z" stroke="#104363" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M13.977 6.87215L8.52344 10.378" stroke="#104363" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8.52344 13.622L13.977 17.1278" stroke="#104363" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+
+                  {% comment %} {{ block.settings.share_label | escape }} {% endcomment %}
                 </button>
                 <details id="Details-{{ block.id }}-{{ section.id }}">
                   <summary class="share-button__button">
-                    {% render 'icon-share' %}
-                    {{ block.settings.share_label | escape }}
+                    {% comment %} {% render 'icon-share' %} {% endcomment %}
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6 15C7.65685 15 9 13.6569 9 12C9 10.3431 7.65685 9 6 9C4.34315 9 3 10.3431 3 12C3 13.6569 4.34315 15 6 15Z" stroke="#104363" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M16.5 21.75C18.1569 21.75 19.5 20.4069 19.5 18.75C19.5 17.0931 18.1569 15.75 16.5 15.75C14.8431 15.75 13.5 17.0931 13.5 18.75C13.5 20.4069 14.8431 21.75 16.5 21.75Z" stroke="#104363" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M16.5 8.25C18.1569 8.25 19.5 6.90685 19.5 5.25C19.5 3.59315 18.1569 2.25 16.5 2.25C14.8431 2.25 13.5 3.59315 13.5 5.25C13.5 6.90685 14.8431 8.25 16.5 8.25Z" stroke="#104363" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M13.977 6.87215L8.52344 10.378" stroke="#104363" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M8.52344 13.622L13.977 17.1278" stroke="#104363" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    {% comment %} {{ block.settings.share_label | escape }} {% endcomment %}
                   </summary>
                   <div id="Product-share-{{ section.id }}" class="share-button__fallback motion-reduce">
                     <div class="field">
@@ -1318,7 +1382,7 @@
     {
       "type": "stats",
       "name": "Product Stats",
-      "limit": 1
+      "settings": []
     },
     {
       "type": "variant_picker",

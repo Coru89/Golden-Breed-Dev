@@ -76,6 +76,12 @@
             "shadow_root_options": "null"
           }
         },
+        "share_cXBgB4": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        },
         "installment_3KYzfd": {
           "type": "installment",
           "settings": {}
@@ -118,6 +124,10 @@
             "custom_css": ""
           }
         },
+        "stats_FMMLtp": {
+          "type": "stats",
+          "settings": {}
+        },
         "description": {
           "type": "description",
           "settings": {
@@ -155,6 +165,7 @@
         "price",
         "d60f2b04-bb82-46fa-b9ab-c4f45d9b7755",
         "growave_loyalty_wishlist_block_product_fave_button_ffqb3H",
+        "share_cXBgB4",
         "installment_3KYzfd",
         "a2fd6274-9fbf-492d-bb0f-5655e2feb9df",
         "a5266312-7f96-4ec7-b97e-7e26bb86c518",
@@ -162,6 +173,7 @@
         "47e42ffd-787a-4f6f-8544-b47b352c018e",
         "buy_buttons",
         "growave_loyalty_wishlist_block_product_earn_points_widget_4qz4Vg",
+        "stats_FMMLtp",
         "description",
         "composition_tab_wCyaqA",
         "9b5aa3b3-5826-4376-8f23-43f084cc5e99",
