@@ -478,6 +478,10 @@
                     flex-shrink: 0;
                     margin-right: 6px;
                   }
+                  .stat-icon svg {
+                    width: 51px;
+                    height: 51px;
+                  }
                   .stat-value {
                     font-size: 14px;
                     color: #265979;
@@ -1258,12 +1262,13 @@
           duplicate.removeAttribute('id');
           duplicate.classList.add('pwzrswiper-slide--bullets');
 
+          duplicate.style.cursor = '';
+
           // Remove the <img> tag from the duplicate
           const img = duplicate.querySelector('img');
           if (img) img.remove();
 
           // Dummy HTML to inject (replace with your Liquid variable if needed)
-
           var newHtml = `{{ product_bullets }}`
 
           // Inject the new HTML
