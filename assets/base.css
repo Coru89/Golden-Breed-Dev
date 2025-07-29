@@ -2867,7 +2867,7 @@ button[type='button'].limoniapps-discountninja-cartdiscountfield-apply {
 
 .jdgm-prev-badge__text {
   font-weight: 700 !important;
-  font-size: 34px;
+  /* font-size: 34px; */
 }
 
 .jdgm-rev-widg__title {

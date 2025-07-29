@@ -440,6 +440,16 @@
         "name": "boolean",
         "category": "TRUE_FALSE"
       }
+    },
+    {
+      "key": "intimate-apparel-features",
+      "namespace": "shopify",
+      "name": "Intimate apparel features",
+      "description": "Describes special characteristics of intimate apparel, like breathable design or comfort fit",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "variant": [
