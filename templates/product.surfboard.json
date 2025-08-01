@@ -100,6 +100,16 @@
             "show_dynamic_checkout": false
           }
         },
+        "growave_loyalty_wishlist_block_product_earn_points_widget_78wDYG": {
+          "type": "shopify://apps/growave-loyalty-wishlist/blocks/block.product.earnPointsWidget/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
+          "settings": {
+            "show_icon": false,
+            "font_color": "#265979",
+            "icon_color": "#265979",
+            "background_color": "#f3f7fc",
+            "custom_css": ""
+          }
+        },
         "stats_eqN9yz": {
           "type": "stats",
           "settings": {}
@@ -139,6 +149,7 @@
         "a2fd6274-9fbf-492d-bb0f-5655e2feb9df",
         "custom_liquid_qi9c8b",
         "buy_buttons",
+        "growave_loyalty_wishlist_block_product_earn_points_widget_78wDYG",
         "stats_eqN9yz",
         "description",
         "9b5aa3b3-5826-4376-8f23-43f084cc5e99",
