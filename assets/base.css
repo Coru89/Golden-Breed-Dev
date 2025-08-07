@@ -1763,7 +1763,7 @@ input[type="checkbox"] {
   padding: 0;
 }
 
-@media screen and (min-width: 900px) {
+/* @media screen and (min-width: 900px) {
   .quantity__button {
     display: none;
   }
@@ -1780,7 +1780,7 @@ input[type="checkbox"] {
   }
 
   
-}
+} */
 
 .quantity__button svg {
   width: 1rem;
