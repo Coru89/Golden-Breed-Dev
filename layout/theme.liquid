@@ -20,6 +20,16 @@
   <head>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+  <!--  ClickCease.com tracking-->
+  <script type='text/javascript'>var script = document.createElement('script');
+  script.async = true; script.type = 'text/javascript';
+  var target = 'https://www.clickcease.com/monitor/stat.js';
+  script.src = target;var elem = document.head;elem.appendChild(script);
+  </script>
+  <noscript>
+  <a href='https://www.clickcease.com' rel='nofollow'><img src='https://monitor.clickcease.com' alt='ClickCease'/></a>
+  </noscript>
+  <!--  ClickCease.com tracking-->
 
  <script>
   $(window).scroll(function() {
@@ -39,7 +49,7 @@
       
         
             var elementHeight = $("#limoniapps-discountninja-stickybar-wrapper").height();
-            document.documentElement.style.setProperty('--limo-height', elementHeight + 'px');
+            {% comment %} document.documentElement.style.setProperty('--limo-height', elementHeight + 'px'); {% endcomment %}
             toggleBodyClass();
         
        
