@@ -1191,13 +1191,14 @@ summary::-webkit-details-marker {
   width: 100%;
 }
 
-.media > img {
+.media > img,
+.media > video {
   object-fit: cover;
   object-position: center center;
   transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 @media screen and (max-width: 768px) {
-  .media > img {
+  .media > img, .media > video {
     object-position: center center;
   }
 }
@@ -1226,7 +1227,8 @@ summary::-webkit-details-marker {
   border-radius: 50%;
 }
 
-.media.media--hover-effect > img + img {
+.media.media--hover-effect > img + img,
+.media.media--hover-effect > img + video {
   opacity: 0;
 }
 
@@ -1416,8 +1418,8 @@ details[open] > .share-button__fallback {
   display: flex;
   align-items: center;
   position: absolute;
-  top: 3rem;
-  left: 0.1rem;
+  top: 0rem;
+  left: 7rem;
   z-index: 3;
   width: 100%;
   min-width: max-content;

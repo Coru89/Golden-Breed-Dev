@@ -297,7 +297,8 @@
     opacity: 0;
   }
 
-  .card-wrapper:hover .media.media--hover-effect > img + img {
+  .card-wrapper:hover .media.media--hover-effect > img + img,
+  .card-wrapper:hover .media.media--hover-effect > img + video {
     opacity: 1;
     transition: transform var(--duration-long) ease;
     transform: scale(1.03);
